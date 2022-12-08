@@ -10,14 +10,14 @@ function FeaturedContainer(data) {
 
     const bigFeat = data
     var mesonaryData = data
+   
     return (
         <>
             <div className="w-full h-full sm:flex sm:flex-row gap-2 sm:justify-center">
                 <FeaturedPost data={bigFeat} />
                 <div className="grid sm:grid-cols-2 gap-2">
-                    {mesonaryData.map((article, index) => (
-                        // <MasonaryItem key={index} image={article.image} icon={content.icon} category={content.category} title={content.title} />
-                        <div>SS</div>
+                    {featuredMesonaryData.map((article, index) => (
+                        <MasonaryItem key={index} image={article.image} icon={article.icon} category={article.category} title={article.title} />
                     ))}
                 </div>
             </div>
