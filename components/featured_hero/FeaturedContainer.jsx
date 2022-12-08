@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react'
-
+import videoIcon from '../../assets/icons/video-icon.svg'
 import FeaturedPost from './FeaturedPost'
 import MasonaryItem from './MasonaryItems'
 
@@ -11,7 +11,7 @@ function FeaturedContainer({ data }) {
 
     if (data.length > 0) {
         var mesonaryData = data.slice(1, 5)
-        console.log("THIS IS ", mesonaryData[1].yoast_head_json.og_image[0].url)
+        console.log("THIS IS ", mesonaryData[1].title.rendered)
     }
 
     return (
@@ -24,7 +24,7 @@ function FeaturedContainer({ data }) {
                     ))} */}
 
                     {mesonaryData.map((article, index) => (
-                        <MasonaryItem data={article} key={index} image={article.yoast_head_json.og_image[0].url} icon={null} category={null} title={null} />
+                        <MasonaryItem data={article} key={index} image={article.yoast_head_json.og_image[0].url} icon={videoIcon} title={article.title.rendered} />
                     ))}
 
                 </div>
