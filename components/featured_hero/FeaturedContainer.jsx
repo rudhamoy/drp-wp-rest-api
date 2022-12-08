@@ -6,7 +6,9 @@ import MasonaryItem from './MasonaryItems'
 
 import { featuredMesonaryData } from "../../data/featuredMesonaryData";
 
-function FeaturedContainer(data) {
+function FeaturedContainer({data}) {
+
+    console.log(data)
 
     const bigFeat = data
     var mesonaryData = data
@@ -26,11 +28,3 @@ function FeaturedContainer(data) {
 }
 
 export default FeaturedContainer
-
-export async function getServerSideProps() {
-    const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?per_page=5')
-
-    const data = await getPosts.json()
-
-    return {props: {data}}
-}

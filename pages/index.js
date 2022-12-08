@@ -4,10 +4,24 @@ import styles from '../styles/Home.module.css'
 
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home() {
+export default function Home({data}) {
   return (
     <div>
-      <HomeContainer />
+      <HomeContainer data={data} />
     </div>
   )
+}
+
+
+export async function getServerSideProps() {
+  const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?per_page=5')
+
+  const data = await getPosts.json()
+
+  return {
+      props: {
+        data
+      }
+    }
+  
 }
