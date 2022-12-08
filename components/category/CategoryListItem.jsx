@@ -1,7 +1,8 @@
 import React from 'react'
 import videoIcon from '../../assets/icons/video-icon.svg';
 import cartoon from '../../assets/images/cartoon.png';
-function CategoryListItem({ width }) {
+function CategoryListItem({ width, data }) {
+    console.log(data)
     return (
         <>
             <div className={`p-[17px] mb-3 rounded-md border bg-white cursor-pointer sm:h-[201px] w-[${width ? width : "95vw"}  sm:w-[${width ? width : "837px"}] flex justify-center `}>
