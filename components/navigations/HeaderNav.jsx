@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { CgMenuRound } from 'react-icons/cg'
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -34,7 +35,9 @@ const HeaderNav = ({ setShowMenu }) => {
 
                     {/* left */}
                     <div className="flex gap-x-2 items-center w-[20%]">
+                        <Link href="/">
                         <img src="logobg.png" alt="" />
+                        </Link>
                     </div>
                     {/* middle */}
                     <div className="w-[65%] h-[100%]">

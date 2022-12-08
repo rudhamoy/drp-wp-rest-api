@@ -1,23 +1,25 @@
 import React from 'react'
+import parseHTML from "html-react-parser";
 import girlboobs from '../../assets/images/girlboobs.png'
 import beardman from '../../assets/images/beard-man.png';
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
 
-const ArticleContainer = ({ image }) => {
+const ArticleContainer = ({ image, data }) => {
 
     const tagListClass = "bg-[#f4f4f4] cursor-pointer rounded-md p-[1px] px-3 hover:border-[1px] hover:border-[#e4e4e4] transition ease-in-out delay-300"
 
+    var postDate = new Date(data[0].date).toLocaleDateString()
+
     return (
         <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px]'>
-            <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold font-nunitoSans">Kung Fu Panda: The Dragon Knight Season 2
-                Potential Release Date and More
+            <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold font-nunitoSans">{data[0].title.rendered}
             </h1>
-            <h2 className="mt-[14px] text-[18px] sm:text-[20px] text-[#6d6d6d] font-nunitoSans">Kung Fu Panda: The Dragon Knight Season 2 has already not been announced and here we have its Expected Release Date, Cast, and possible Plot Info.</h2>
+            <h2 className="mt-[14px] text-[18px] sm:text-[20px] text-[#6d6d6d] font-nunitoSans">{data[0].yoast_head_json.og_description}</h2>
             <div className="w-[100%] my-3 border bg-gray-500 h-[1px]"></div>
             {/* author  */}
-            <NewsHeaderAuthor />
+            <NewsHeaderAuthor data={data} />
             {/* featured img */}
             {image ? (<div className="my-3 w-[90vw] sm:w-[804px] sm:h-[453px] rounded-[5px] relative overflow-hidden overflowHidden">
                 <img src={image} alt="" className="w-[100%] h-[100%]" />
@@ -28,7 +30,10 @@ const ArticleContainer = ({ image }) => {
                 </div>)}
 
             {/* article */}
-            <div className="text-[18px] mt-7 font-sans">
+            {/* <div dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div> */}
+            <div>{parseHTML(data[0].content.rendered)}</div>
+                
+            {/* <div className="text-[18px] mt-7 font-sans">
                 It hasn’t been much time since Kung Fu Panda Dragon Knight was released, and Kung Fu Panda fans are already asking for season 2 as they would never be done with the cute Panda and his fighting styles.
                 <br />
                 <br />
@@ -39,10 +44,10 @@ const ArticleContainer = ({ image }) => {
                 <br />
                 <br />
                 Produced by DreamWorks Animation Television, the show is a part of the Kung Fu Panda Franchise. It was released after Kung Fu Panda: The Paws Of Destiny. Since it is an animated series, numerous voice artists also join the team of the show. To name a few: Jack Black, Rita Ora, Chris Geere, Della Saba, and some more.
-            </div>
+            </div> */}
 
             {/* you may like */}
-            <div className="sm:h-[145px] h-[300px] w-[100%] bg-[#bf912d] p-2 px-4 mt-4">
+            {/* <div className="sm:h-[145px] h-[300px] w-[100%] bg-[#bf912d] p-2 px-4 mt-4">
                 <div className="flex items-center gap-x-2">
                     <p className="text-[#ffc700] text-[20px] font-nunitoSans">YOU MAY LIKE</p>
                     <div className="h-[2px] w-[84px] bg-[#ffc700]"></div>
@@ -70,9 +75,9 @@ const ArticleContainer = ({ image }) => {
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="mt-5">
+            {/* <div className="mt-5">
                 <h2 className="text-[30px] my-3 font-nunitoSans font-bold">Recap from Season 1</h2>
                 <div className="text-[18px] font-sans">
                     Developed by Mitch Watson and Peter Hastings, “Kung Fu Panda: Dragon Knight” began to premiere on July 14 this year. All the episodes of the first season were released on the same day i.e on the 14th of July.
@@ -128,7 +133,7 @@ const ArticleContainer = ({ image }) => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
             <div className="mt-12">
                 {/* tags */}

@@ -14,7 +14,7 @@ export default function Home({data}) {
 
 
 export async function getServerSideProps() {
-  const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?per_page=5')
+  const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5')
 
   const data = await getPosts.json()
 
