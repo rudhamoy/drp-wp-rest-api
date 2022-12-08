@@ -3,9 +3,9 @@ import Link from 'next/link'
 import panda from '../../assets/images/panda.png';
 
 import { AiOutlinePicRight } from "react-icons/ai";
+import Category from '../utils/Category'
 
 function FeaturedPost({ data }) {
-    console.log('data =', data)
     return (
         <Link href={`/single-news/${data[0]['slug']}`}>
             <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer">
@@ -13,7 +13,7 @@ function FeaturedPost({ data }) {
                     <img className="h-[100%]" src={data[0].yoast_head_json.og_image[0].url} alt="" />
                     <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
                         <AiOutlinePicRight className="text-[#ffd200] font-bold" />
-                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">TV SERIES</div>
+                        <Category id={data[0].categories[1]} />
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
                 </div>

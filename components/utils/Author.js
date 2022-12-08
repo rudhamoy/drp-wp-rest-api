@@ -11,7 +11,6 @@ const Author = ({id}) => {
     }, [id, dispatch])
 
     const {authorById} = useSelector(state => state.author)
-    console.log(authorById)
 
   return (
     <div>
