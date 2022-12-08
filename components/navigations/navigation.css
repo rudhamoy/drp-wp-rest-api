@@ -1,0 +1,27 @@
+ .container {
+    background-color: white !important;
+ }
+ 
+ /* Dropdown triangle */
+ .menu:before {
+    content: '';
+    position: absolute;
+    background-color: #bf912d;
+    width: 30px;
+    height: 30px;
+    top: 40px;
+    right: -4.5%;
+    transform: rotate(45deg);
+  }
+
+ /* Dropdown triangle */
+ .follow:before {
+    content: '';
+    position: absolute;
+    background-color: #bf912d;
+    width: 30px;
+    height: 30px;
+    top: 30px;
+    right: -4.5%;
+    transform: rotate(45deg);
+  }

@@ -1,0 +1,56 @@
+ /* .wrapper {
+    position:relative;
+    background-color: green;
+  }
+  .prev {
+    position: absolute;
+    top:50%;
+    left: 1%;
+    font: bold;
+    color: white;
+    cursor:pointer;
+  }
+  .next{
+    position: absolute;
+    top:50%;
+    right: 1%;
+    font: bold;
+    color:white;
+    cursor:pointer;
+  } */
+  
+  .container {
+    display: flex;
+    justify-items:center;
+    justify-content: center;
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
+  
+  }
+  
+  /* .slide {
+    height: 100px;
+    background-color: red;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    min-width: 300px;
+    max-width: 300px;
+  } */
+  
+  .featured__list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .container {
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    overflow-y: scroll;
+    
+  }
+  
+  .child {
+    scroll-snap-align: start;
+  }
