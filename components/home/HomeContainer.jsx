@@ -9,7 +9,7 @@ import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 import { useInView } from 'react-intersection-observer';
 
-function HomeContainer({data}) {
+function HomeContainer({ data, entertainmentPosts }) {
 
     const { ref, inView } = useInView()
 
@@ -24,18 +24,18 @@ function HomeContainer({data}) {
             <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                 {/* content */}
                 <div className="">
-                    <CategorySection category={"ENTERTAINMENT"} />
+                    <CategorySection category={"ENTERTAINMENT"} data={entertainmentPosts} />
                     <VisualStoriesSlider />
                     <CategorySection category={"TV SERIES NEWS"} />
                     <CategorySection category={"TECHNOLOGY"} />
                     <CategorySection category={"ANIME NEWS"} />
                     <div className="hidden sm:block">
-                    <MoreButton title={"MORE STORIES"} />
-                    <CategoryListItem />
-                    <CategoryListItem />
-                    <CategoryListItem />
-                    <CategoryListItem />
-                    <CategoryListItem />
+                        <MoreButton title={"MORE STORIES"} />
+                        <CategoryListItem />
+                        <CategoryListItem />
+                        <CategoryListItem />
+                        <CategoryListItem />
+                        <CategoryListItem />
                     </div>
                 </div>
                 {/* sidebar */}

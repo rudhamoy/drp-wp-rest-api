@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 
-function MasonaryItem({ data, image, icon, title }) {
+import VideoIcon from '../../assets/icons/VideoIcon';
+function MasonaryItem({ data, image, title }) {
 
     return (
         <Link href={`/single-news/${data['slug']}`}>
@@ -9,7 +10,8 @@ function MasonaryItem({ data, image, icon, title }) {
                 <div className="h-[100%] sm:h-[175px] w-[320px] sm:w-[100%] overflow-hidden relative">
                     <img src={image} alt="" className="w-[100%] h-[100%]" />
                     <div className="absolute z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-2 items-center drop-shadow-3xl ">
-                        <img src={icon} width={15} height={15} className="text-[#ffd200] font-bold drop-shadow-3xl " alt="" />
+                        {/* <img src='../../assets/icons/video-icon.svg' width={15} height={15} className="text-[#ffd200] font-bold drop-shadow-3xl " alt="" /> */}
+                        <VideoIcon className="text-[#ffd200] font-bold drop-shadow-3xl" />
                         <div className="capitalize text-[10px] sm:text-[12px] text-[#ffd200] drop-shadow-3xl  font-nunitoSans">TV SERIES</div>
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
