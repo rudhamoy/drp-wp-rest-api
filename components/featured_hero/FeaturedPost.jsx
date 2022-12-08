@@ -7,7 +7,7 @@ import { AiOutlinePicRight } from "react-icons/ai";
 function FeaturedPost({data}) {
     console.log('data =', data)
     return (
-        <>
+        <Link href={`/single-news/${data[0]['slug']}`}>
             <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer">
             <div className="sm:h-[325px] w-[95vw] sm:w-[635px] overflow-hidden relative ">
                 <img className="h-[100%]" src={data[0].yoast_head_json.og_image[0].url} alt="" />
@@ -26,7 +26,7 @@ function FeaturedPost({data}) {
                 {/* <p className="text-[16px] font-sans text-[#6d6d6d]">Kung Fu Panda: THe Dragon Knight Season 2 has already not been announced and here we have its Expected Release Data, Cast and possible Plot info</p> */}
             </div>
         </div>
-        </>
+        </Link>
     )
 }
 

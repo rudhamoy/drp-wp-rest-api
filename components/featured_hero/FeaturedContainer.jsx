@@ -24,7 +24,7 @@ function FeaturedContainer({ data }) {
                     ))} */}
 
                     {mesonaryData.map((article, index) => (
-                        <MasonaryItem key={index} image={article.yoast_head_json.og_image[0].url} icon={null} category={null} title={null} />
+                        <MasonaryItem data={article} key={index} image={article.yoast_head_json.og_image[0].url} icon={null} category={null} title={null} />
                     ))}
 
                 </div>
