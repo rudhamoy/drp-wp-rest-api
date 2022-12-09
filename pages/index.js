@@ -13,18 +13,30 @@ export default function Home({ data, entertainmentPosts }) {
 }
 
 
+// export async function getServerSideProps() {
+//   const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5');
+//   const data = await getPosts.json()
+
+//   const getEntertainmentPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&categories=173,174,1');
+//   const entertainmentPosts = await getEntertainmentPosts.json()
+
+//   return {
+//     props: {
+//       data,
+//       entertainmentPosts
+//     }
+//   }
+
+// }
+
 export async function getServerSideProps() {
-  const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5');
-  const getEntertainmentPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&categories=173,174,1');
-  const entertainmentPosts = await getEntertainmentPosts.json()
-  const data = await getPosts.json()
-
-  return {
-    props: {
-      data,
-      entertainmentPosts
-    }
-  }
-
+  const [getPosts, getEntertainmentPosts] = await Promise.all([
+    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'), 
+    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&categories=173,174,1')
+  ]);
+  const [data, entertainmentPosts] = await Promise.all([
+    getPosts.json(), 
+    getEntertainmentPosts.json()
+  ]);
+  return { props: { data, entertainmentPosts } };
 }
-

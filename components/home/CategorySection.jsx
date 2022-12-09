@@ -4,7 +4,7 @@ import CategoryListItem from '../category/CategoryListItem';
 import SmallerCardItems from './SmallerCardItems';
 
 function CategorySection({ category, data }) {
-
+    console.log(data)
 
     return (
         <div className="bg-white mt-[15px] sm:mt-[30px] w-[95vw] sm:w-[839px] sm:h-[560px] rounded-[4px] drop-shadow-container">
@@ -19,7 +19,7 @@ function CategorySection({ category, data }) {
                         < FiChevronRight className="text-[#bf912d] text-[18px] sm:text-[25px]" />
                     </div>
                 </div>
-                <CategoryListItem data={data} width="810px" />
+                <CategoryListItem width="810px" data={data} />
                 {/* <div className="grid sm:grid-cols-2 gap-2"> */}
                 <div className="flex justify-between flex-wrap">
                     <SmallerCardItems />

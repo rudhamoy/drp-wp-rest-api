@@ -11,7 +11,6 @@ const Category = ({id}) => {
     }, [id, dispatch])
 
     const {categoryById} = useSelector(state => state.category)
-    console.log(categoryById)
 
   return (
     <div>

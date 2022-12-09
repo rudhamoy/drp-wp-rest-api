@@ -13,7 +13,6 @@ function HomeContainer({ data, entertainmentPosts }) {
 
     const { ref, inView } = useInView()
 
-    console.log("inView = ", inView)
 
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
