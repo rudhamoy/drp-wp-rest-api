@@ -23,7 +23,7 @@ function CategoryListItem({ width, data }) {
                     </div>
                     <div className="relative">
                         <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{data?._embedded["wp:term"][0][0].name.toUpperCase()}</p>
-                        <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered}</h3>
+                        <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/, "'")}</h3>
                         {/* <h3 className="text-[16px] sm:text-[18px] font-nunitoSans leading-[18px] font-semibold">The Fabulous Season 1: Release Date Update And What We Know</h3> */}
                         {/* <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px]'>Rovio revealed that a brand-new, in-depth Angry Birds television series was developing for a 2020 debut in late 2018. Early in 2020, it was announced</p> */}
                         <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p >
