@@ -13,7 +13,8 @@ function FeaturedPost({ data }) {
                     <img className="h-[100%]" src={data[0].yoast_head_json.og_image[0].url} alt="" />
                     <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
                         <AiOutlinePicRight className="text-[#ffd200] font-bold" />
-                        <Category id={data[0].categories[1]} />
+                        {/* <Category id={data[0].categories[1]} /> */}
+                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{data[0]?._embedded["wp:term"][0][0].name.toUpperCase()}</div>
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
                 </div>
