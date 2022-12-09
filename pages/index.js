@@ -16,7 +16,7 @@ export default function Home({ data, entertainment, anime, tvShows, tech }) {
 export async function getServerSideProps() {
 
   const [getPosts, getEntertainment, getTvShows, getAnime, getTech] = await Promise.all([
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'), 
+    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=171&per_page=5`),
@@ -24,14 +24,14 @@ export async function getServerSideProps() {
   ]);
 
   const [data, entertainment, tvShows, anime, tech] = await Promise.all([
-    getPosts.json(), 
+    getPosts.json(),
     getEntertainment.json(),
     getTvShows.json(),
     getAnime.json(),
     getTech.json()
   ]);
 
- 
+
 
   return { props: { data, entertainment, anime, tvShows, tech } };
 }

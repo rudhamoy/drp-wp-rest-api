@@ -1,7 +1,9 @@
 import React from 'react'
 import couplesHug from '../../assets/images/couples_hug.png';
 import videoIcon from '../../assets/icons/video-icon.svg';
-function SmallerCardItems() {
+import formatDate from '../utils/FormatDate';
+function SmallerCardItems({ data }) {
+    console.log("Smaller Card items:", data)
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[398px]" >
             <div className="flex gap-x-2">
@@ -15,8 +17,7 @@ function SmallerCardItems() {
                 </div>
                 <div className="relative flex flex-col justify-between">
                     <p className="text-[10px] text-[#bf912d] font-bold">TV SERIES</p>
-                    <h2 className="text-[#000000] text-[16px] leading-[18px] font-nunitoSans font-semibold">Bob Hearts Abishola Season 4
-                        Release Date, Cast, Plot, and What we know so far
+                    <h2 className="text-[#000000] text-[16px] leading-[18px] font-nunitoSans font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'")}
                     </h2>
                     <p className="text-[10px] text-[#737373]">AUGUST 5, 2022</p>
                 </div>

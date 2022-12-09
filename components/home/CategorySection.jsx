@@ -27,7 +27,7 @@ function CategorySection({ category, data, id }) {
                 <div className="flex justify-between flex-wrap">
                     {data.slice(1, 5).map(item => {
                         return (
-                            <SmallerCardItems />
+                            <SmallerCardItems data={item} />
                         )
                     })}
                 </div>
