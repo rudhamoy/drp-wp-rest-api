@@ -90,7 +90,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             <div className="hidden sm:block">
                 <Slider {...settingsDesk} className="px-2 ">
                     {hotspotData.map((item, index) => (
-                    <HotSpotSliderItem key={index} category="category" image={item._embedded['wp:featuredmedia']['0'].source_url} title={item.title.rendered} />
+                    <HotSpotSliderItem key={index} category="category" image={item._embedded["wp:featuredmedia"][0].link} title={item.title.rendered} />
                     // <HotSpotSliderItem key={index} category="category" image={item['_embedded']['wp:featuredmedia'][0]['source_url']} title={item.title.rendered} />
                     ))}
                 </Slider>
