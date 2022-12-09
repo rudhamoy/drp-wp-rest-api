@@ -20,14 +20,14 @@ function CategorySection({ category, data, id }) {
                         < FiChevronRight className="text-[#bf912d] text-[18px] sm:text-[25px]" />
                     </div>
                 </div>
-                {data.slice(0, 1).map(item => (
-                    <CategoryListItem width="810px" data={item} />
+                {data.slice(0, 1).map((item, index) => (
+                    <CategoryListItem key={index} width="810px" data={item} />
                 ))}
 
                 <div className="flex justify-between flex-wrap">
-                    {data.slice(1, 5).map(item => {
+                    {data.slice(1, 5).map((item, index) => {
                         return (
-                            <SmallerCardItems data={item} />
+                            <SmallerCardItems key={index} data={item} />
                         )
                     })}
                 </div>

@@ -75,7 +75,7 @@ const data = [
 ]
 
 
-function HotspotSlider() {
+function HotspotSlider({hotspotData}) {
     
 
     return (
@@ -85,22 +85,12 @@ function HotspotSlider() {
                     <p className="text-[#ffffff] text-[20px] z-[1] px-[10px] font-nunitoSans">HOT SPOT</p>
                     <div className="h-[100px] w-[200px] bg-[#bf912d] absolute  left-[-50px] skew-x-[-20deg]"></div>
                 </div >
-                {/* <div className="sm:flex hidden gap-x-1 items-center">
-                    <div className="h-[3px] w-10 bg-[#d7d7d7] rounded"></div>
-                    <div className="h-[3px] w-10 bg-[#ffc700] rounded"></div>
-                    <div className="h-[3px] w-10 bg-[#d7d7d7] rounded"></div>
-                </div> */}
                 <div className="w-[160px]"></div>
             </div>
 
             <div>
-                <HotspotCarousel data={data} />
+                <HotspotCarousel data={data} hotspotData={hotspotData} />
             </div>
-            {/* <div className="flex sm:hidden gap-x-1 items-center pb-1 mx-[40%]">
-                <div className="h-[3px] w-10 bg-[#d7d7d7] rounded"></div>
-                <div className="h-[3px] w-10 bg-[#bf912d] rounded"></div>
-                <div className="h-[3px] w-10 bg-[#d7d7d7] rounded"></div>
-            </div> */}
         </div>
     )
 }
