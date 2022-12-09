@@ -10,8 +10,8 @@ import VisualStoriesSlider from './VisualStoriesSlider';
 import { useInView } from 'react-intersection-observer';
 import axios from 'axios'
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
-    const [secondPage, setSecondPage] = useState([])
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage }) {
+    // const [secondPage, setSecondPage] = useState([])
      
 
     const { ref, inView } = useInView()
@@ -26,15 +26,15 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
     ]
 
 
-    useEffect(() => {
-        const fetchSeccond = () => {
-            axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
-                setSecondPage(res.data)
-            })
+    // useEffect(() => {
+    //     const fetchSeccond = () => {
+    //         axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
+    //             setSecondPage(res.data)
+    //         })
            
-        }
-        fetchSeccond()
-    }, [])
+    //     }
+    //     fetchSeccond()
+    // }, [])
 
 
     return (

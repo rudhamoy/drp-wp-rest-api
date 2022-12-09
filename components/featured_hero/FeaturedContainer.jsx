@@ -4,8 +4,6 @@ import videoIcon from '../../assets/icons/video-icon.svg'
 import FeaturedPost from './FeaturedPost'
 import MasonaryItem from './MasonaryItems'
 
-import { featuredMesonaryData } from "../../data/featuredMesonaryData";
-
 function FeaturedContainer({ data }) {
     const bigFeat = data
 
@@ -18,9 +16,6 @@ function FeaturedContainer({ data }) {
             <div className="w-full h-full sm:flex sm:flex-row gap-2 sm:justify-center">
                 <FeaturedPost data={bigFeat} />
                 <div className="grid sm:grid-cols-2 gap-2">
-                    {/* {featuredMesonaryData.map((article, index) => (
-                        <MasonaryItem key={index} image={article.image} icon={article.icon} category={article.category} title={article.title} />
-                    ))} */}
 
                     {mesonaryData.map((article, index) => (
                         <MasonaryItem data={article} key={index} image={article.yoast_head_json.og_image[0].url} icon={videoIcon} title={article.title.rendered} />
