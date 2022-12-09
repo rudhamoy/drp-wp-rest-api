@@ -17,11 +17,11 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
     const { ref, inView } = useInView()
 
     const catSectionArr = [
-        [...entertainment, {id: "ENTERTAINMENT"}],
+        [...entertainment, { id: "ENTERTAINMENT" }],
         null,
-        [...tvShows, {id: "TV SERIES NEWS"}],
-        [...anime, {id: "ANIME NEWS"}],
-        [...tech, {id: "TECHNOLOGY"}]
+        [...tvShows, { id: "TV SERIES NEWS" }],
+        [...anime, { id: "ANIME NEWS" }],
+        [...tech, { id: "TECHNOLOGY" }]
 
     ]
 
@@ -46,12 +46,16 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
             <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                 {/* content */}
                 <div className="">
-                    {catSectionArr.map((item , index)=> {
-                        if(item === null) {
+                    {catSectionArr.map((item, index) => {
+                        if (item === null) {
                             return <VisualStoriesSlider />
                         }
                         return (
+<<<<<<< HEAD
                             <CategorySection key={index} category="Cate" data={item}  />
+=======
+                            <CategorySection category="Cate" data={item} />
+>>>>>>> 69b459407d4e37923dfebd44d090ed7195976922
                         )
                     })}
                     <div className="hidden sm:block">
