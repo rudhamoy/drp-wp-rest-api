@@ -2,7 +2,6 @@ import React from 'react'
 import videoIcon from '../../assets/icons/video-icon.svg';
 import cartoon from '../../assets/images/cartoon.png';
 function CategoryListItem({ width, data }) {
-    console.log(data)
 
     return (
         <>

@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import HotSpotSliderItem from './HotSpotSliderItem';
 
-const HotspotCarousel = ({ data }) => {
+const HotspotCarousel = ({ data, hotspotData }) => {
 
     const [activeSlide, setActiveSlide] = useState(0)
     console.log(activeSlide, "= activeSlide")
@@ -86,13 +86,16 @@ const HotspotCarousel = ({ data }) => {
 
     return (
         <div className='relative'>
+            {/* desktop */}
             <div className="hidden sm:block">
                 <Slider {...settingsDesk} className="px-2 ">
-                    {data.map((item, index) => (
-                        <HotSpotSliderItem key={index} category={item.category} image={item.img} title={item.title} />
+                    {hotspotData.map((item, index) => (
+                    <HotSpotSliderItem key={index} category="category" image={item._embedded['wp:featuredmedia']['0'].source_url} title={item.title.rendered} />
+                    // <HotSpotSliderItem key={index} category="category" image={item['_embedded']['wp:featuredmedia'][0]['source_url']} title={item.title.rendered} />
                     ))}
                 </Slider>
             </div>
+            {/* mobile */}
             <div className='sm:hidden'>
                 <Slider {...settingsMobi} className="px-2 ">
                     {data.map((item, index) => (

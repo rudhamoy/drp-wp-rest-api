@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CategoryListItem from '../category/CategoryListItem';
 import FeaturedContainer from '../featured_hero/FeaturedContainer';
 import MoreButton from '../utils/MoreButton';
@@ -8,8 +8,11 @@ import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 import { useInView } from 'react-intersection-observer';
+import axios from 'axios'
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech }) {
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
+    const [secondPage, setSecondPage] = useState([])
+     
 
     const { ref, inView } = useInView()
 
@@ -22,13 +25,23 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech }) {
 
     ]
 
-    console.log(catSectionArr, "catSectionArr")
+
+    useEffect(() => {
+        const fetchSeccond = () => {
+            axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
+                setSecondPage(res.data)
+            })
+           
+        }
+        fetchSeccond()
+    }, [])
+
 
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
             <div className="pb-[27px] flex flex-col justify-center items-center">
                 <FeaturedContainer data={data} />
-                <HotspotSlider />
+                <HotspotSlider hotspotData={hotSpot} />
             </div>
             <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                 {/* content */}
@@ -38,21 +51,14 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech }) {
                             return <VisualStoriesSlider />
                         }
                         return (
-                            <CategorySection category="Cate" data={item}  />
+                            <CategorySection key={index} category="Cate" data={item}  />
                         )
                     })}
-                    {/* <CategorySection category={"ENTERTAINMENT"} data={catSectionArr} id={1} />
-                    
-                    <CategorySection category={"TV SERIES NEWS"} data={catSectionArr} id={206} />
-                    <CategorySection category={"TECHNOLOGY"} data={catSectionArr} id={176} />
-                    <CategorySection category={"ANIME NEWS"} data={catSectionArr} id={171} /> */}
                     <div className="hidden sm:block">
                         <MoreButton title={"MORE STORIES"} />
-                        <CategoryListItem />
-                        <CategoryListItem />
-                        <CategoryListItem />
-                        <CategoryListItem />
-                        <CategoryListItem />
+                       {secondPage.map((item) => (
+                         <CategoryListItem data={item} key={item.id} />
+                       ))}
                     </div>
                 </div>
                 {/* sidebar */}

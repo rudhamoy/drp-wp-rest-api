@@ -18,7 +18,6 @@ const Category = ({id}) => {
     getCategorybyId()
   }, [id])
 
-  console.log(cateName)
     // const dispatch = useDispatch()
 
     // useEffect(() => {

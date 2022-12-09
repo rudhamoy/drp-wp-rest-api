@@ -4,10 +4,18 @@ import styles from '../styles/Home.module.css'
 
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({ data, entertainment, anime, tvShows, tech }) {
+export default function Home({ data, entertainment, anime, tvShows, tech, hotspot }) {
+  console.log(hotspot)
   return (
     <div>
-      <HomeContainer data={data} entertainment={entertainment} anime={anime} tvShows={tvShows} tech={tech} />
+      <HomeContainer 
+      data={data} 
+      entertainment={entertainment} 
+      anime={anime} 
+      tvShows={tvShows} 
+      tech={tech} 
+      hotSpot={hotspot} 
+      />
     </div>
   )
 }
@@ -23,15 +31,16 @@ export async function getServerSideProps() {
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=176&per_page=5`)
   ]);
 
-  const [data, entertainment, tvShows, anime, tech] = await Promise.all([
+  const [ data, entertainment, tvShows, anime, tech] = await Promise.all([
     getPosts.json(), 
     getEntertainment.json(),
     getTvShows.json(),
     getAnime.json(),
-    getTech.json()
+    getTech.json(),
   ]);
 
- 
+ const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
+ const hotspot = await getHotspot.json()
 
-  return { props: { data, entertainment, anime, tvShows, tech } };
+  return { props: { data, entertainment, anime, tvShows, tech, hotspot } };
 }
