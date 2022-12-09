@@ -4,39 +4,34 @@ import styles from '../styles/Home.module.css'
 
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({ data, entertainmentPosts }) {
+export default function Home({ data, entertainment, anime, tvShows, tech }) {
   return (
     <div>
-      <HomeContainer data={data} entertainmentPosts={entertainmentPosts} />
+      <HomeContainer data={data} entertainment={entertainment} anime={anime} tvShows={tvShows} tech={tech} />
     </div>
   )
 }
 
 
-// export async function getServerSideProps() {
-//   const getPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5');
-//   const data = await getPosts.json()
-
-//   const getEntertainmentPosts = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&categories=173,174,1');
-//   const entertainmentPosts = await getEntertainmentPosts.json()
-
-//   return {
-//     props: {
-//       data,
-//       entertainmentPosts
-//     }
-//   }
-
-// }
-
 export async function getServerSideProps() {
-  const [getPosts, getEntertainmentPosts] = await Promise.all([
+
+  const [getPosts, getEntertainment, getTvShows, getAnime, getTech] = await Promise.all([
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'), 
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&categories=173,174,1')
+    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
+    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
+    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=171&per_page=5`),
+    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=176&per_page=5`)
   ]);
-  const [data, entertainmentPosts] = await Promise.all([
+
+  const [data, entertainment, tvShows, anime, tech] = await Promise.all([
     getPosts.json(), 
-    getEntertainmentPosts.json()
+    getEntertainment.json(),
+    getTvShows.json(),
+    getAnime.json(),
+    getTech.json()
   ]);
-  return { props: { data, entertainmentPosts } };
+
+ 
+
+  return { props: { data, entertainment, anime, tvShows, tech } };
 }

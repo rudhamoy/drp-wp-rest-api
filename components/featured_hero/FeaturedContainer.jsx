@@ -11,7 +11,6 @@ function FeaturedContainer({ data }) {
 
     if (data.length > 0) {
         var mesonaryData = data.slice(1, 5)
-        console.log("THIS IS ", mesonaryData[1].title.rendered)
     }
 
     return (
