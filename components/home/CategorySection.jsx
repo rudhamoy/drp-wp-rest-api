@@ -5,7 +5,7 @@ import SmallerCardItems from './SmallerCardItems';
 
 function CategorySection({ category, data, id }) {
 
-    console.log(data)
+    console.log("THE DATA IS ", data)
 
     return (
         <div className="bg-white mt-[15px] sm:mt-[30px] w-[95vw] sm:w-[839px] sm:h-[560px] rounded-[4px] drop-shadow-container">
@@ -23,7 +23,7 @@ function CategorySection({ category, data, id }) {
                 {data.slice(0, 1).map(item => (
                     <CategoryListItem width="810px" data={item} />
                 ))}
-               
+
                 <div className="flex justify-between flex-wrap">
                     {data.slice(1, 5).map(item => {
                         return (
