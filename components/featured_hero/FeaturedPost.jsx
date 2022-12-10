@@ -1,9 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import panda from '../../assets/images/panda.png';
 
 import { AiOutlinePicRight } from "react-icons/ai";
-import Category from '../utils/Category'
 
 function FeaturedPost({ data }) {
     return (

@@ -1,20 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import Category from '../utils/Category'
-import { useSelector, useDispatch } from 'react-redux';
-import { getCategoryById } from '../../features/categorySlice';
-import axios from 'axios'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 function MasonaryItem({ data, image, title }) {
-
-    const dispatch = useDispatch()
-    const { categoryById } = useSelector(state => state.category)
-
-    useEffect(() => {
-        // dispatch(getCategoryById(data.categories[1]))
-
-    }, [dispatch])
 
     return (
         <Link href={`/single-news/${data['slug']}`}>
@@ -25,7 +13,6 @@ function MasonaryItem({ data, image, title }) {
                         {/* <img src='../../assets/icons/video-icon.svg' width={15} height={15} className="text-[#ffd200] font-bold drop-shadow-3xl " alt="" /> */}
                         <VideoIcon className="text-[#ffd200] font-bold drop-shadow-3xl" />
                         <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{data?._embedded["wp:term"][0][0].name.toUpperCase()}</div>
-                        {/* <Category id={data.categories[1]} /> */}
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
                 </div>
