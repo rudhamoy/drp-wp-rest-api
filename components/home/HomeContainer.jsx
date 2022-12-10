@@ -8,13 +8,21 @@ import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 import { useInView } from 'react-intersection-observer';
-import axios from 'axios'
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
-    const [secondPage, setSecondPage] = useState([])
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport  }) {
+    // const [secondPage, setSecondPage] = useState([])
      
 
     const { ref, inView } = useInView()
+
+    const sideSectionArr = [
+        [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
+        null,
+        [...movieNews, { id: "MOVIES NEWS" }],
+        [...gamesSport, { id: "GAMES & SPORTS" }],
+    ]
+
+    console.log(sideSectionArr, 'sideSectionArr')
 
     const catSectionArr = [
         [...entertainment, { id: "ENTERTAINMENT" }],
@@ -26,15 +34,15 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
     ]
 
 
-    useEffect(() => {
-        const fetchSeccond = () => {
-            axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
-                setSecondPage(res.data)
-            })
+    // useEffect(() => {
+    //     const fetchSeccond = () => {
+    //         axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
+    //             setSecondPage(res.data)
+    //         })
            
-        }
-        fetchSeccond()
-    }, [])
+    //     }
+    //     fetchSeccond()
+    // }, [])
 
 
     return (
@@ -63,12 +71,22 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot }) {
                 </div>
                 {/* sidebar */}
                 <div className="rounded">
-                    <SidebarCategorySection category={"CELEBRITY GOSSIPS"} />
+                {sideSectionArr.map((item, index) => {
+                        if (item === null) {
+                            return <div className="h-[395px]">
+                            <SideAds bg={"white"} />
+                        </div>
+                        }
+                        return (
+                            <SidebarCategorySection key={index} category={"CELEBRITY GOSSIPS"} data={item} />
+                        )
+                    })}
+                    {/* <SidebarCategorySection category={"CELEBRITY GOSSIPS"} />
                     <div className="h-[395px]">
                         <SideAds bg={"white"} />
                     </div>
                     <SidebarCategorySection category={"MOVIES NEWS"} />
-                    <SidebarCategorySection category={"GAMES & SPORTS"} />
+                    <SidebarCategorySection category={"GAMES & SPORTS"} /> */}
                     <div className={`h-[600px] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
                         <SideAds bg={"white"} />
                     </div>

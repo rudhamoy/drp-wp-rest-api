@@ -83,16 +83,22 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             }
         ]
     };
-
+    
     return (
         <div className='relative'>
             {/* desktop */}
             <div className="hidden sm:block">
                 <Slider {...settingsDesk} className="px-2 ">
-                    {hotspotData.map((item, index) => (
-                    <HotSpotSliderItem key={index} category="category" image={item._embedded["wp:featuredmedia"][0].link} title={item.title.rendered} />
-                    // <HotSpotSliderItem key={index} category="category" image={item['_embedded']['wp:featuredmedia'][0]['source_url']} title={item.title.rendered} />
-                    ))}
+                    {hotspotData.map((item, index) => {
+                        const image = 'https://dailyresearchplot.com' + item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
+                        return (
+                            <HotSpotSliderItem 
+                            key={index} 
+                            category={item?._embedded["wp:term"][0][0].name.toUpperCase()} 
+                            image={image} 
+                            title={item.title.rendered} />
+                            )
+                    })}
                 </Slider>
             </div>
             {/* mobile */}
