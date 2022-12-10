@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport }) {
+export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, posts }) {
   
   return (
     <div>
@@ -19,6 +19,7 @@ export default function Home({ data, entertainment, anime, tvShows, tech, hotspo
       celebGossip={celebGossip}
       movieNews={movieNews}
       gamesSport={gamesSport}
+      posts={posts}
       />
     </div>
   )
@@ -54,9 +55,6 @@ export async function getServerSideProps() {
 
  const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
  const hotspot = await getHotspot.json()
-
-//  const getSecondPage = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2')
-//  const secondPage = await getSecondPage.json()
 
 
   return { props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport } };

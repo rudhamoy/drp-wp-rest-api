@@ -2,8 +2,10 @@ import React from 'react'
 import couplesHug from '../../assets/images/couples_hug.png';
 import VideoIcon from '../../assets/icons/VideoIcon';
 import formatDate from '../utils/FormatDate';
+
+
 function SmallerCardItems({ data }) {
-    console.log("Smaller Card items:", data)
+
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[398px]" >
             <div className="flex gap-x-2">

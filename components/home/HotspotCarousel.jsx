@@ -6,7 +6,6 @@ import HotSpotSliderItem from './HotSpotSliderItem';
 const HotspotCarousel = ({ data, hotspotData }) => {
 
     const [activeSlide, setActiveSlide] = useState(0)
-    console.log(activeSlide, "= activeSlide")
 
     function SampleNextArrow(props) {
         const { className, style, onClick } = props;
