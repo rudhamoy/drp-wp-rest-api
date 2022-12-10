@@ -30,7 +30,7 @@ function MasonaryItem({ data, image, title }) {
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
                 </div>
                 <div className="sm:p-[10px] p-[6px]">
-                    <h3 className="text-[16px] sm:text-[18px] sm:leading-5 text-black font-semibold  sm:line-clamp-2 line-clamp-2 font-nunitoSans ">{title.replace(/&#8217;/, "'")}</h3>
+                    <h3 className="text-[16px] sm:text-[18px] sm:leading-5 text-black font-semibold  sm:line-clamp-2 line-clamp-2 font-nunitoSans ">{title.replace(/&#8217;/g, "'")}</h3>
                 </div>
             </div>
         </Link>
