@@ -46,16 +46,18 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                 <div className="">
                     {catSectionArr.map((item, index) => {
                         if (item === null) {
-                            return <VisualStoriesSlider />
+                            return <VisualStoriesSlider key={index} />
                         }
                         return (
                             <CategorySection key={index} category="Cate" data={item} />
                         )
                     })}
                     <div className="hidden sm:block mt-[20px]">
-                        {posts.map((item) => (
+
+                        {/* more stories */}
+                        {/* {posts.map((item) => (
                             <CategoryListItem data={item} key={item.id} />
-                        ))}
+                        ))} */}
 
                         {/* ADD LOADING HERE */}
 
@@ -76,7 +78,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                     {sideSectionArr.map((item, index) => {
                         if (item === null) {
                             return <div className="h-[395px]">
-                                <SideAds bg={"white"} />
+                                <SideAds bg={"white"} key={index} />
                             </div>
                         }
                         return (

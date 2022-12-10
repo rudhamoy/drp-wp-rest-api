@@ -16,7 +16,6 @@ export const getPosts = createAsyncThunk('posts/getPosts', async (page) => {
     try {
         const res = await axios.get(`${url}&page=${parseInt(page)}`)
         return res.data
-        console.log(res)
     } catch (error) {
         console.log(error)
     }

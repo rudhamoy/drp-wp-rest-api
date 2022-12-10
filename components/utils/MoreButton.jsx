@@ -10,9 +10,9 @@ const MoreButton = ({ title }) => {
     const { pageNum } = useSelector(state => state.posts)
 
     const clickFunc = ()=> {
-        setPage(page+1)
-        dispatch(updatePageNum(parseInt(page)))
-        dispatch(getPosts(parseInt(page)))
+        // setPage(page+1)
+        // dispatch(updatePageNum(parseInt(page)))
+        // dispatch(getPosts(parseInt(page)))
     }
 
     return (
