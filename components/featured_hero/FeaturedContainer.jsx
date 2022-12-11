@@ -7,9 +7,9 @@ import MasonaryItem from './MasonaryItems'
 function FeaturedContainer({ data }) {
     const bigFeat = data
 
-    if (data.length > 0) {
-        var mesonaryData = data.slice(1, 5)
-    }
+    // if (data.length > 0) {
+    //     var mesonaryData = data.slice(1, 4)
+    // }
 
     return (
         <>
@@ -17,8 +17,8 @@ function FeaturedContainer({ data }) {
                 <FeaturedPost data={bigFeat} />
                 <div className="grid sm:grid-cols-2 gap-2">
 
-                    {mesonaryData.map((article, index) => (
-                        <MasonaryItem data={article} key={index} image={article?._embedded["wp:featuredmedia"][0].link} icon={videoIcon} title={article.title.rendered} />
+                    {data.slice(1, 5).map((article, index) => (
+                        <MasonaryItem data={article} key={index}  />
                     ))}
 
                 </div>

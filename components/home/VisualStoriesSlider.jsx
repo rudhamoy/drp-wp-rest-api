@@ -103,6 +103,14 @@ function VisualStoriesSlider() {
                     initialSlide: 1.7
                 }
             },
+            {
+                breakpoint: 375,
+                settings: {
+                    slidesToShow: 1.5,
+                    slidesToScroll: 1,
+                    initialSlide: 1.5
+                }
+            },
         ]
     };
 

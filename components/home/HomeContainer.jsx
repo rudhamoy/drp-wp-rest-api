@@ -14,6 +14,8 @@ import VisualStoriesSlider from './VisualStoriesSlider';
 
 function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
 
+    console.log(data)
+
     const { posts, status } = useSelector(state => state.posts)
 
     const { ref, inView } = useInView()
@@ -82,7 +84,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                             </div>
                         }
                         return (
-                            <SidebarCategorySection key={index} category={"CELEBRITY GOSSIPS"} data={item} />
+                            <SidebarCategorySection key={index} data={item} />
                         )
                     })}
                     <div className={`h-[600px] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>

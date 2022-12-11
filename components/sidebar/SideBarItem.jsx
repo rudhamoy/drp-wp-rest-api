@@ -4,8 +4,8 @@ function SideBarItem({ category, title, image }) {
     return (
 
         <div className="flex flex-row items-center p-2 cursor-pointer rounded-[2px] w-[90vw] sm:w-[383px] h-[108px] z-0 border">
-            <div className="h-[85px] w-[85px] overflow-hidden rounded-sm relative">
-                <img className="h-[100%] w-[100%]" src={image} alt="" />
+            <div className="h-[85px] w-[85px] overflow-hidden rounded-sm relative bg-green-100">
+                {/* <img className="h-[100%] w-[100%]" src={image} alt="" /> */}
                 {/* <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded-sm"></div> */}
 
                 <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
@@ -19,7 +19,7 @@ function SideBarItem({ category, title, image }) {
             <div className="px-2 relative h-[80px] w-[250px]">
                 <p className="font-nunitoSans text-[#bf912d] font-bold text-[10px] capitalize mb-[5px]">{category}</p>
                 <h3 className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
-                    {title}
+                    {title.replace(/&#8217;/g, "'").substring(0, 65)}
                 </h3>
             </div>
         </div>

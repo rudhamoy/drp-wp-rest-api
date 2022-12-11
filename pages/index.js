@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import HomeContainer from '../components/home/HomeContainer'
+import { baseUrl } from '../utils/wordpress'
 
 export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, posts }) {
   
@@ -29,15 +30,15 @@ export default function Home({ data, entertainment, anime, tvShows, tech, hotspo
 export async function getServerSideProps() {
 
   const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=171&per_page=5`),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=176&per_page=5`),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=174&per_page=4'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=200&per_page=4'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=175,203&per_page=4'),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&per_page=5`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=41&per_page=5`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=22&per_page=5`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=23&per_page=5`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&per_page=5&page=2`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=18&per_page=4`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=19&per_page=4`),
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=25&per_page=4`),
   ]);
 
 
@@ -53,7 +54,7 @@ export async function getServerSideProps() {
     getGamesSport.json()
   ]);
 
- const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
+ const getHotspot = await fetch(`${baseUrl}/wp-json/wp/v2/posts?_embed&categories=26&per_page=12`)
  const hotspot = await getHotspot.json()
 
 
