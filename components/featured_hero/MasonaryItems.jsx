@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Category from '../utils/Category'
+import { useSelector, useDispatch } from 'react-redux';
+import { getCategoryById } from '../../features/categorySlice';
+import axios from 'axios'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 function MasonaryItem({ data, image, title }) {
+
+    const dispatch = useDispatch()
+    const { categoryById } = useSelector(state => state.category)
+
+    useEffect(() => {
+        // dispatch(getCategoryById(data.categories[1]))
+
+    }, [dispatch])
 
     return (
         <Link href={`/single-news/${data['slug']}`}>
