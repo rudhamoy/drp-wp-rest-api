@@ -8,7 +8,6 @@ import SideBarItem from './SideBarItem';
 
 
 function SidebarCategorySection({ category, data }) {
-    console.log(data)
 
     return (
         <div className="bg-white mt-[30px] h-[560px] w-[95vw] sm:w-[404px] rounded-[5px] drop-shadow-container">
