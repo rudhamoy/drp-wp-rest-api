@@ -1,27 +1,31 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+// import { pool } from '../services/mysql_db';
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({  data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, posts }) {
+export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, posts }) {
 
   const baseUrl = 'https://dailyresearchplot.com'
- 
+
+
+
+
   return (
     <div>
-     <HomeContainer 
-      data={data} 
-      entertainment={entertainment} 
-      anime={anime} 
-      tvShows={tvShows} 
-      tech={tech} 
-      hotSpot={hotspot}
-      secondPage={secondPage}
-      celebGossip={celebGossip}
-      movieNews={movieNews}
-      gamesSport={gamesSport}
-      posts={posts}
+      <HomeContainer
+
+        data={data}
+        entertainment={entertainment}
+        anime={anime}
+        tvShows={tvShows}
+        tech={tech}
+        hotSpot={hotspot}
+        secondPage={secondPage}
+        celebGossip={celebGossip}
+        movieNews={movieNews}
+        gamesSport={gamesSport}
+        posts={posts}
       />
     </div>
   )
@@ -29,6 +33,7 @@ export default function Home({  data, entertainment, anime, tvShows, tech, hotsp
 
 
 export async function getServerSideProps() {
+
 
   const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
@@ -56,7 +61,7 @@ export async function getServerSideProps() {
   ]);
 
   const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
- const hotspot = await getHotspot.json()
+  const hotspot = await getHotspot.json()
 
 
   return { props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport } };
