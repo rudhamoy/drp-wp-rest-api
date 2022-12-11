@@ -55,8 +55,8 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                     <div className="hidden sm:block mt-[20px]">
 
                         {/* more stories */}
-                        {/* {posts.map((item) => (
-                            <CategoryListItem data={item} key={item.id} />
+                        {/* {posts.map((item, index) => (
+                            <CategoryListItem data={item} key={index} />
                         ))} */}
 
                         {/* ADD LOADING HERE */}
@@ -68,8 +68,8 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                         )}
 
                         <MoreButton title={"MORE STORIES"} />
-                        {secondPage.map((item) => (
-                            <CategoryListItem data={item} key={item.id} />
+                        {secondPage.map((item, index) => (
+                            <CategoryListItem data={item} key={index} />
                         ))}
                     </div>
                 </div>

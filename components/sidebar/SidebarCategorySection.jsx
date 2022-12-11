@@ -21,7 +21,8 @@ function SidebarCategorySection({ category, data }) {
                 </div>
                 <div className="mt-[19px] flex flex-col gap-y-[10px]">
                     {data.slice(0, 4).map((item) => {
-                        const image = 'https://dailyresearchplot.com' + item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
+                        const image = item._embedded["wp:featuredmedia"][0].link
+                        // const image = 'https://dailyresearchplot.com' + item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
                         return (
                             <SideBarItem 
                             category={item?._embedded["wp:term"][0][1].name.toUpperCase()} 
