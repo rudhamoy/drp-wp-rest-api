@@ -90,7 +90,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             <div className="hidden sm:block">
                 <Slider {...settingsDesk} className="px-2 ">
                     {hotspotData.map((item, index) => {
-                        const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
+                        const image = item._embedded["wp:featuredmedia"][0].link
                         return (
                             <HotSpotSliderItem 
                             key={index} 
@@ -105,7 +105,8 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             <div className='sm:hidden'>
                 <Slider {...settingsMobi} className="px-2 ">
                 {hotspotData.map((item, index) => {
-                        const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
+                        // const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
+                        const image = item._embedded["wp:featuredmedia"][0].link
                         return (
                             <HotSpotSliderItem 
                             key={index} 
