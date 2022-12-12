@@ -1,26 +1,21 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({
-    host: 'localhost',
+    host: '164.92.71.201',
     port: 3306,
-    database: 'test',
-    user: 'root',
-    password: ''
+    database: 'wordpress',
+    user: 'nikhilesh',
+    password: 'Nikhilesh@123'
 });
 
 pool.getConnection(function (err, connection) {
-    if (err) throw err; // not connected!
+    if (err) {
+        console.log(err);
+        throw err; // not connected!
+    }
 
     // Use the connection
-    console.log("THE CONNECTION IS SUCCESFULL ..................-------------->>>>>>>>>>>>>>>>>$$$$$$$$$$4")
-    connection.query('SELECT * FROM wp_posts', function (error, results, fields) {
-        // When done with the connection, release it.
-        connection.release();
+    console.log("THE CONNECTION TO 'mysql' IS SUCCESFULL----->>$$$$$$$$$$")
 
-        // Handle error after the release.
-        if (error) throw error;
-
-        // Don't use the connection here, it has been returned to the pool.
-    });
 });
 
 
