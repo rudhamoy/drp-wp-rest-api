@@ -17,12 +17,12 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
 
     const { ref, inView } = useInView()
 
-    const sideSectionArr = [
-        [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
-        null,
-        [...movieNews, { id: "MOVIES NEWS" }],
-        [...gamesSport, { id: "GAMES & SPORTS" }],
-    ]
+    // const sideSectionArr = [
+    //     [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
+    //     null,
+    //     [...movieNews, { id: "MOVIES NEWS" }],
+    //     [...gamesSport, { id: "GAMES & SPORTS" }],
+    // ]
 
     const catSectionArr = [
         [...entertainment, { id: "ENTERTAINMENT" }],
