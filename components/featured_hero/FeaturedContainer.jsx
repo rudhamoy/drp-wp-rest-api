@@ -18,7 +18,7 @@ function FeaturedContainer({ data }) {
                 <div className="grid sm:grid-cols-2 gap-2">
 
                     {mesonaryData.map((article, index) => (
-                        <MasonaryItem data={article} key={index} image={`https://dailyresearchplot.com/${article?._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`} icon={videoIcon} title={article.title.rendered} />
+                        <MasonaryItem data={article} key={index} image={article.yoast_head_json.og_image[0].url} icon={videoIcon} title={article.title.rendered} />
                     ))}
 
                 </div>
