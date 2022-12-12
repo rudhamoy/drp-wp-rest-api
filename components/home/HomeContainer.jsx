@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer';
+import { useSelector } from 'react-redux';
+
 import CategoryListItem from '../category/CategoryListItem';
 import FeaturedContainer from '../featured_hero/FeaturedContainer';
 import MoreButton from '../utils/MoreButton';
@@ -7,14 +10,19 @@ import HotspotSlider from './HotspotSlider';
 import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
-import { useInView } from 'react-intersection-observer';
-import axios from 'axios'
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage }) {
-    // const [secondPage, setSecondPage] = useState([])
-     
+
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
+
 
     const { ref, inView } = useInView()
+
+    const sideSectionArr = [
+        [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
+        null,
+        [...movieNews, { id: "MOVIES NEWS" }],
+        [...gamesSport, { id: "GAMES & SPORTS" }],
+    ]
 
     const catSectionArr = [
         [...entertainment, { id: "ENTERTAINMENT" }],
@@ -25,20 +33,9 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
 
     ]
 
-
-    // useEffect(() => {
-    //     const fetchSeccond = () => {
-    //         axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
-    //             setSecondPage(res.data)
-    //         })
-           
-    //     }
-    //     fetchSeccond()
-    // }, [])
-
-
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
+
             <div className="pb-[27px] flex flex-col justify-center items-center">
                 <FeaturedContainer data={data} />
                 <HotspotSlider hotspotData={hotSpot} />
@@ -48,27 +45,31 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                 <div className="">
                     {catSectionArr.map((item, index) => {
                         if (item === null) {
-                            return <VisualStoriesSlider />
+                            return <VisualStoriesSlider key={index} />
                         }
                         return (
-                            <CategorySection key={index} category="Cate" data={item}  />
+                            <CategorySection key={index} category="Cate" data={item} />
                         )
                     })}
-                    <div className="hidden sm:block">
+                    <div className="hidden sm:block mt-[20px]">
                         <MoreButton title={"MORE STORIES"} />
-                       {secondPage.map((item) => (
-                         <CategoryListItem data={item} key={item.id} />
-                       ))}
+                        {secondPage.map((item, index) => (
+                            <CategoryListItem data={item} key={index} />
+                        ))}
                     </div>
                 </div>
                 {/* sidebar */}
                 <div className="rounded">
-                    <SidebarCategorySection category={"CELEBRITY GOSSIPS"} />
-                    <div className="h-[395px]">
-                        <SideAds bg={"white"} />
-                    </div>
-                    <SidebarCategorySection category={"MOVIES NEWS"} />
-                    <SidebarCategorySection category={"GAMES & SPORTS"} />
+                    {sideSectionArr.map((item, index) => {
+                        if (item === null) {
+                            return <div className="h-[395px]">
+                                <SideAds bg={"white"} key={index} />
+                            </div>
+                        }
+                        return (
+                            <SidebarCategorySection key={index} data={item} />
+                        )
+                    })}
                     <div className={`h-[600px] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
                         <SideAds bg={"white"} />
                     </div>
