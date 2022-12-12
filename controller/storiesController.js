@@ -4,7 +4,7 @@ import {
 
 
 const getStories = async (req, res) => {
-    let stories = await executeQuery("SELECT * FROM wp_posts WHERE post_type='attachment' LIMIT 10", []);
+    let stories = await executeQuery("SELECT * FROM wp_posts WHERE post_type='post' LIMIT 10", []);
     res.send(stories);
 }
 

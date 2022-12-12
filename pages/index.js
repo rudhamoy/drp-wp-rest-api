@@ -44,6 +44,8 @@ export async function getStaticProps() {
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=174&per_page=4'),
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=200&per_page=4'),
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=175,203&per_page=4'),
+    // add this api 
+    // http://localhost:3000/api/stories
   ]);
 
   // celebGossip, movieNews, gamesSport
