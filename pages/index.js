@@ -4,13 +4,11 @@ import styles from '../styles/Home.module.css'
 
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({  data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, posts }) {
-
-  const baseUrl = 'https://dailyresearchplot.com'
- 
+export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage }) {
+  console.log(secondPage)
   return (
     <div>
-     <HomeContainer 
+      <HomeContainer 
       data={data} 
       entertainment={entertainment} 
       anime={anime} 
@@ -18,10 +16,6 @@ export default function Home({  data, entertainment, anime, tvShows, tech, hotsp
       tech={tech} 
       hotSpot={hotspot}
       secondPage={secondPage}
-      celebGossip={celebGossip}
-      movieNews={movieNews}
-      gamesSport={gamesSport}
-      posts={posts}
       />
     </div>
   )
@@ -30,34 +24,31 @@ export default function Home({  data, entertainment, anime, tvShows, tech, hotsp
 
 export async function getServerSideProps() {
 
-  const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
+  const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage] = await Promise.all([
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=171&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=176&per_page=5`),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=174&per_page=4'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=200&per_page=4'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=175,203&per_page=4'),
+    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2')
   ]);
 
 
-  const [data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport] = await Promise.all([
+  const [data, entertainment, tvShows, anime, tech, secondPage] = await Promise.all([
     getPosts.json(),
     getEntertainment.json(),
     getTvShows.json(),
     getAnime.json(),
     getTech.json(),
-    getSecondPage.json(),
-    getCelebGossip.json(),
-    getMovieNews.json(),
-    getGamesSport.json()
+    getSecondPage.json()
   ]);
 
-  const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
+ const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
  const hotspot = await getHotspot.json()
 
+//  const getSecondPage = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2')
+//  const secondPage = await getSecondPage.json()
 
-  return { props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport } };
+
+  return { props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage } };
 }
