@@ -6,7 +6,6 @@ import HotSpotSliderItem from './HotSpotSliderItem';
 const HotspotCarousel = ({ data, hotspotData }) => {
 
     const [activeSlide, setActiveSlide] = useState(0)
-    console.log(activeSlide, "= activeSlide")
 
     function SampleNextArrow(props) {
         const { className, style, onClick } = props;
@@ -83,14 +82,14 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             }
         ]
     };
-
+    
     return (
         <div className='relative'>
             {/* desktop */}
             <div className="hidden sm:block">
                 <Slider {...settingsDesk} className="px-2 ">
                     {hotspotData.map((item, index) => {
-                        const image = item._embedded["wp:featuredmedia"][0].link
+                        const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
                         return (
                             <HotSpotSliderItem 
                             key={index} 
@@ -105,8 +104,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             <div className='sm:hidden'>
                 <Slider {...settingsMobi} className="px-2 ">
                 {hotspotData.map((item, index) => {
-                        // const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
-                        const image = item._embedded["wp:featuredmedia"][0].link
+                        const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
                         return (
                             <HotSpotSliderItem 
                             key={index} 

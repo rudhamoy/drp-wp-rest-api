@@ -36,7 +36,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
             <div className="pb-[27px] flex flex-col justify-center items-center">
                 <FeaturedContainer data={data} />
-                {/* <HotspotSlider hotspotData={hotSpot} /> */}
+                <HotspotSlider hotspotData={hotSpot} />
             </div>
             <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                 {/* content */}

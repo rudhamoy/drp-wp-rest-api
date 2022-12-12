@@ -18,6 +18,7 @@ import gazeta from '../../assets/svg/gazeta-post-web.svg'
 import tollywood from '../../assets/svg/tollywood.svg'
 
 // import './navigation.css'
+import style from './Navigation.module.css'
 import MobileNav from './MobileNav'
 
 const HeaderNav = ({ setShowMenu }) => {
@@ -61,7 +62,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                 </div>
                                 {clicked === true && (
                                     <div
-                                        className="menu z-40"
+                                        className={`${style.menu} z-40`}
                                         onMouseEnter={() => {
                                             setClicked(true)
                                         }}
@@ -94,7 +95,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                 </div>
                                 {onClicked === true && (
                                     <div
-                                        className="menu z-40"
+                                    className={`${style.menu} z-40`}
                                         onMouseEnter={() => {
                                             setOnClicked(true)
                                         }}
@@ -135,7 +136,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     <p className="text-[16px] font-nunitoSans">Follow</p>
                                 </div>
                                 {clickFollow === true && (
-                                    <div className="follow z-40">
+                                    <div  className={`${style.follow} z-40`}>
                                         <div className="absolute uppercase top-10 z-50 -right-10 bg-[#bf912d] w-[267px] h-[149px] border-t-4 border-[#bf912d] shadow-md rounded-md overflow-hidden">
                                             <div>
                                                 <p className="uppercase text-center text-white font-nunitoSans my-1">Find more content at</p>
