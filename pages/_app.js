@@ -10,12 +10,12 @@ import Layout from '../components/layout/Layout'
 
 function MyApp({ Component, pageProps }) {
   return (
-   <Provider store={store}>
+  //  <Provider store={store}>
      <Layout>
       <Component {...pageProps} />
     </Layout>
-   </Provider>
+  //  {/* </Provider> */}
   )
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

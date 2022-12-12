@@ -31,8 +31,7 @@ export default function Home({ data, entertainment, anime, tvShows, tech, hotspo
 }
 
 
-export async function getServerSideProps() {
-
+export async function getStaticProps() {
 
   // getCelebGossip, getMovieNews, getGamesSport
 
@@ -67,5 +66,8 @@ export async function getServerSideProps() {
 
 // celebGossip, movieNews, gamesSport 
 
-  return { props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, } };
+  return { 
+    props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage },
+    revalidate: 10, // In seconds
+  };
 }

@@ -1,13 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { createWrapper } from 'next-redux-wrapper'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { createWrapper, HYDRATE } from 'next-redux-wrapper'
 
 import authorSlice from "../features/authorSlice";
 import categorySlice from "../features/categorySlice";
 
-export const store = configureStore({
-    reducer: {
-        author: authorSlice,
-        category: categorySlice,
-    }
+const combineReducer = combineReducers({
+    author: authorSlice,
+    category: categorySlice,
 })
 
+const masterReducer = (state, action) => {
+    if(action.type === HYDRATE) {
+        const nextState = {
+            ...state,
+            ...action.payload
+        }
+        return nextState
+    } else {
+       return combineReducer(state, action)
+    }
+}
+
+export const makeStore = () => configureStore({
+    reducer: masterReducer
+})
+
+export const wrapper = createWrapper(makeStore, {debug: true})
