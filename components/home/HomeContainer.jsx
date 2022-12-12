@@ -12,7 +12,8 @@ import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 
 function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
-    // const [secondPage, setSecondPage] = useState([])
+    
+    const { posts, status } = useSelector(state => state.posts)
      
 
     const { ref, inView } = useInView()
@@ -50,9 +51,19 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                         )
                     })}
                     <div className="hidden sm:block">
-                        <MoreButton title={"MORE STORIES"} />
-                       {secondPage.map((item) => (
-                         <CategoryListItem data={item} key={item.id} />
+
+                    {posts.map((item, index) => (
+                         <CategoryListItem data={item} key={index} />
+                       ))}
+                        {status === 'loading' && (
+                            <div>
+                                <p className='text-center text-blue-400 text-3xl'>Loading...</p>
+                            </div>
+                            )}
+                            <MoreButton title={"MORE STORIES"} />
+                        
+                       {secondPage.map((item, index) => (
+                         <CategoryListItem data={item} key={index} />
                        ))}
                     </div>
                 </div>

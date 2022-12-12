@@ -3,10 +3,12 @@ import { createWrapper, HYDRATE } from 'next-redux-wrapper'
 
 import authorSlice from "../features/authorSlice";
 import categorySlice from "../features/categorySlice";
+import postSlice from "../features/postSlice";
 
 const combineReducer = combineReducers({
     author: authorSlice,
     category: categorySlice,
+    posts: postSlice
 })
 
 const masterReducer = (state, action) => {

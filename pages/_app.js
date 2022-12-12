@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
-import {store } from '../app/store'
-import {wrapper} from '../app/store'
+// import {store } from '../store/store'
+import {wrapper} from '../store/store'
 
 import '../styles/globals.css'
 import "slick-carousel/slick/slick.css"; 
