@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer';
+import { useSelector } from 'react-redux';
+
 import CategoryListItem from '../category/CategoryListItem';
 import FeaturedContainer from '../featured_hero/FeaturedContainer';
 import MoreButton from '../utils/MoreButton';
@@ -7,14 +10,19 @@ import HotspotSlider from './HotspotSlider';
 import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
-import { useInView } from 'react-intersection-observer';
-import axios from 'axios'
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage }) {
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
     // const [secondPage, setSecondPage] = useState([])
      
 
     const { ref, inView } = useInView()
+
+    const sideSectionArr = [
+        [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
+        null,
+        [...movieNews, { id: "MOVIES NEWS" }],
+        [...gamesSport, { id: "GAMES & SPORTS" }],
+    ]
 
     const catSectionArr = [
         [...entertainment, { id: "ENTERTAINMENT" }],
@@ -22,21 +30,8 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
         [...tvShows, { id: "TV SERIES NEWS" }],
         [...anime, { id: "ANIME NEWS" }],
         [...tech, { id: "TECHNOLOGY" }]
-
     ]
-
-
-    // useEffect(() => {
-    //     const fetchSeccond = () => {
-    //         axios.get('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2').then(res => {
-    //             setSecondPage(res.data)
-    //         })
-           
-    //     }
-    //     fetchSeccond()
-    // }, [])
-
-
+    
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
             <div className="pb-[27px] flex flex-col justify-center items-center">
