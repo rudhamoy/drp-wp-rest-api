@@ -18,12 +18,12 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
 
     const { ref, inView } = useInView()
 
-    // const sideSectionArr = [
-    //     [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
-    //     null,
-    //     [...movieNews, { id: "MOVIES NEWS" }],
-    //     [...gamesSport, { id: "GAMES & SPORTS" }],
-    // ]
+    const sideSectionArr = [
+        [...celebGossip, { id: "CELEBRITY GOSSIPS" }],
+        null,
+        [...movieNews, { id: "MOVIES NEWS" }],
+        [...gamesSport, { id: "GAMES & SPORTS" }],
+    ]
 
     const catSectionArr = [
         [...entertainment, { id: "ENTERTAINMENT" }],
@@ -69,12 +69,16 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                 </div>
                 {/* sidebar */}
                 <div className="rounded">
-                    <SidebarCategorySection category={"CELEBRITY GOSSIPS"} />
-                    <div className="h-[395px]">
-                        <SideAds bg={"white"} />
-                    </div>
-                    <SidebarCategorySection category={"MOVIES NEWS"} />
-                    <SidebarCategorySection category={"GAMES & SPORTS"} />
+                {sideSectionArr.map((item, index) => {
+                        if (item === null) {
+                            return <div className="h-[395px]">
+                                <SideAds bg={"white"} key={index} />
+                            </div>
+                        }
+                        return (
+                            <SidebarCategorySection key={index} category={"CELEBRITY GOSSIPS"} data={item} />
+                        )
+                    })}
                     <div className={`h-[600px] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
                         <SideAds bg={"white"} />
                     </div>
