@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
 import {store } from '../app/store'
+import {wrapper} from '../app/store'
 
 import '../styles/globals.css'
 import "slick-carousel/slick/slick.css"; 
@@ -17,4 +18,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default MyApp;
