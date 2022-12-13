@@ -35,7 +35,7 @@ const HeaderNav = ({ setShowMenu }) => {
                     {/* DESKTOP */}
 
                     {/* left */}
-                    <div className="flex gap-x-2 items-center w-[20%]">
+                    <div className="flex gap-x-2 cursor-pointer items-center w-[20%]">
                         <Link href="/">
                         <img src="logobg.png" alt="" />
                         </Link>
@@ -43,7 +43,7 @@ const HeaderNav = ({ setShowMenu }) => {
                     {/* middle */}
                     <div className="w-[65%] h-[100%]">
                         <div className="flex items-center justify-around font-semibold text-[16px] px-6 uppercase h-[100%]">
-                            <div className="cursor-pointer hover:text-[#bf912d]">CELEBRITY</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">CELEBRITY</div>
 
                             <div
                                 className="dropdown relative h-[100%]"
@@ -58,7 +58,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     }}
                                     className=" flex justify-center items-center h-[100%]"
                                 >
-                                    <a className="flex items-center hover:text-[#bf912d]">ENTERTAINMENT <BiChevronDown className="text-lg" /></a>
+                                    <a className="flex items-center text-black hover:text-[#bf912d]">ENTERTAINMENT <BiChevronDown className="text-lg" /></a>
                                 </div>
                                 {clicked === true && (
                                     <div
@@ -70,7 +70,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                             setClicked(false)
                                         }}
                                     >
-                                        <ul className="absolute uppercase  z-50 -right-10 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
+                                        <ul className="absolute uppercase text-black  z-50 -right-10 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
                                             <li className="hover:text-[#bf912d]"><a href="#">Politics</a></li>
                                             <li className="hover:text-[#bf912d]"><a href="#">Technology</a></li>
                                             <li className="hover:text-[#bf912d]"><a href="#">Gaming</a></li>
@@ -91,7 +91,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     }}
                                     className="flex justify-center items-center h-[100%]"
                                 >
-                                    <a className="flex items-center hover:text-[#bf912d]">News <BiChevronDown className="text-lg" /></a>
+                                    <a className="flex items-center text-black hover:text-[#bf912d]">News <BiChevronDown className="text-lg" /></a>
                                 </div>
                                 {onClicked === true && (
                                     <div
@@ -103,7 +103,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                             setOnClicked(false)
                                         }}
                                     >
-                                        <ul className="absolute uppercase z-50 -right-6 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
+                                        <ul className="absolute uppercase text-black z-50 -right-6 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
                                             <li className='hover:text-[#bf912d]'><a href="#">Politics</a></li>
                                             <li className='hover:text-[#bf912d]'><a href="#">Technology</a></li>
                                             <li className='hover:text-[#bf912d]'><a href="#">Gaming</a></li>
@@ -113,10 +113,10 @@ const HeaderNav = ({ setShowMenu }) => {
                                     </div>
                                 )}
                             </div>
-                            <div className="cursor-pointer hover:text-[#bf912d]">ANIME</div>
-                            <div className="cursor-pointer hover:text-[#bf912d]">GAMES</div>
-                            <div className="cursor-pointer hover:text-[#bf912d]">MOVIES</div>
-                            <div className="cursor-pointer hover:text-[#bf912d]">TV SHOW</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">ANIME</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">GAMES</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">MOVIES</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">TV SHOW</div>
                         </div>
                     </div>
                     {/* right */}

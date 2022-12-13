@@ -14,7 +14,7 @@ const Author = ({id}) => {
 
   return (
     <div>
-         <p className=''>by <span className="text-[16px] text-[#000000] font-nunitoSans font-semibold">{authorById.name}</span></p>
+         {/* <p className=''>by <span className="text-[16px] text-[#000000] font-nunitoSans font-semibold">{authorById.name}</span></p> */}
     </div>
   )
 }
