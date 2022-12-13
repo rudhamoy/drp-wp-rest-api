@@ -6,10 +6,6 @@ import HomeContainer from '../components/home/HomeContainer'
 
 export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, stories }) {
 
-  const baseUrl = 'https://dailyresearchplot.com'
-
-
-
 
   return (
     <div>
@@ -33,9 +29,9 @@ export default function Home({ data, entertainment, anime, tvShows, tech, hotspo
 
 export async function getStaticProps() {
 
-  // getCelebGossip, getMovieNews, getGamesSport
+  // getCelebGossip, getMovieNews, getGamesSport, getStories
 
-  const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport, getStories] = await Promise.all([
+  const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
@@ -45,14 +41,14 @@ export async function getStaticProps() {
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=174&per_page=4'),
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=200&per_page=4'),
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=175,203&per_page=4'),
-    fetch('http://localhost:3000/api/stories')
+    // fetch('http://localhost:3000/api/stories')
  
    
   ]);
 
-  // celebGossip, movieNews, gamesSport
+  // celebGossip, movieNews, gamesSport, stories
 
-  const [data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport, stories] = await Promise.all([
+  const [data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport] = await Promise.all([
     getPosts.json(),
     getEntertainment.json(),
     getTvShows.json(),
@@ -62,7 +58,7 @@ export async function getStaticProps() {
     getCelebGossip.json(),
     getMovieNews.json(),
     getGamesSport.json(),
-    getStories.json()
+    // getStories.json()
  
   ]);
 
@@ -71,10 +67,9 @@ export async function getStaticProps() {
 
 
 
-// celebGossip, movieNews, gamesSport 
 
   return { 
-    props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, stories  },
-    revalidate: 10, // In seconds
+    props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport  },
+    revalidate: 30, // In seconds
   };
 }

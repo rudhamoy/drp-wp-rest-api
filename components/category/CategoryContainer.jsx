@@ -10,7 +10,7 @@ import { useInView } from 'react-intersection-observer';
 
 function CategoryContainer() {
     const { ref, inView } = useInView()
-    console.log(inView)
+   
     return (
         <>
             <div className="px-2 flex flex-col justify-center items-center">
