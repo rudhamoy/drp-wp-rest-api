@@ -11,10 +11,10 @@ import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
-    
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport, visualStories }) {
+
     const { posts, status } = useSelector(state => state.posts)
-     
+
 
     const { ref, inView } = useInView()
 
@@ -26,6 +26,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
     ]
 
     const catSectionArr = [
+
         [...entertainment, { id: "ENTERTAINMENT" }],
         null,
         [...tvShows, { id: "TV SERIES NEWS" }],
@@ -43,33 +44,34 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                 {/* content */}
                 <div className="">
                     {catSectionArr.map((item, index) => {
+
                         if (item === null) {
-                            return <VisualStoriesSlider />
+                            return <VisualStoriesSlider visualStories={visualStories} />
                         }
                         return (
-                            <CategorySection key={index} category="Cate" data={item}  />
+                            <CategorySection key={index} category="Cate" data={item} />
                         )
                     })}
                     <div className="hidden sm:block">
 
-                    {posts.map((item, index) => (
-                         <CategoryListItem data={item} key={index} />
-                       ))}
+                        {posts.map((item, index) => (
+                            <CategoryListItem data={item} key={index} />
+                        ))}
                         {status === 'loading' && (
                             <div>
                                 <p className='text-center text-blue-400 text-3xl'>Loading...</p>
                             </div>
-                            )}
-                            <MoreButton title={"MORE STORIES"} />
-                        
-                       {secondPage.map((item, index) => (
-                         <CategoryListItem data={item} key={index} />
-                       ))}
+                        )}
+                        <MoreButton title={"MORE STORIES"} />
+
+                        {secondPage.map((item, index) => (
+                            <CategoryListItem data={item} key={index} />
+                        ))}
                     </div>
                 </div>
                 {/* sidebar */}
                 <div className="rounded">
-                {sideSectionArr.map((item, index) => {
+                    {sideSectionArr.map((item, index) => {
                         if (item === null) {
                             return <div className="h-[395px]">
                                 <SideAds bg={"white"} key={index} />

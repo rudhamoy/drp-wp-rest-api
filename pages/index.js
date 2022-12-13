@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 // import { pool } from '../services/mysql_db';
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport }) {
+export default function Home({ data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, stories }) {
 
   const baseUrl = 'https://dailyresearchplot.com'
 
@@ -24,6 +24,7 @@ export default function Home({ data, entertainment, anime, tvShows, tech, hotspo
         celebGossip={celebGossip}
         movieNews={movieNews}
         gamesSport={gamesSport}
+        visualStories={stories}
       />
     </div>
   )
@@ -34,7 +35,7 @@ export async function getStaticProps() {
 
   // getCelebGossip, getMovieNews, getGamesSport
 
-  const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
+  const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport, getStories] = await Promise.all([
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
     fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
@@ -44,11 +45,14 @@ export async function getStaticProps() {
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=174&per_page=4'),
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=200&per_page=4'),
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=175,203&per_page=4'),
+    fetch('http://localhost:3000/api/stories')
+ 
+   
   ]);
 
   // celebGossip, movieNews, gamesSport
 
-  const [data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport] = await Promise.all([
+  const [data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport, stories] = await Promise.all([
     getPosts.json(),
     getEntertainment.json(),
     getTvShows.json(),
@@ -57,16 +61,20 @@ export async function getStaticProps() {
     getSecondPage.json(),
     getCelebGossip.json(),
     getMovieNews.json(),
-    getGamesSport.json()
+    getGamesSport.json(),
+    getStories.json()
+ 
   ]);
 
   const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
   const hotspot = await getHotspot.json()
 
+
+
 // celebGossip, movieNews, gamesSport 
 
   return { 
-    props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport  },
+    props: { data, entertainment, anime, tvShows, tech, hotspot, secondPage, celebGossip, movieNews, gamesSport, stories  },
     revalidate: 10, // In seconds
   };
 }
