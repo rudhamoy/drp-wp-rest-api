@@ -27,6 +27,7 @@ function SidebarCategorySection({ category, data }) {
                             category={item?._embedded["wp:term"][0][1].name.toUpperCase()} 
                             title={item.title.rendered} 
                             image={image}
+                            slug={item.slug}
                             // image={item._embedded["wp:featuredmedia"][0].link}
                             />
                         )

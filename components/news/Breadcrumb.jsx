@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { MdArrowForwardIos } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
 
 import getRandomCategory from '../utils/RandomCategory'
+import { getPostByCategory } from '../../features/postSlice'
 
 const Breadcrumb = ({data}) => {
-
+    const dispatch = useDispatch()
       const [randomData, setRandomData] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]));
+
+      useEffect(() => {
+        dispatch(getPostByCategory(randomData.id))
+      }, [dispatch])
 
 
   return (

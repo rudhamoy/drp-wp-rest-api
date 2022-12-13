@@ -6,12 +6,13 @@ import ArticleContainer from '../layout/ArticleContainer'
 import Featured from '../sidebar/Featured'
 import RelatedPost from './RelatedPost'
 import { useInView } from 'react-intersection-observer';
+
 import Breadcrumb from './Breadcrumb'
 
 const SingleNewsContainer = ({ singleData }) => {
 
   const { ref, inView } = useInView()
-
+  console.log(singleData)
   const image = singleData[0]._embedded["wp:featuredmedia"][0].link
 
   return (

@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 import cartoon from '../../assets/images/cartoon.png';
 import formatDate from '../utils/FormatDate';
+import getRandomCategory from '../utils/RandomCategory';
 
 
 function CategoryListItem({ width, data }) {
+
+    const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
     return (
         <>
@@ -27,7 +30,7 @@ function CategoryListItem({ width, data }) {
                     </div>
                     {/* right content */}
                     <div className="relative">
-                        <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{data?._embedded["wp:term"][0][0].name.toUpperCase()}</p>
+                        <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
                         <Link href={`/single-news/${data['slug']}`}>
                         <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3>
             

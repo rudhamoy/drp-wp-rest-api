@@ -1,6 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 import videoIcon from '../../assets/icons/video-icon.svg';
-function SideBarItem({ category, title, image }) {
+
+function SideBarItem({ category, title, image, slug }) {
     return (
 
         <div className="flex flex-row items-center p-2 cursor-pointer rounded-[2px] w-[90vw] sm:w-[383px] h-[108px] z-0 border">
@@ -18,9 +20,11 @@ function SideBarItem({ category, title, image }) {
             </div>
             <div className="px-2 relative h-[80px] w-[250px]">
                 <p className="font-nunitoSans text-[#bf912d] font-bold text-[10px] capitalize mb-[5px]">{category}</p>
+                <Link href={`/single-news/${slug}`}>
                 <h3 className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
                     {title}
                 </h3>
+                </Link>
             </div>
         </div>
 

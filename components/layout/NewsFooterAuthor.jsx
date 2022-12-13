@@ -5,17 +5,22 @@ import authorEmail from '../../assets/svg/authorEmail.svg'
 import authorTwt from '../../assets/svg/authorTwt.svg'
 import authorLnkd from '../../assets/svg/authorLnkd.svg'
 
-const NewsFooterAuthor = () => {
+const NewsFooterAuthor = ({data}) => {
+
+    const avatars = data.avatar_urls
+
+    const avatarList = Object.values(avatars)
+
     return (
         <div className="flex sm:items-center bg-[#f4f4f4] rounded-[4px] p-2 sm:p-4 gap-x-2">
             <div>
                 <div className="p-[2px] border-2 border-black rounded-full h-[120px] w-[120px]">
-                    <img className="rounded-full h-[100%] w-[100%]" src="Layer_17.png" alt="" />
+                    <img className="rounded-full h-[100%] w-[100%]" src={avatarList[2]} alt="" />
                 </div>
             </div>
             <div>
-                <p className="text-[18px] text-[#bf912d] font-nunitoSans mb-[5px] cursor-pointer">Manjeet Mahato</p>
-                <p className="text-[14px] text-[#4b4b4b] font-nunitoSans">Well, a Marvel and DC Comics Nerd by Passion, Content Writer, and Designer by Profession. Completed BSc. Graphic and animation from MCU, Bhopal</p>
+                <p className="text-[18px] text-[#bf912d] font-nunitoSans mb-[5px] capitalize cursor-pointer">{data.name}</p>
+                <p className="text-[14px] text-[#4b4b4b] font-nunitoSans">{data.description}</p>
 
                 <div className="flex items-center gap-x-2 mt-[10px]">
                     <p className="text-[#bf912d] text-[12px] font-nunitoSans">Reach me at :</p>

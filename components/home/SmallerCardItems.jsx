@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 import couplesHug from '../../assets/images/couples_hug.png';
 import VideoIcon from '../../assets/icons/VideoIcon';
 import formatDate from '../utils/FormatDate';
+import getRandomCategory from '../utils/RandomCategory';
 
 
 function SmallerCardItems({ data }) {
+    const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
@@ -25,7 +27,7 @@ function SmallerCardItems({ data }) {
                 </div>
                 {/* right - content */}
                 <div className="relative w-[62%] sm:w-[67%]">
-                    <p className="text-[10px] text-[#bf912d] font-bold">{data?._embedded["wp:term"][0][0].name.toUpperCase()}</p>
+                    <p className="text-[10px] text-[#bf912d] font-bold">{randomCategory.name.toUpperCase()}</p>
                     <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] font-nunitoSans font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
                     </h2>
                     <p className="text-[10px] text-[#737373] absolute bottom-0">{formatDate(data?.date).toUpperCase()}</p>

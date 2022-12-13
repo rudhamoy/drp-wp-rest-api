@@ -6,7 +6,12 @@ import { getCategoryById } from '../../features/categorySlice';
 import axios from 'axios'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
+import getRandomCategory from '../utils/RandomCategory';
+
+
 function MasonaryItem({ data, image, title }) {
+    const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
+
 
     const dispatch = useDispatch()
     const { categoryById } = useSelector(state => state.category)
@@ -24,7 +29,7 @@ function MasonaryItem({ data, image, title }) {
                     <img src={image} alt="" className="w-[100%] h-[100%]" />
                     <div className="absolute z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-2 items-center drop-shadow-3xl ">
                         <VideoIcon className="text-[#ffd200] font-bold drop-shadow-3xl" />
-                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{data?._embedded["wp:term"][0][0].name.toUpperCase()}</div>
+                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{randomCategory.name.toUpperCase()}</div>
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
                 </div>

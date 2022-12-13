@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
-
 import { AiOutlinePicRight } from "react-icons/ai";
 
+import getRandomCategory from '../utils/RandomCategory';
+
 function FeaturedPost({ data }) {
+
+    const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data[0]?._embedded["wp:term"][0]))
+
     return (
         <Link href={`/single-news/${data[0]['slug']}`}>
             <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer">
@@ -13,7 +17,7 @@ function FeaturedPost({ data }) {
                     <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
                         <AiOutlinePicRight className="text-[#ffd200] font-bold" />
                         {/* <Category id={data[0].categories[1]} /> */}
-                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{data[0]?._embedded["wp:term"][0][0].name.toUpperCase()}</div>
+                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{randomCategory.name.toUpperCase()}</div>
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />
                 </div>

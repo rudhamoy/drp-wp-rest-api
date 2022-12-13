@@ -2,7 +2,7 @@ import React from 'react'
 
 function VisualStoriesItem({ image, title, styles}) {
     return (
-        <div style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
+        <div  style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
             <div className="h-[300px] w-[187px] rounded-[4px] overflowHidden">
                 <img src={image} className="h-[100%] w-[100%]" alt="" />
             </div>

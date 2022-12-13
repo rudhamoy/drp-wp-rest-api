@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import CategoryListItem from '../category/CategoryListItem';
 import FeaturedContainer from '../featured_hero/FeaturedContainer';
@@ -11,9 +11,11 @@ import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport, visualStories }) {
+import { getStories } from '../../features/postSlice';
 
-    const { posts, status } = useSelector(state => state.posts)
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport, visualStories }) {
+    const dispatch = useDispatch()
+    const { posts, stories, status } = useSelector(state => state.posts)
 
 
     const { ref, inView } = useInView()
@@ -34,6 +36,10 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
         [...tech, { id: "TECHNOLOGY" }]
     ]
 
+    useEffect(() => {
+        dispatch(getStories())
+    }, [dispatch])
+
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
             <div className="pb-[27px] flex flex-col justify-center items-center">
@@ -46,7 +52,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                     {catSectionArr.map((item, index) => {
 
                         if (item === null) {
-                            return <VisualStoriesSlider visualStories={visualStories} />
+                            return <VisualStoriesSlider visualStories={stories} />
                         }
                         return (
                             <CategorySection key={index} category="Cate" data={item} />
