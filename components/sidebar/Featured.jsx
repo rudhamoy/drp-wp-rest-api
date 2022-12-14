@@ -35,8 +35,8 @@ const Featured = ({ data }) => {
                 <h1 className="text-[#bf912d] font-nunitoSans text-[20px] whitespace-nowrap uppercase">Featured Stories</h1>
                 <div className="bg-[#bf912d] h-[2px] w-[50px]"></div>
             </div>
-            <div className="flex flex-col gap-y-[10px]">
-            {/* {data.map((item) => {
+            <div className="flex flex-col gap-y-[10px] mt-[19px]">
+            {data.map((item) => {
                 const image = 'https://dailyresearchplot.com' + item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
                 return (
                     <SideBarItem
@@ -47,7 +47,7 @@ const Featured = ({ data }) => {
                     // image={item._embedded["wp:featuredmedia"][0].link}
                     />
                 )
-            })} */}
+            })}
             </div>
             {/* {data?.map((item, index) => (
                 <FeaturedCard data={item} key={index} />
