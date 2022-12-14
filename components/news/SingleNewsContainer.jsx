@@ -41,7 +41,9 @@ const SingleNewsContainer = ({ singleData, featured }) => {
             <div className="h-[480px]">
               <SideAds />
             </div>
-            <Featured data={featured} />
+            <Featured 
+            // data={featured} 
+            />
             <div className={`h-[600px] w-[100%] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
               <SideAds bg="white" />
             </div>
