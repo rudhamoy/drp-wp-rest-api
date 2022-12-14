@@ -14,7 +14,7 @@ import tollywood from '../../assets/svg/tollywood.svg'
 const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
     const [showSearch, setShowSearch] = useState(false)
     return (
-        <div className="sm:hidden bg-white shadow-md p-2 relative">
+        <nav className="sm:hidden bg-white shadow-md p-2 relative text-black">
 
             <div className=" w-[100%] flex justify-between items-center">
                 {/* mobile menu */}
@@ -104,7 +104,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                     <p className="whitespace-nowrap">Web Stories</p>
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

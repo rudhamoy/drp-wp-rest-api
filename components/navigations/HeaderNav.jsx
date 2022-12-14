@@ -30,7 +30,7 @@ const HeaderNav = ({ setShowMenu }) => {
     return (
         <>
             <MobileNav setShowMenu={setShowMenu} setClickFollow={setClickFollow} clickFollow={clickFollow} />
-            <div className='hidden sm:flex justify-center h-[48px] bg-white shadow-md relative'>
+            <nav className='hidden sm:flex justify-center h-[48px] bg-white shadow-md relative'>
                 <div className="w-[1264px] flex justify-between items-center h-[100%]">
                     {/* DESKTOP */}
 
@@ -185,7 +185,7 @@ const HeaderNav = ({ setShowMenu }) => {
                         </div>
                     </div>
                 )}
-            </div>
+            </nav>
         </>
     )
 }

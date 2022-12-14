@@ -9,10 +9,10 @@ import { useInView } from 'react-intersection-observer';
 
 import Breadcrumb from './Breadcrumb'
 
-const SingleNewsContainer = ({ singleData }) => {
+const SingleNewsContainer = ({ singleData, featured }) => {
 
   const { ref, inView } = useInView()
-  console.log(singleData)
+  console.log(featured)
   const image = singleData[0]._embedded["wp:featuredmedia"][0].link
 
   return (
@@ -41,7 +41,7 @@ const SingleNewsContainer = ({ singleData }) => {
             <div className="h-[480px]">
               <SideAds />
             </div>
-            <Featured />
+            <Featured data={featured} />
             <div className={`h-[600px] w-[100%] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
               <SideAds bg="white" />
             </div>

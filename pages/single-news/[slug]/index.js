@@ -1,9 +1,9 @@
 import SingleNewsContainer from "../../../components/news/SingleNewsContainer";
 
-const index = ({singleData}) => {
+const index = ({singleData, featured}) => {
   return (
     <div>
-        <SingleNewsContainer singleData={singleData} />
+        <SingleNewsContainer singleData={singleData} featured={featured} />
     </div>
   )
 }
@@ -39,12 +39,15 @@ export default index
 
 export async function getStaticProps({ params }) {
   const getPost = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&slug=${params.slug}`)
-  
   const singleData = await getPost.json()
+
+  const featuredPost = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=7')
+  const featured = await featuredPost.json()
 
   return {
       props: {
-          singleData
+          singleData,
+          featured
       },
       revalidate: 10,
     }

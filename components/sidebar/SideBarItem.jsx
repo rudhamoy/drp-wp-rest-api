@@ -6,8 +6,8 @@ function SideBarItem({ category, title, image, slug }) {
     return (
 
         <div className="flex flex-row items-center p-2 cursor-pointer rounded-[2px] w-[90vw] sm:w-[383px] h-[108px] z-0 border">
-            <div className="h-[85px] w-[85px] overflow-hidden rounded-sm relative">
-                <img className="h-[100%] w-[100%]" src={image} alt="" />
+            <div className="h-[85px] w-[85px] overflow-hidden rounded-[4px] relative">
+                <img className="h-[100%] w-[100%] object-cover" src={image} alt="" />
                 {/* <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded-sm"></div> */}
 
                 <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">

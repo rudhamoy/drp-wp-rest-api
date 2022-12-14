@@ -11,7 +11,7 @@ const ArticleContainer = ({ image, data }) => {
     const tagListClass = "bg-[#f4f4f4] cursor-pointer rounded-md p-[1px] px-3 "
 
     return (
-        <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px]'>
+        <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px] overflow-hidden'>
             <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold font-nunitoSans">{data[0].title.rendered}
             </h1>
             <h2 className="mt-[14px] text-[18px] sm:text-[20px] text-[#6d6d6d] font-nunitoSans">{data[0].yoast_head_json.og_description}</h2>

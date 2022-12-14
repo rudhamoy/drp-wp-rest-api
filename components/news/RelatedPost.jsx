@@ -65,7 +65,7 @@ const FeaturedCard = ({data}) => {
 
 const RelatedPost = () => {
 
-    const { postsByCat } = useSelector(state => state.posts)
+    // const { postsByCat } = useSelector(state => state.posts)
 
     return (
         <div className="bg-white p-3 sm:p-[15px] rounded-md border">
@@ -74,9 +74,15 @@ const RelatedPost = () => {
                 <div className='h-[2px] w-[82px] bg-[#bf912d]'></div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {postsByCat.map((item, index) => (
+                {/* {postsByCat.map((item, index) => (
                     <FeaturedCard data={item} key={index} />
-                ))}
+                ))} */}
+                <FeaturedCard />
+                <FeaturedCard />
+                <FeaturedCard />
+                <FeaturedCard />
+                <FeaturedCard />
+                <FeaturedCard />
 
             </div>
         </div>
