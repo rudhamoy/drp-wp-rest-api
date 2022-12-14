@@ -8,6 +8,8 @@ import { FcMenu } from 'react-icons/fc'
 import { BiSearch } from 'react-icons/bi'
 import { MdClose } from 'react-icons/md'
 
+import Logo from '../../assets/images/logobg.png'
+
 import facebook from '../../assets/svg/facebook@4x.svg'
 import insta from '../../assets/svg/insta@4x.svg'
 import linkedin from '../../assets/svg/linkedin@4x.svg'
@@ -37,7 +39,7 @@ const HeaderNav = ({ setShowMenu }) => {
                     {/* left */}
                     <div className="flex gap-x-2 cursor-pointer items-center w-[20%]">
                         <Link href="/">
-                        <img src="logobg.png" alt="" />
+                        <img src={Logo} alt="" />
                         </Link>
                     </div>
                     {/* middle */}
@@ -148,12 +150,12 @@ const HeaderNav = ({ setShowMenu }) => {
                                             <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[61px]">
                                                 <p className="uppercase text-[#000000] text-center text-[9px] font-nunitoSans my-1">Follow us on</p>
                                                 <ul className="flex justify-around w-[100%]">
-                                                <img className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
+                                                {/* <img className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
                                                     <img className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
                                                     <img className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
                                                     <img className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
                                                     <img className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
-                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" />
+                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" /> */}
                                                 </ul>
                                             </div>
                                         </div>

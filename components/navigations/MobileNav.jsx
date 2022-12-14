@@ -43,19 +43,19 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                                     <div>
                                         <p className="uppercase text-center text-white font-nunitoSans my-1">Find more content at</p>
                                         <div className="flex justify-around items-center p-3">
-                                            <img className="h-[28px]" src={tollywood} alt="" />
-                                            <img className="h-[28px]" src={gazeta} alt="" />
+                                            {/* <img className="h-[28px]" src={tollywood} alt="" />
+                                            <img className="h-[28px]" src={gazeta} alt="" /> */}
                                         </div>
                                     </div>
                                     <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[60px]">
                                         <h1 className="uppercase text-[#393939] text-center text-[9px] font-nunitoSans my-1">Follow us on</h1>
                                         <ul className="flex justify-around w-[100%] mb-1">
-                                            <img className="h-[19px] w-[20px]" src={insta} alt="" />
+                                            {/* <img className="h-[19px] w-[20px]" src={insta} alt="" />
                                             <img className="h-[19px] w-[20px]" src={facebook} alt="" />
                                             <img className="h-[19px] w-[20px]" src={twitter} alt="" />
                                             <img className="h-[19px] w-[20px]" src={youtube} alt="" />
                                             <img className="h-[19px] w-[20px]" src={linkedin} alt="" />
-                                            <img className="h-[19px] w-[20px]" src={rss} alt="" />
+                                            <img className="h-[19px] w-[20px]" src={rss} alt="" /> */}
                                         </ul>
                                     </div>
                                 </div>
