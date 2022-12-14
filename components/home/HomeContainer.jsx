@@ -13,7 +13,7 @@ import VisualStoriesSlider from './VisualStoriesSlider';
 
 import { getStories } from '../../features/postSlice';
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport, visualStories }) {
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
     const dispatch = useDispatch()
     const { posts, stories, status } = useSelector(state => state.posts)
 
@@ -39,6 +39,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
     useEffect(() => {
         dispatch(getStories())
     }, [dispatch])
+
 
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">

@@ -34,7 +34,7 @@ export const getPostByCategory = createAsyncThunk('posts/getPostByCategory', asy
 // fetch stories
 export const getStories = createAsyncThunk('posts/getStories', async (_) => {
     try {
-        const res = await axios.get(`http://localhost:3000/api/stories`)
+        const res = await axios.get(`/api/stories`)
         return res.data
     } catch (error) {
         console.log(error)
