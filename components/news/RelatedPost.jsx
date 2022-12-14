@@ -45,7 +45,7 @@ const FeaturedCard = ({data}) => {
         <div className="p-[10px] rounded-[2px] border bg-white h-[130px] w-[95vw] sm:w-[398px] border-[#e4e4e4] flex justify-center" >
             <div className="flex gap-x-2 h-[100%]">
                 <div className="h-[110px] w-[270px] sm:w-[280px] rounded-[4px] overflowHidden relative">
-                    <img className="h-[100%] w-[100%]" src="Layer11.png" alt="" />
+                    {/* <img className="h-[100%] w-[100%]" src="Layer11.png" alt="" /> */}
                     <div className="absolute z-[10] bottom-1 sm:left-2  left-2 drop-shadow-3xl ">
                         <img src={videoIcon} width={15} height={15} className="text-[#ffd200] font-bold drop-shadow-3xl " alt="" />
                     </div>

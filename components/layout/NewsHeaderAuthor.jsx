@@ -28,11 +28,11 @@ const NewsHeaderAuthor = ({data}) => {
                         </div>
                     </div>
                     <div className="hidden sm:flex flex-row items-center sm:gap-x-3 gap-x-2 ml-[-60px]">
-                        <img src={facebookColoredIcon} alt="" />
+                        {/* <img src={facebookColoredIcon} alt="" />
                         <img height={24} width={24} src={linkedinColoredIcon} alt="" />
                         <img height={24} width={24} src={whatsappColoredIcon} alt="" />
                         <img height={24} width={24} src={twiterColoredIcon} alt="" />
-                        <img height={24} width={24} src="email.png" alt="" />
+                        <img height={24} width={24} src="email.png" alt="" /> */}
                     </div>
                 </div>
             </div>

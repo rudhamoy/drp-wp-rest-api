@@ -12,7 +12,7 @@ import Breadcrumb from './Breadcrumb'
 const SingleNewsContainer = ({ singleData, featured }) => {
 
   const { ref, inView } = useInView()
-  console.log(featured)
+  
   const image = singleData[0]._embedded["wp:featuredmedia"][0].link
 
   return (

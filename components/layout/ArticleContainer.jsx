@@ -1,7 +1,5 @@
 import React from 'react'
 import parseHTML from "html-react-parser";
-import girlboobs from '../../assets/images/girlboobs.png'
-import beardman from '../../assets/images/beard-man.png';
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
@@ -51,15 +49,15 @@ const ArticleContainer = ({ image, data }) => {
                     <div className="border-t border-b border-[#e4e4e4] flex sm:flex-row flex-col justify-between gap-x-6 items-center py-[19px]">
                         <div className="flex items-center gap-x-1">
                             <p>Please Subscribe us at <span>Google News</span></p>
-                            <img src="Layer16.png" alt="" />
+                            {/* <img src="Layer16.png" alt="" /> */}
                         </div>
                         <div className="flex gap-x-2 my-2">
                             <p className="whitespace-nowrap">Follow us:</p>
-                            <img height={24} width={24} src="insta.png" alt="" />
+                            {/* <img height={24} width={24} src="insta.png" alt="" />
                             <img height={24} width={24} src="facebook.png" alt="" />
                             <img height={24} width={24} src="twitter.png" alt="" />
                             <img height={24} width={24} src="youtube.png" alt="" />
-                            <img height={24} width={24} src="linkedin.png" alt="" />
+                            <img height={24} width={24} src="linkedin.png" alt="" /> */}
                         </div>
                     </div>
                 </div>
