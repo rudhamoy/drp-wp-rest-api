@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { BsSearch } from 'react-icons/bs'
 import { MdArrowBackIos } from 'react-icons/md'
@@ -25,7 +26,7 @@ const MobileMenu = ({ setShowMenu }) => {
         <div className='fixed left-0 z-50 w-[100%] sm:w-[20%] h-[100vh] bg-white transition ease-in-out delay-500 duration-500 font-nunitoSans'>
             {/* header */}
             <div className="flex justify-between items-center border-b p-3 h-[10%]">
-                <img src={Logo} alt="" className="h-[36px]" />
+                <Image src={Logo} alt="" className="w-[80%]" />
                 <AiOutlineCloseCircle onClick={() => setShowMenu(false)} className='text-[#bf912d] text-right text-3xl cursor-pointer' />
             </div>
             {/* menu content */}

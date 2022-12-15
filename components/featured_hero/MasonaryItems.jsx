@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Category from '../utils/Category'
-import { useSelector, useDispatch } from 'react-redux';
-import { getCategoryById } from '../../features/categorySlice';
-import axios from 'axios'
+import Image from 'next/image'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 import getRandomCategory from '../utils/RandomCategory';
@@ -13,20 +10,16 @@ function MasonaryItem({ data, image, title }) {
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
 
-    const dispatch = useDispatch()
-    const { categoryById } = useSelector(state => state.category)
-
-    useEffect(() => {
-        // dispatch(getCategoryById(data.categories[1]))
-
-    }, [dispatch])
-
     return (
         <Link href={`/single-news/${data['slug']}`}>
             <div className="bg-white w-[95vw] sm:w-[310px] h-[105px] sm:h-[231px] rounded-[3px] flex sm:flex-col gap-x-2 flex-row overflowHidden cursor-pointer">
                 {/* image -left content */}
                 <div className="h-[100%] sm:h-[175px] w-[42%] sm:w-[100%] overflowHidden relative bg-green-200">
-                    <img src={image} alt="" className="w-[100%] h-[100%]" />
+                    <Image 
+                    src={image} 
+                    alt="" className="w-[100%] h-[100%]"
+                    fill
+                    priority />
                     <div className="absolute z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-2 items-center drop-shadow-3xl ">
                         <VideoIcon className="text-[#ffd200] font-bold drop-shadow-3xl" />
                         <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{randomCategory.name.toUpperCase()}</div>

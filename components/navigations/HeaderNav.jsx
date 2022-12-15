@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { CgMenuRound } from 'react-icons/cg'
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -9,6 +10,9 @@ import { BiSearch } from 'react-icons/bi'
 import { MdClose } from 'react-icons/md'
 
 import Logo from '../../assets/images/logobg.png'
+import ShareImage from '../../assets/images/share.png'
+import MenuImage from '../../assets/images/menuu.png'
+import SearchImage from '../../assets/images/searchh.png'
 
 import facebook from '../../assets/svg/facebook@4x.svg'
 import insta from '../../assets/svg/insta@4x.svg'
@@ -38,8 +42,9 @@ const HeaderNav = ({ setShowMenu }) => {
 
                     {/* left */}
                     <div className="flex gap-x-2 cursor-pointer items-center w-[20%]">
+                        {/* Logo */}
                         <Link href="/">
-                        <img src={Logo} alt="" />
+                            <Image src={Logo} alt="" />
                         </Link>
                     </div>
                     {/* middle */}
@@ -60,7 +65,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     }}
                                     className=" flex justify-center items-center h-[100%]"
                                 >
-                                    <a className="flex items-center text-black hover:text-[#bf912d]">ENTERTAINMENT <BiChevronDown className="text-lg" /></a>
+                                    <div className="flex items-center text-black hover:text-[#bf912d]">ENTERTAINMENT <BiChevronDown className="text-lg" /></div>
                                 </div>
                                 {clicked === true && (
                                     <div
@@ -93,7 +98,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     }}
                                     className="flex justify-center items-center h-[100%]"
                                 >
-                                    <a className="flex items-center text-black hover:text-[#bf912d]">News <BiChevronDown className="text-lg" /></a>
+                                    <div className="flex items-center text-black hover:text-[#bf912d]">News <BiChevronDown className="text-lg" /></div>
                                 </div>
                                 {onClicked === true && (
                                     <div
@@ -125,7 +130,7 @@ const HeaderNav = ({ setShowMenu }) => {
                     <div className="w-[15%] ">
                         <div className=" flex justify-around items-center text-[#bf912d] border-l-2">
                             <div role="button" onClick={() => setShowMenu(true)} className="">
-                                <img src="menuu.png" alt="" />
+                                <Image src={MenuImage} alt="" />
                             </div>
 
                             {/* follow/share */}
@@ -134,7 +139,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     setClickFollow(!clickFollow)
 
                                 }} className="flex items-center gap-x-1">
-                                    <img src="share.png" alt="" />
+                                    <Image src={ShareImage} alt="" />
                                     <p className="text-[16px] font-nunitoSans">Follow</p>
                                 </div>
                                 {clickFollow === true && (
@@ -169,7 +174,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     setShowSearch(!showSearch)
                                 }}
                             >
-                                <img src="searchh.png" alt="" />
+                                <Image src={SearchImage} alt="" />
                             </div>
                         </div>
                     </div>

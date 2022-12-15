@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { MdClose } from 'react-icons/md'
 import { BsSearch } from 'react-icons/bs'
+
+import MobileMenuImage from '../../assets/images/mobileMenu.png'
+import Logo from '../../assets/images/realLogo.png'
+import HomeIcon from '../../assets/images/home.png'
 
 import facebook from '../../assets/svg/facebook@4x.svg'
 import insta from '../../assets/svg/insta@4x.svg'
@@ -20,9 +25,9 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                 {/* mobile menu */}
                 <div className="flex items-center gap-x-3 w-[72%]">
                     <div role="button" onClick={() => setShowMenu(true)} className="">
-                        <img src="mobileMenu.png" alt="" className="h-[22px]" />
+                        <Image src={MobileMenuImage} className="w-[90%]" alt="" />
                     </div>
-                    <img src="realLogo.png" className="h-[30px]" alt="" />
+                    <Image src={Logo} className="h-[30px]" alt="" />
                 </div>
                 <div className="flex items-center justify-around border-l w-[28%]">
                     {/* share */}
@@ -92,7 +97,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
 
             <div className="flex items-center gap-x-3 mt-2">
                 <div role="button">
-                    <img src="home.png" alt="" className="h-[20px] w-[31px]" />
+                    <Image src={HomeIcon} alt="" className="h-[20px] w-[31px]" />
                 </div>
                 <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
                     <p>Celebrity</p>
