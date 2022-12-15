@@ -148,19 +148,19 @@ const HeaderNav = ({ setShowMenu }) => {
                                             <div>
                                                 <p className="uppercase text-center text-white font-nunitoSans my-1">Find more content at</p>
                                                 <div className="flex justify-around items-center p-3">
-                                                    <img className="h-[28px]" src={tollywood} alt="" />
-                                                    <img className="h-[28px]" src={gazeta} alt="" />
+                                                    <Image className="h-[28px]" src={tollywood} alt="" />
+                                                    <Image className="h-[28px]" src={gazeta} alt="" />
                                                 </div>
                                             </div>
                                             <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[61px]">
                                                 <p className="uppercase text-[#000000] text-center text-[9px] font-nunitoSans my-1">Follow us on</p>
                                                 <ul className="flex justify-around w-[100%]">
-                                                {/* <img className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
-                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
-                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
-                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
-                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
-                                                    <img className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" /> */}
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" />
                                                 </ul>
                                             </div>
                                         </div>

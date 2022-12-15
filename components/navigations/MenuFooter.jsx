@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { BiCopyright } from 'react-icons/bi'
 import gazeta from '../../assets/svg/gazeta-post-web.svg'
 import tollywood from '../../assets/svg/tollywood.svg'
@@ -9,8 +10,8 @@ const MenuFooter = () => {
             <div>
                 <p className="uppercase text-center text-white text-[12px] font-nunitoSans my-1">Find more content at</p>
                 <div className="flex justify-around items-center p-3">
-                    <img className="h-[28px]" src={tollywood} alt="" />
-                    <img className="h-[28px]" src={gazeta} alt="" />
+                    <Image className="h-[28px]" src={tollywood} alt="" />
+                    <Image className="h-[28px]" src={gazeta} alt="" />
                 </div>
             </div>
             <div className="text-center flex justify-center">

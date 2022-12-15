@@ -30,7 +30,7 @@ const MobileMenu = ({ setShowMenu }) => {
                 <AiOutlineCloseCircle onClick={() => setShowMenu(false)} className='text-[#bf912d] text-right text-3xl cursor-pointer' />
             </div>
             {/* menu content */}
-            <div className="overflow-y-scroll h-[72%]">
+            <div className="overflow-y-scroll scrollbar h-[72%]">
                 <div className="p-2">
                     <div className="w-[100%] bg-gray-200 rounded-md flex gap-x-1 border h-[45px] items-center p-1">
                         <BsSearch className="text-2xl" />
@@ -82,12 +82,12 @@ const MobileMenu = ({ setShowMenu }) => {
                     <div className="border-t border-gray-400 border-b leading-10 p-2">
                         <h1 className="uppercase">Follow us on</h1>
                         <ul className="flex items-center gap-x-4 px-4">
-                            {/* <img className="h-[24px] w-[24px] cursor-pointer" src={insta} alt="" />
-                            <img className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
-                            <img className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
-                            <img className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
-                            <img className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
-                            <img className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" /> */}
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={insta} alt="" />
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" />
                         </ul>
                     </div>
                 </div>
