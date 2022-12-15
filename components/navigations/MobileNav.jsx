@@ -25,9 +25,9 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                 {/* mobile menu */}
                 <div className="flex items-center gap-x-3 w-[72%]">
                     <div role="button" onClick={() => setShowMenu(true)} className="">
-                        <Image src={MobileMenuImage} className="w-[90%]" alt="" />
+                        <Image src={MobileMenuImage}  alt="" />
                     </div>
-                    <Image src={Logo} className="h-[30px]" alt="" />
+                    <Image src={Logo} className="h-[30px]" alt="" priority />
                 </div>
                 <div className="flex items-center justify-around border-l w-[28%]">
                     {/* share */}
@@ -95,9 +95,9 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                 </div>
             )}
 
-            <div className="flex items-center gap-x-3 mt-2">
+            <div className="flex items-center gap-x-3 mt-3">
                 <div role="button">
-                    <Image src={HomeIcon} alt="" className="h-[20px] w-[31px]" />
+                    <Image src={HomeIcon} alt=""  />
                 </div>
                 <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
                     <p>Celebrity</p>
