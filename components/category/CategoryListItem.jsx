@@ -32,11 +32,13 @@ function CategoryListItem({ width, data }) {
                     </div>
                     {/* right content */}
                     <div className="relative">
-                        <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
+                        <Link href={`/category/${randomCategory.name.toLowerCase()}`}>
+                            <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
+                        </Link>
                         <Link href={`/single-news/${data['slug']}`}>
-                        <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3>
-            
-                        <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p >
+                            <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3>
+
+                            <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p >
                         </Link>
                         <p className="text-[#737373] text-[12px] font-[300] font-nunitoSans absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>
                     </div>

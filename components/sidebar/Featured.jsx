@@ -36,10 +36,11 @@ const Featured = ({ data }) => {
                 <div className="bg-[#bf912d] h-[2px] w-[50px]"></div>
             </div>
             <div className="flex flex-col gap-y-[10px] mt-[19px]">
-            {data.map((item) => {
+            {data.map((item, index) => {
                 const image = 'https://dailyresearchplot.com' + item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
                 return (
                     <SideBarItem
+                      key={index}
                         category={item?._embedded["wp:term"][0][1].name.toUpperCase()}
                         title={item.title.rendered}
                         image={image}

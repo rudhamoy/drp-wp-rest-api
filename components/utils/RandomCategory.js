@@ -1,5 +1,5 @@
 const getRandomCategory = (array) => {
-    const randomCate = array[Math.floor(Math.random() * array.length)];
+    const randomCate = !array ? null : array[Math.floor(Math.random() * array.length)];
     return randomCate;
   };
 

@@ -6,6 +6,8 @@ import { BsSearch } from 'react-icons/bs'
 import MobileMenuImage from '../../assets/images/mobileMenu.png'
 import Logo from '../../assets/images/realLogo.png'
 import HomeIcon from '../../assets/images/home.png'
+import MobileSearch from '../../assets/images/mobileSearch.png'
+import MobileShare from '../../assets/images/mobileShare.png'
 
 import facebook from '../../assets/svg/facebook@4x.svg'
 import insta from '../../assets/svg/insta@4x.svg'
@@ -31,14 +33,13 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                 </div>
                 <div className="flex items-center justify-around border-l w-[28%]">
                     {/* share */}
-                    {/* <img src="mobileShare.png" alt="" className="h-[35px]" /> */}
                     <div className="relative">
                         <div role="button" onClick={() => {
                             setClickFollow(!clickFollow)
 
                         }} className="flex items-center gap-x-1">
                             {/* icon and image */}
-                            {clickFollow !== true ? <img src="mobileShare.png" alt="" className="h-[22px]" /> : <MdClose className="text-[#bf912d] text-3xl" />}
+                            {clickFollow !== true ? <img src={MobileShare} alt="" className="h-[22px]" /> : <MdClose className="text-[#bf912d] text-3xl" />}
 
                             {/* <p className="text-[16px] font-futura2">Follow</p> */}
                         </div>
@@ -75,7 +76,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                             setShowSearch(!showSearch)
                         }}
                     >
-                        <img src="mobileSearch.png" alt="" className="h-[22px]" />
+                        <img src={MobileSearch} alt="" className="h-[22px]" />
                     </div>
 
                 </div>

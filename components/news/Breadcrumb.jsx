@@ -30,13 +30,13 @@ const Breadcrumb = ({data}) => {
         </span> */}
         <MdArrowForwardIos className="text-[#bf912d] " />
 
-        <Link href="#" class=" hover:underline capitalize">
-           {randomData.name}
+        <Link href={`/category/${randomData.name.toLowerCase()}`} class="hover:underline capitalize">
+            {randomData.name}
         </Link>
         <MdArrowForwardIos className="text-[#bf912d] " />
-        <a href="#" class="hover:underline line-clamp-1 sm:line-clamp-none">
+        <Link href="#" class="hover:underline line-clamp-1 sm:line-clamp-none">
             {data.title.rendered}
-        </a>
+        </Link>
     </div>
 </div>
   )

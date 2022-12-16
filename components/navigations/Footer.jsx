@@ -3,6 +3,7 @@ import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { CiFacebook } from 'react-icons/ci'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { BiCopyright } from 'react-icons/bi'
+import Logo from '../../assets/images/logobg.png'
 
 
 const Footer = () => {
@@ -50,19 +51,19 @@ const Footer = () => {
                         <div className="w-[100%] border-b bg-gray-50 mt-3 sm:mt-0"></div>
                         <div className="mt-[37px] sm:m-0">
                             <div className="flex gap-x-2 items-center">
-                                <img src="logobg.png" alt="" className="w-[220px]" />
+                                <img src={Logo} alt="" className="w-[220px]" />
                             </div>
                             <p className='text-[16px] font-sans text-[#dbdbdb] py-3'>Daily Research Plot is a new-age media company that keeps its reader updated with the latest news headlines from the United States and all over the world. Entertainment, TV News, Shows Premiere Date, Release Date, Celebrity Gossips, and Travel - we help our readers to know about everything running around the world in every field</p>
 
                             <div className='flex items-center gap-x-4 my-2'>
                                 <h1 className="text-[#bf912d] text-[20px] font-nunitoSans whitespace-nowrap">FOllOW US</h1>
                                 <div className="flex gap-x-2 sm:gap-x-3 ">
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="ins.png" alt="" />
+                                    {/* <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="ins.png" alt="" />
                                     <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="fb.png" alt="" />
                                     <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="twt.png" alt="" />
                                     <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="yt.png" alt="" />
                                     <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="lnkd.png" alt="" />
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="rss.png" alt="" />
+                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="rss.png" alt="" /> */}
                                 </div>
                             </div>
                         </div>

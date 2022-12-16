@@ -20,7 +20,9 @@ function SideBarItem({ category, title, image, slug }) {
                     <div className='fadeBottom absolute bottom-0 left-0 right-0 rounded-sm' />
             </div>
             <div className="px-2 relative h-[80px] w-[250px]">
+                <Link href={`/category/${category.toLowerCase()}`}>
                 <p className="font-nunitoSans text-[#bf912d] font-bold text-[10px] capitalize mb-[5px]">{category}</p>
+                </Link>
                 <Link href={`/single-news/${slug}`}>
                 <h3 className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
                     {title}
