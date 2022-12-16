@@ -11,8 +11,12 @@ import CategoryListItem from './CategoryListItem'
 import { useInView } from 'react-intersection-observer';
 
 function CategoryContainer({ featured, postByCategory}) {
+
     const { ref, inView } = useInView()
     const router = useRouter()
+
+    const featuredData = postByCategory.slice(0, 5)
+    const categoryPostList = postByCategory.slice(6, 14)
   
     return (
         <>
@@ -33,15 +37,14 @@ function CategoryContainer({ featured, postByCategory}) {
 
                     <div className="w-[95vw] sm:w-[1264px]">
                         <Advertisement />
-                        <FeaturedContainer data={postByCategory.slice(0, 5)} />
+                        <FeaturedContainer data={featuredData} />
                     </div>
 
                     <div className="mt-[13px]" >
                         <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                             <div className="">
-                                {postByCategory && postByCategory.slice(5, 14).map((item, index) => (
+                                {categoryPostList && categoryPostList.map((item, index) => (
                                 <CategoryListItem key={index} data={item} />
-
                                 ))}
                                 {/* <div className="p-2 rounded-md border bg-[#bf912d] text-center text-white mt-8 mb-14 text-2xl">
                                 <p className="text-yellow-400">MORE STORIES</p>

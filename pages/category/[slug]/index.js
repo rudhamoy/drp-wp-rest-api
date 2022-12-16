@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
     let categoryId
         categories.map(cat => {
             
-            if(cat.name.toLowerCase() === params.slug) {
+            if(cat.name.toLowerCase() === params.slug.toLowerCase()) {
                 categoryId = cat.id
             }
         })

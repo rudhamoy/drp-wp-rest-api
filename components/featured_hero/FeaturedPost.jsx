@@ -17,7 +17,7 @@ function FeaturedPost({ data }) {
                     <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
                         <AiOutlinePicRight className="text-[#ffd200] font-bold" />
                         {/* <Category id={data[0].categories[1]} /> */}
-                        <Link href={`/category/${randomCategory.name.toLowerCase()}`}>
+                        <Link href={`/category/${randomCategory.name}`}>
                         <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{randomCategory.name.toUpperCase()}</div>
                         </Link>
                     </div>

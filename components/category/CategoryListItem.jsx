@@ -32,7 +32,7 @@ function CategoryListItem({ width, data }) {
                     </div>
                     {/* right content */}
                     <div className="relative">
-                        <Link href={`/category/${randomCategory.name.toLowerCase()}`}>
+                        <Link href={`/category/${randomCategory.name}`}>
                             <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
                         </Link>
                         <Link href={`/single-news/${data['slug']}`}>
