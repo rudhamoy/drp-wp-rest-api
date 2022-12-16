@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 import cartoon from '../../assets/images/cartoon.png';
@@ -19,7 +20,8 @@ function CategoryListItem({ width, data }) {
                     {/* image left */}
                     <div className="relative">
                         <div className="w-[85vw] sm:w-[315px] h-[165px] rounded-[5px] overflowHidden">
-                            <img className="w-[100%] h-[100%] object-cover" src={`https://dailyresearchplot.com/${data?._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`} alt="" />
+                            <Image fill className="object-cover rounded-[5px]" src={data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : ''} alt="" />
+                            {/* <Image fill className="object-cover rounded-[5px]" src={`https://dailyresearchplot.com/${data?._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`} alt="" /> */}
                         </div>
                         <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded"></div>
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">

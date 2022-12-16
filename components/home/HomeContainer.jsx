@@ -17,7 +17,6 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
     const dispatch = useDispatch()
     const { posts, stories, status } = useSelector(state => state.posts)
 
-
     const { ref, inView } = useInView()
 
     const sideSectionArr = [
@@ -59,8 +58,9 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                             <CategorySection key={index} category="Cate" data={item} />
                         )
                     })}
-                    <div className="hidden sm:block">
+                    <div className="hidden sm:block mt-[19px]">
 
+                        {/* more stories */}
                         {posts.map((item, index) => (
                             <CategoryListItem data={item} key={index} />
                         ))}
@@ -69,6 +69,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                                 <p className='text-center text-blue-400 text-3xl'>Loading...</p>
                             </div>
                         )}
+
                         <MoreButton title={"MORE STORIES"} />
 
                         {secondPage.map((item, index) => (

@@ -1,8 +1,15 @@
 import React from 'react'
+import Image from 'next/image'
 import parseHTML from "html-react-parser";
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
+
+import InstaIcon from '../../assets/images/insta.png'
+import FacebookIcon from '../../assets/images/facebook.png'
+import TwitterIcon from '../../assets/images/twitter.png'
+import YoutubeIcon from '../../assets/images/youtube.png'
+import LinkedInIcon from '../../assets/images/linkedin.png'
 
 const ArticleContainer = ({ image, data }) => {
 
@@ -53,11 +60,11 @@ const ArticleContainer = ({ image, data }) => {
                         </div>
                         <div className="flex gap-x-2 my-2">
                             <p className="whitespace-nowrap">Follow us:</p>
-                            {/* <img height={24} width={24} src="insta.png" alt="" />
-                            <img height={24} width={24} src="facebook.png" alt="" />
-                            <img height={24} width={24} src="twitter.png" alt="" />
-                            <img height={24} width={24} src="youtube.png" alt="" />
-                            <img height={24} width={24} src="linkedin.png" alt="" /> */}
+                            <Image height={24} width={24} src={InstaIcon} alt="" />
+                            <Image height={24} width={24} src={FacebookIcon} alt="" />
+                            <Image height={24} width={24} src={TwitterIcon} alt="" />
+                            <Image height={24} width={24} src={YoutubeIcon} alt="" />
+                            <Image height={24} width={24} src={LinkedInIcon} alt="" />
                         </div>
                     </div>
                 </div>

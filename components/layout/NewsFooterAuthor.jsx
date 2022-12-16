@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import authorFb from '../../assets/svg/authorFb.svg'
 import authorWa from '../../assets/svg/authorWa.svg'
 import authorEmail from '../../assets/svg/authorEmail.svg'
@@ -25,11 +26,11 @@ const NewsFooterAuthor = ({data}) => {
                 <div className="flex items-center gap-x-2 mt-[10px]">
                     <p className="text-[#bf912d] text-[12px] font-nunitoSans">Reach me at :</p>
                     <div className="flex gap-x-[11px] items-center cursor-pointer">
-                        <img height={16} width={16} src={authorFb} alt="" />
-                        <img height={16} width={16} src={authorLnkd} alt="" />
-                        <img height={16} width={16} src={authorWa} alt="" />
-                        <img height={16} width={16} src={authorTwt} alt="" />
-                        <img height={18} width={18} src={authorEmail} alt="" />
+                        <Image height={16} width={16} src={authorFb} alt="" />
+                        <Image height={16} width={16} src={authorLnkd} alt="" />
+                        <Image height={16} width={16} src={authorWa} alt="" />
+                        <Image height={16} width={16} src={authorTwt} alt="" />
+                        <Image height={18} width={18} src={authorEmail} alt="" />
                         {/* <img height={16} width={16} src="email.png" alt="" /> */}
                     </div>
                 </div>

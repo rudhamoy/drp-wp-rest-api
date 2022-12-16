@@ -3,6 +3,8 @@ import axios from 'axios'
 
 const url = 'https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed'
 
+const moreStoriesUrl = "https://tollywoodlife.com/wp-json/wp/v2/posts?_embed"
+
 const initialState = {
     status: 'idle',
     error: null,
@@ -14,7 +16,7 @@ const initialState = {
 // fetch more post
 export const getMorePosts = createAsyncThunk('posts/getMorePosts', async (page) => {
     try {
-        const res = await axios.get(`${url}&page=${page}&per_page=5`)
+        const res = await axios.get(`${moreStoriesUrl}&page=${page}&per_page=5`)
         return res.data
     } catch (error) {
         console.log(error)
@@ -32,9 +34,9 @@ export const getPostByCategory = createAsyncThunk('posts/getPostByCategory', asy
 })
 
 // fetch stories
-export const getStories = createAsyncThunk('posts/getStories', async (_) => {
+export const getStories = createAsyncThunk('posts/getStories', async () => {
     try {
-        const res = await axios.get(`/api/stories`)
+        const res = await axios.get(`https://9ux3yz.deta.dev/story`)
         return res.data
     } catch (error) {
         console.log(error)

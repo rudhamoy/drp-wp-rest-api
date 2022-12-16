@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import facebookColoredIcon from '../../assets/icons/facebook-colored-icon.svg';
 import linkedinColoredIcon from '../../assets/icons/linkedin-colored-icon.svg';
 import whatsappColoredIcon from '../../assets/icons/whatsapp-colored-icon.svg';
@@ -28,11 +29,11 @@ const NewsHeaderAuthor = ({data}) => {
                         </div>
                     </div>
                     <div className="hidden sm:flex flex-row items-center sm:gap-x-3 gap-x-2 ml-[-60px]">
-                        {/* <img src={facebookColoredIcon} alt="" />
-                        <img height={24} width={24} src={linkedinColoredIcon} alt="" />
-                        <img height={24} width={24} src={whatsappColoredIcon} alt="" />
-                        <img height={24} width={24} src={twiterColoredIcon} alt="" />
-                        <img height={24} width={24} src="email.png" alt="" /> */}
+                        <Image src={facebookColoredIcon} alt="" />
+                        <Image height={24} width={24} src={linkedinColoredIcon} alt="" />
+                        <Image height={24} width={24} src={whatsappColoredIcon} alt="" />
+                        <Image height={24} width={24} src={twiterColoredIcon} alt="" />
+                        {/* <Image height={24} width={24} src="email.png" alt="" /> */}
                     </div>
                 </div>
             </div>

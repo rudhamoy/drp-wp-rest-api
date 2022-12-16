@@ -13,7 +13,8 @@ const SingleNewsContainer = ({ singleData, featured }) => {
 
   const { ref, inView } = useInView()
   
-  const image = singleData[0]._embedded["wp:featuredmedia"][0].link
+  // const image = singleData[0]._embedded["wp:featuredmedia"][0].link
+  const image = singleData[0]?._embedded["wp:featuredmedia"] ? singleData[0]?._embedded["wp:featuredmedia"][0].link : ''
 
   return (
     // <div className="my-6 px-2 flex justify-center items-center">
