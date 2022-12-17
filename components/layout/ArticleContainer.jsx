@@ -58,7 +58,7 @@ const ArticleContainer = ({ image, data }) => {
                             <p>Please Subscribe us at <span>Google News</span></p>
                             {/* <img src="Layer16.png" alt="" /> */}
                         </div>
-                        <div className="flex gap-x-2 my-2">
+                        <div className="flex gap-x-2 my-2 cursor-pointer">
                             <p className="whitespace-nowrap">Follow us:</p>
                             <Image height={24} width={24} src={InstaIcon} alt="" />
                             <Image height={24} width={24} src={FacebookIcon} alt="" />

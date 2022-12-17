@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import authorFb from '../../assets/svg/authorFb.svg'
 import authorWa from '../../assets/svg/authorWa.svg'
 import authorEmail from '../../assets/svg/authorEmail.svg'
@@ -20,7 +21,10 @@ const NewsFooterAuthor = ({data}) => {
                 </div>
             </div>
             <div>
+                <Link href={`/author/${data.slug}`}>
                 <p className="text-[18px] text-[#bf912d] font-nunitoSans mb-[5px] capitalize cursor-pointer">{data.name}</p>
+                </Link>
+               
                 <p className="text-[14px] text-[#4b4b4b] font-nunitoSans">{data.description}</p>
 
                 <div className="flex items-center gap-x-2 mt-[10px]">
