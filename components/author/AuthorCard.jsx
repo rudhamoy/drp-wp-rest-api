@@ -19,8 +19,8 @@ const AuthorCard = ({ data }) => {
         <div>
             <div className="p-4 rounded-[6px] border bg-[#fffbf1] my-3 w-[95vw]  sm:w-[837px]">
                 <div className="flex gap-x-4">
-                    <div className="w-[20%]">
-                        <div className="overflow-hidden rounded-full h-[70px] sm:h-[125px] w-[240px] sm:w-[130px] relative">
+                    <div className=" sm:w-[20%]">
+                        <div className="overflow-hidden rounded-full h-[70px] sm:h-[125px] w-[70px] sm:w-[130px] relative">
                             <Image fill className="object-cover rounded-full" src={avatarList[2]} alt="" />
                         </div>
                     </div>

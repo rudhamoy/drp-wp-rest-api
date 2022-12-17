@@ -14,7 +14,7 @@ const NewsFooterAuthor = ({data}) => {
     const avatarList = Object.values(avatars)
 
     return (
-        <div className="flex sm:items-center bg-[#f4f4f4] rounded-[4px] p-2 sm:p-4 gap-x-2">
+        <div className="flex flex-col sm:flex-row sm:items-center bg-[#f4f4f4] rounded-[4px] p-2 sm:p-4 gap-x-2">
             <div>
                 <div className="p-[2px] border-2 border-black rounded-full h-[120px] w-[120px]">
                     <img className="rounded-full h-[100%] w-[100%]" src={avatarList[2]} alt="" />
