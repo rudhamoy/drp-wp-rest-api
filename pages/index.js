@@ -33,11 +33,11 @@ export default function Home({
 }
 
 
-// export async function getStaticProps() {
-  export async function getServerSideProps({ req, res }) {
+export async function getStaticProps() {
+  // export async function getServerSideProps({ req, res }) {
 
 
-  res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate')
+  // res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate')
 
   // getCelebGossip, getMovieNews, getGamesSport, getStories
 
@@ -78,6 +78,7 @@ export default function Home({
     props: {
       data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport,
       hotspot
-    }
+    },
+    revalidate: 5
   }
 }
