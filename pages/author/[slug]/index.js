@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 
-export async function getStaticProps({ params, query }) {
+export async function getStaticProps({ params }) {
   
 
     const getUsers = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/users?_embed&per_page=100`)
