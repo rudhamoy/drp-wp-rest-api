@@ -5,10 +5,10 @@ import styles from '../styles/Home.module.css'
 // import { pool } from '../services/mysql_db';
 import HomeContainer from '../components/home/HomeContainer'
 
-export default function Home({ 
-  data, entertainment, anime, 
-  tvShows, tech, hotspot, 
-  secondPage, celebGossip, movieNews, 
+export default function Home({
+  data, entertainment, anime,
+  tvShows, tech, hotspot,
+  secondPage, celebGossip, movieNews,
   gamesSport, stories,
 }) {
 
@@ -33,7 +33,11 @@ export default function Home({
 }
 
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+  export async function getServerSideProps({ req, res }) {
+
+
+  res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate')
 
   // getCelebGossip, getMovieNews, getGamesSport, getStories
 
@@ -62,27 +66,18 @@ export async function getStaticProps() {
     getCelebGossip.json(),
     getMovieNews.json(),
     getGamesSport.json(),
- 
+
   ]);
 
   const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
   const hotspot = await getHotspot.json()
 
- 
 
-  return { 
-    props: { 
-      data, 
-      entertainment , 
-      anime, 
-      tvShows, 
-      tech, 
-      hotspot, 
-      secondPage, 
-      celebGossip, 
-      movieNews, 
-      gamesSport, 
-    },
-    revalidate: 30, // In seconds
-  };
+
+  return {
+    props: {
+      data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport,
+      hotspot
+    }
+  }
 }
