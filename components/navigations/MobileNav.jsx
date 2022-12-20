@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { MdClose } from 'react-icons/md'
 import { BsSearch } from 'react-icons/bs'
 
@@ -98,13 +99,26 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
 
             <div className="flex items-center gap-x-3 mt-3">
                 <div role="button">
+                    <Link href='/'>
                     <Image src={HomeIcon} alt=""  />
+                    </Link>
                 </div>
                 <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
+                    <Link href="/category/celebrity">
                     <p>Celebrity</p>
+                    </Link>
+                    <Link href="/category/entertainment">
                     <p>Entertainment</p>
+                    </Link>
+                    <Link href='/category/TV Show'>
                     <p className="whitespace-nowrap">Tv News</p>
-                    <p className="whitespace-nowrap">Web Stories</p>
+                    </Link>
+                    <Link href='/category/movie'>
+                        Movie
+                    </Link>
+                    <Link href='/category/technology'>
+                    <p className="whitespace-nowrap">Technology</p>
+                    </Link>
                     <p className="whitespace-nowrap">Web Stories</p>
                     <p className="whitespace-nowrap">Web Stories</p>
                     <p className="whitespace-nowrap">Web Stories</p>
