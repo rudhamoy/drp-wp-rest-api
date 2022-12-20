@@ -1,9 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
+import { useDispatch } from 'react-redux'
+
+import { modalBtnCondition } from '../../features/activitySlice'
 
 function VisualStoriesItem({ image, title, styles}) {
+    const dispatch = useDispatch()
+
+    const clickHandler = () => {
+        dispatch(modalBtnCondition(true))
+    }
+
     return (
-        <div  style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
+        <div onClick={clickHandler} style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
             <div className="h-[300px] w-[187px] rounded-[4px] overflowHidden">
                 <Image fill src={image} className="h-[100%] w-[100%]" alt="" />
             </div>

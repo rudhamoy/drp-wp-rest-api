@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { createWrapper, HYDRATE } from 'next-redux-wrapper'
+import activitySlice from "../features/activitySlice";
 
 import authorSlice from "../features/authorSlice";
 import categorySlice from "../features/categorySlice";
@@ -8,7 +9,8 @@ import postSlice from "../features/postSlice";
 const combineReducer = combineReducers({
     author: authorSlice,
     category: categorySlice,
-    posts: postSlice
+    posts: postSlice,
+    activity: activitySlice
 })
 
 const masterReducer = (state, action) => {

@@ -4,6 +4,7 @@ import Router from 'next/router'
 import styles from '../styles/Home.module.css'
 // import { pool } from '../services/mysql_db';
 import HomeContainer from '../components/home/HomeContainer'
+import { wrapper } from '../store/store'
 
 export default function Home({
   data, entertainment, anime,
@@ -71,8 +72,6 @@ export async function getStaticProps() {
 
   const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
   const hotspot = await getHotspot.json()
-
-
 
   return {
     props: {
