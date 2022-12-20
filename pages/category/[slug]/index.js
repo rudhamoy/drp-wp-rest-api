@@ -1,5 +1,4 @@
 import React from 'react'
-
 import CategoryContainer from '../../../components/category/CategoryContainer'
 
 const index = ({ postByCategory, featured }) => {

@@ -6,6 +6,61 @@ import { BiCopyright } from 'react-icons/bi'
 import Logo from '../../assets/images/logobg.png'
 
 
+const categories = [
+    {
+        name: "Entertainment",
+        slug: "entertainment",
+    },
+    {
+        name: "Celebrity News",
+        slug: "celebrity",
+    },
+    {
+        name: "TV News",
+        slug: "tv-show",
+    },
+    {
+        name: "Technology News",
+        slug: "technology",
+    },
+    {
+        name: "Movies",
+        slug: "movie",
+    },
+    {
+        name: "Politics",
+        slug: "politics",
+    },
+    {
+        name: "Sports",
+        slug: "sports",
+    },
+    {
+        name: "General News",
+        slug: "general-news",
+    },
+    {
+        name: "Trending",
+        slug: "trending",
+    },
+    {
+        name: "Bollywood",
+        slug: "bollywood",
+    },
+    {
+        name: "Web Stories",
+        slug: "our-web-stories",
+    },
+    {
+        name: "Business",
+        slug: "business",
+    },
+    {
+        name: "Photos",
+        slug: "",
+    }
+]
+
 const Footer = () => {
     return (
         <div className="bg-[#1d1d1d] mt-4 text-gray-50">
@@ -20,8 +75,17 @@ const Footer = () => {
                             </div>
                             <div>
                                 <ul className="text-[18px] font-nunitoSans flex sm:justify-between gap-x-2 flex-wrap">
-                                    <li className="cursor-pointer hover:text-[#bf912d]">Entertainment</li>
-                                    <li>|</li>
+
+                                    {categories.map((category, index) => (
+                                        <a href={`/category/${category.slug}`}>
+                                            <li className="cursor-pointer hover:text-[#bf912d]">
+                                                {category.name}
+                                                <span className="ml-4">|</span>
+                                            </li>
+
+                                        </a>
+                                    ))}
+                                    {/* 
                                     <li className="cursor-pointer hover:text-[#bf912d]">Celebrity News</li>
                                     <li>|</li>
                                     <li className="cursor-pointer hover:text-[#bf912d]">TV News</li>
@@ -44,7 +108,7 @@ const Footer = () => {
                                     <li>|</li>
                                     <li className="cursor-pointer hover:text-[#bf912d]">Business</li>
                                     <li>|</li>
-                                    <li className="cursor-pointer hover:text-[#bf912d]">Photos</li>
+                                    <li className="cursor-pointer hover:text-[#bf912d]">Photos</li> */}
                                 </ul>
                             </div>
                         </div>

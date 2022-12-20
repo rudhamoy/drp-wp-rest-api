@@ -50,7 +50,9 @@ const HeaderNav = ({ setShowMenu }) => {
                     {/* middle */}
                     <div className="w-[65%] h-[100%]">
                         <div className="flex items-center justify-around font-semibold text-[16px] px-6 uppercase h-[100%]">
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">CELEBRITY</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
+                                <a href="/category/celebrity">CELEBRITY</a>
+                            </div>
 
                             <div
                                 className="dropdown relative h-[100%]"
@@ -78,11 +80,11 @@ const HeaderNav = ({ setShowMenu }) => {
                                         }}
                                     >
                                         <ul className="absolute uppercase text-black  z-50 -right-10 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
-                                            <li className="hover:text-[#bf912d]"><a href="#">Politics</a></li>
-                                            <li className="hover:text-[#bf912d]"><a href="#">Technology</a></li>
-                                            <li className="hover:text-[#bf912d]"><a href="#">Gaming</a></li>
-                                            <li className="hover:text-[#bf912d]"><a href="#">Sports</a></li>
-                                            <li className="hover:text-[#bf912d]"><a href="#">Trending</a></li>
+                                            <li className="hover:text-[#bf912d]"> <a href="/category/politics">Politics</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/technology">Technology</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/games">Gaming</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/sports">Sports</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/trending">Trending</a></li>
                                         </ul>
                                     </div>
                                 )}
@@ -102,7 +104,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                 </div>
                                 {onClicked === true && (
                                     <div
-                                    className={`${style.menu} z-40`}
+                                        className={`${style.menu} z-40`}
                                         onMouseEnter={() => {
                                             setOnClicked(true)
                                         }}
@@ -111,19 +113,27 @@ const HeaderNav = ({ setShowMenu }) => {
                                         }}
                                     >
                                         <ul className="absolute uppercase text-black z-50 -right-6 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
-                                            <li className='hover:text-[#bf912d]'><a href="#">Politics</a></li>
-                                            <li className='hover:text-[#bf912d]'><a href="#">Technology</a></li>
-                                            <li className='hover:text-[#bf912d]'><a href="#">Gaming</a></li>
-                                            <li className='hover:text-[#bf912d]'><a href="#">Sports</a></li>
-                                            <li className='hover:text-[#bf912d]'><a href="#">Trending</a></li>
+                                            <li className="hover:text-[#bf912d]"> <a href="/category/politics">Politics</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/technology">Technology</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/games">Gaming</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/sports">Sports</a></li>
+                                            <li className="hover:text-[#bf912d]"><a href="/category/trending">Trending</a></li>
                                         </ul>
                                     </div>
                                 )}
                             </div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">ANIME</div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">GAMES</div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">MOVIES</div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">TV SHOW</div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
+                                <a href="/category/anime">ANIME</a>
+                            </div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
+                                <a href="/category/games">GAMES</a>
+                            </div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
+                                <a href="/category/movie">MOVIES</a>
+                            </div>
+                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
+                                <a href="/category/tv-show">TV SHOW</a>
+                            </div>
                         </div>
                     </div>
                     {/* right */}
@@ -143,7 +153,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                     <p className="text-[16px] font-nunitoSans">Follow</p>
                                 </div>
                                 {clickFollow === true && (
-                                    <div  className={`${style.follow} z-40`}>
+                                    <div className={`${style.follow} z-40`}>
                                         <div className="absolute uppercase top-10 z-50 -right-10 bg-[#bf912d] w-[267px] h-[149px] border-t-4 border-[#bf912d] shadow-md rounded-md overflow-hidden">
                                             <div>
                                                 <p className="uppercase text-center text-white font-nunitoSans my-1">Find more content at</p>
