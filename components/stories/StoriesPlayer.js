@@ -41,7 +41,7 @@ const StoriesPlayer = () => {
     return (
         <div className=' flex justify-center items-center '>
             {/* container */}
-            <div className="h-[70vh]  w-[500px] mx-auto px-4 py-6 relative">
+            <div className="h-[70vh] w-[320px]  sm:w-[500px] mx-auto px-4 py-6 relative">
                 <div className="absolute top-[30px] left-0 right-0 px-[40px] z-[999] flex justify-between">
                     <MdOutlineClose onClick={closeHandler} className="text-white text-2xl drop-shadow-lg cursor-pointer" />
                     <div className="flex items-center gap-x-5">
@@ -56,9 +56,9 @@ const StoriesPlayer = () => {
                 </div>
                 <Slider ref={slider} {...settings}>
                     {stories.map((item, index) => (
-                        <div key={index} className='h-[100%] overflow-hidden border border-white relative'>
+                        <div key={index} className='h-[70vh] sm:h-[100%] overflow-hidden border border-white relative'>
 
-                            <img src={item.content} alt="" className="h-[100%] object-content" />
+                            <img src={item.content} alt="" className="h-[70vh] sm:h-[100%] object-cover" />
                             <div className="absolute bottom-10 flex justify-center w-full p-4">
                                 <p className=' text-white border-4 border-white p-2 text-2xl font-bold z-[999]'>{item.title}</p>
                             </div>
