@@ -30,7 +30,7 @@ function SmallerCardItems({ data }) {
                 {/* right - content */}
                 <div className="relative w-[62%] sm:w-[67%]">
 
-                    <Link href={`/category/${randomCategory.name}`}>
+                    <Link href={`/category/${randomCategory.slug}`}>
                         <p className="text-[10px] text-[#bf912d] font-bold">{randomCategory.name.toUpperCase()}</p>
                     </Link>
                     <Link href={`/single-news/${data['slug']}`}>

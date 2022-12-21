@@ -15,7 +15,12 @@ export default function Home({
 
 
   return (
-    <div>
+    <>
+     <Head>
+        <title>Daily Research Plot - Entertainment, Celebrity, Anime, News</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div>
       <HomeContainer
         data={data}
         entertainment={entertainment}
@@ -30,6 +35,8 @@ export default function Home({
         visualStories={stories}
       />
     </div>
+    </>
+    
   )
 }
 

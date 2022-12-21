@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi';
 import CategoryListItem from '../category/CategoryListItem';
 import SmallerCardItems from './SmallerCardItems';
@@ -15,7 +16,9 @@ function CategorySection({ category, data, id }) {
                         <div className="h-[2.5px] w-[60px] sm:w-[100px] rounded bg-[#bf912d]"></div>
                     </div>
                     <div className="flex items-center cursor-pointer">
+                        <Link href={`/category/${data[6].slug}`}>
                         <p className="text-[#bf912d] text-[12px] sm:text-[18px] font-semibold font-nunitoSans">READ ALL</p>
+                        </Link>
                         < FiChevronRight className="text-[#bf912d] text-[18px] sm:text-[25px]" />
                     </div>
                 </div>

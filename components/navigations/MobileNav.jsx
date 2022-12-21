@@ -30,7 +30,10 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                     <div role="button" onClick={() => setShowMenu(true)} className="">
                         <Image src={MobileMenuImage}  alt="" />
                     </div>
+                    <Link href='/'>
                     <Image src={Logo} className="h-[30px]" alt="" priority />
+                    </Link>
+                    
                 </div>
                 <div className="flex items-center justify-around border-l w-[28%]">
                     {/* share */}

@@ -23,7 +23,7 @@ const MobileMenu = ({ setShowMenu }) => {
     const menuItemClass = " cursor-pointer hover:text-[#bf912d] w-full leading-[40px] border-t-[2px] px-2"
 
     return (
-        <div className='fixed left-0 z-50 w-[100%] sm:w-[20%] h-[100vh] bg-white transition ease-in-out delay-500 duration-500 font-nunitoSans'>
+        <div className='fixed left-0 z-50 w-[100%] sm:w-[20%] h-[100vh] text-black bg-white transition ease-in-out delay-500 duration-500 font-nunitoSans'>
             {/* header */}
             <div className="flex justify-between items-center border-b p-3 h-[10%]">
                 <Image src={Logo} alt="" className="w-[80%]" />

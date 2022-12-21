@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 import CategoryListItem from '../category/CategoryListItem'
 import SliderItem from '../home/HotSpotSliderItem'
@@ -25,7 +26,7 @@ function SidebarCategorySection({ category, data }) {
                         return (
                             <SideBarItem 
                             key={index}
-                            category={item?._embedded["wp:term"][0][1].name.toUpperCase()} 
+                            category={item?._embedded["wp:term"][0][1]} 
                             title={item.title.rendered} 
                             image={image}
                             slug={item.slug}
@@ -35,8 +36,10 @@ function SidebarCategorySection({ category, data }) {
                     })}
 
                 </div>
-                <div className="flex items-center justify-center mt-[13px]">
+                <div className="flex items-center justify-center my-[7px]">
+                    <Link href={`/category/${data[5].slug}`}>
                     <p className="text-[#bf912d] font-semibold font-nunitoSans text-[16px]">READ ALL</p>
+                    </Link>
                     <FiChevronRight className="text-[#bf912d] text-[18px]" />
                 </div>
             </div>

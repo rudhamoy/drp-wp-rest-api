@@ -41,7 +41,7 @@ const Featured = ({ data }) => {
                 return (
                     <SideBarItem
                       key={index}
-                        category={item?._embedded["wp:term"][0][1].name.toUpperCase()}
+                        category={item?._embedded["wp:term"][0][1]}
                         title={item.title.rendered}
                         image={image}
                         slug={item.slug}

@@ -117,7 +117,7 @@ const Footer = () => {
                             <div className="flex gap-x-2 items-center">
                                 <img src={Logo} alt="" className="w-[220px]" />
                             </div>
-                            <p className='text-[16px] font-sans text-[#dbdbdb] py-3'>Daily Research Plot is a new-age media company that keeps its reader updated with the latest news headlines from the United States and all over the world. Entertainment, TV News, Shows Premiere Date, Release Date, Celebrity Gossips, and Travel - we help our readers to know about everything running around the world in every field</p>
+                            <p className='text-[16px] font-sans text-[#dbdbdb] py-3 text-justify'>Daily Research Plot is a new-age media company that keeps its reader updated with the latest news headlines from the United States and all over the world. Entertainment, TV News, Shows Premiere Date, Release Date, Celebrity Gossips, and Travel - we help our readers to know about everything running around the world in every field</p>
 
                             <div className='flex items-center gap-x-4 my-2'>
                                 <h1 className="text-[#bf912d] text-[20px] font-nunitoSans whitespace-nowrap">FOllOW US</h1>
