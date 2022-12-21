@@ -34,18 +34,18 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
 
-  const getUsers = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/users?_embed&slug=${params.slug}`)
+  const getUsers = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/users?_embed&per_page=100`)
   const users = await getUsers.json()
 
-  let userById = users[0].id
-  // users.map(user => {
+  let userById
+  users.map(user => {
 
-  //   if (user.slug.toLowerCase() === params.slug.toLowerCase()) {
-  //     userById = user
-  //   }
-  // })
+    if (user.slug.toLowerCase() === params.slug.toLowerCase()) {
+      userById = user
+    }
+  })
 
-  const getPosts = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&author=${users[0].id}&per_page=15`)
+  const getPosts = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&author=${userById.id}&per_page=15`)
   const postByAuthor = await getPosts.json()
 
   const featuredPost = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=7')
@@ -55,7 +55,7 @@ export async function getStaticProps({ params }) {
     props: {
       postByAuthor,
       userById,
-      headTitle: users[0].yoast_head_json.title,
+      headTitle: userById.yoast_head_json.title,
       featured
     },
     revalidate: 10,
