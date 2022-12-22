@@ -113,9 +113,11 @@ const HotspotCarousel = ({ data, hotspotData }) => {
                         return (
                             <HotSpotSliderItem
                                 key={index}
-                                category={item?._embedded["wp:term"][0][0].name.toUpperCase()}
+                                category={item?._embedded["wp:term"][0][0]}
                                 image={image}
-                                title={item.title.rendered} />
+                                title={item.title.rendered}
+                                slug={item.slug} 
+                                />
                         )
                     })}
                 </Slider>

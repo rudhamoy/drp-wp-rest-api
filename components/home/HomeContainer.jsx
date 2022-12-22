@@ -15,6 +15,7 @@ import { getStories } from '../../features/postSlice';
 
 function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
     const dispatch = useDispatch()
+    
     const { posts, stories, status } = useSelector(state => state.posts)
 
     const { ref, inView } = useInView()
