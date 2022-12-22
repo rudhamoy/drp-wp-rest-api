@@ -13,6 +13,39 @@ import rss from '../../assets/svg/rss@4x.svg'
 import twitter from '../../assets/svg/twitter@4x.svg'
 import youtube from '../../assets/svg/youtube@4x.svg'
 import MenuFooter from './MenuFooter'
+import { socialMedia, pageLink } from './navigationData'
+import Link from 'next/link'
+
+
+{/* <li className="cursor-pointer hover:text-[#bf912d]">About Us</li>
+                        <li className="cursor-pointer hover:text-[#bf912d]">Contact Us</li>
+                        <li className="cursor-pointer hover:text-[#bf912d]">Our Team</li>
+                        <li className="cursor-pointer hover:text-[#bf912d]">Visual Stories</li>
+                        <li className="cursor-pointer hover:text-[#bf912d]">Photo Gallery</li> */}
+
+const mobilePages = [
+    {
+        name: "About Us",
+        slug: "about-us",
+    },
+    {
+        name: "Contact Us",
+        slug: "contact-us",
+    },
+    {
+        name: "Our Team",
+        slug: "team",
+    },
+    {
+        name: "Visual Stories",
+        slug: "stories",
+    },
+    {
+        name: "Photo Gallery",
+        slug: "photo-gallery",
+    },
+]
+
 
 const MobileMenu = ({ setShowMenu }) => {
 
@@ -39,18 +72,18 @@ const MobileMenu = ({ setShowMenu }) => {
                 </div>
                 <div className='text-gray-600 uppercase p-2 text-[12px]'>
                     <div className={`${menuItemClass}`}>
-                        <a href="/category/celebrity">Celebrity</a>
+                        <Link href="/category/celebrity">Celebrity</Link>
                     </div>
 
                     <div className={`${open === true ? 'bg-gray-200' : null}`}>
                         <div role="button" onClick={() => setOpen(!open)} className={`${menuItemClass} flex items-center justify-between pr-5`}>Entertainment <MdArrowBackIos className={`${open === true ? "rotate-90" : '-rotate-90'}`} /> </div>
                         {open === true && (
                             <ul className="p-4 w-full">
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/politics">Politics</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/technology">Technology</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/games">Gaming</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/sports">Sports</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/trending">Trending</a></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/politics">Politics</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/technology">Technology</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/games">Gaming</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/sports">Sports</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/trending">Trending</Link></li>
                             </ul>
                         )}
                     </div>
@@ -59,45 +92,55 @@ const MobileMenu = ({ setShowMenu }) => {
                         <div role="button" onClick={() => setOpenNews(!openNews)} className={`${menuItemClass} flex items-center justify-between pr-5`}>News <MdArrowBackIos className={`${openNews === true ? "rotate-90" : '-rotate-90'}`} /></div>
                         {openNews === true && (
                             <ul className="p-4 w-full">
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/politics">Politics</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/technology">Technology</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/games">Gaming</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/sports">Sports</a></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><a href="/category/trending">Trending</a></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/politics">Politics</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/technology">Technology</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/games">Gaming</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/sports">Sports</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/trending">Trending</Link></li>
                             </ul>
                         )}
                     </div>
                     <div className={menuItemClass}>
-                        <a href="/category/anime">Anime</a>
+                        <Link href="/category/anime">Anime</Link>
                     </div>
                     <div className={menuItemClass}>
-                        <a href="/category/games">Games</a>
+                        <Link href="/category/games">Games</Link>
                     </div>
                     <div className={menuItemClass}>
-                        <a href="/category/movie">Movies</a>
+                        <Link href="/category/movie">Movies</Link>
                     </div>
                     <div className={menuItemClass}>
-                        <a href="/category/tv-show">Tv Shows</a>
+                        <Link href="/category/tv-show">Tv Shows</Link>
                     </div>
                 </div>
                 <div className="bg-gray-200 m-2 border font-nunitoSans text-[12px]">
                     <h1 className='uppercase text-[#bf912d] leading-10 px-2'>quick links</h1>
                     <ul className="flex justify-around flex-wrap gap-9 sm:gap-5 p-3 sm:p-2 border-t border-gray-400 border-b mobileFooter">
-                        <li className="cursor-pointer hover:text-[#bf912d]">About Us</li>
+                        {mobilePages.map((item) => <Link href={`/${item.slug}`} key={item.slug}>
+                            <li className="cursor-pointer hover:text-[#bf912d]">{item.name}</li>
+                        </Link>)}
+
+
+                        {/* <li className="cursor-pointer hover:text-[#bf912d]">About Us</li>
                         <li className="cursor-pointer hover:text-[#bf912d]">Contact Us</li>
                         <li className="cursor-pointer hover:text-[#bf912d]">Our Team</li>
                         <li className="cursor-pointer hover:text-[#bf912d]">Visual Stories</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Photo Gallery</li>
+                        <li className="cursor-pointer hover:text-[#bf912d]">Photo Gallery</li> */}
                     </ul>
                     <div className="border-t border-gray-400 border-b leading-10 p-2">
                         <h1 className="uppercase">Follow us on</h1>
                         <ul className="flex items-center gap-x-4 px-4">
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={insta} alt="" />
+
+                            {socialMedia.map((socialProfile, index) =>
+                                <Link href={socialProfile.url} key={index}>
+                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={socialProfile.icon} alt={socialProfile.name} />
+                                </Link>)}
+                            {/* <Image className="h-[24px] w-[24px] cursor-pointer" src={insta} alt="" />
                             <Image className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
                             <Image className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
                             <Image className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
                             <Image className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" />
+                            <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" /> */}
                         </ul>
                     </div>
                 </div>

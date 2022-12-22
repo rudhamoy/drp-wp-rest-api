@@ -6,13 +6,10 @@ import { CiFacebook } from 'react-icons/ci'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { BiCopyright } from 'react-icons/bi'
 import Logo from '../../assets/images/logobg.png'
+import { pageLink, socialMedia } from './navigationData';
 
-import Insta from '../../assets/images/ins.png'
-import Facebook from '../../assets/images/fb.png'
-import Twitter from '../../assets/images/twt.png'
-import Youtube from '../../assets/images/yt.png'
-import LinkedIn from '../../assets/images/lnkd.png'
-import RSS from '../../assets/images/rss.png'
+// import LinkedIn from '../../assets/images/lnkd.png'
+// import RSS from '../../assets/images/rss.png'
 
 {/* <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="ins.png" alt="" />
 <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="fb.png" alt="" />
@@ -77,48 +74,49 @@ const categories = [
     }
 ]
 
-const pageLink = [
-    {
-        name: "Contact Us",
-        slug: "contact-us",
-    },
-    {
-        name: "DMCA Policy",
-        slug: "dmca-policy",
-    },
-    {
-        name: "Editorial Policy",
-        slug: "editorial-policy",
-    },
-    {
-        name: "Fact-Checking Policy",
-        slug: "fact-checking-policy",
-    },
-    {
-        name: "Ownership, Funding, and Advertising Policy",
-        slug: "ownership-funding&ads-policy",
-    },
-    {
-        name: "Privacy Policy",
-        slug: "privacy-policy",
-    },
-    {
-        name: "RSS Feeds",
-        slug: "rss-feeds",
-    },
-    {
-        name: "Team",
-        slug: "team",
-    },
-    {
-        name: "Terms and Condition",
-        slug: "terms&condition",
-    },
-    {
-        name: "Write for us",
-        slug: "write-for-us",
-    }
-]
+// const pageLink = [
+//     {
+//         name: "Contact Us",
+//         slug: "contact-us",
+//     },
+//     {
+//         name: "DMCA Policy",
+//         slug: "dmca-policy",
+//     },
+//     {
+//         name: "Editorial Policy",
+//         slug: "editorial-policy",
+//     },
+//     {
+//         name: "Fact-Checking Policy",
+//         slug: "fact-checking-policy",
+//     },
+//     {
+//         name: "Ownership, Funding, and Advertising Policy",
+//         slug: "ownership-funding&ads-policy",
+//     },
+//     {
+//         name: "Privacy Policy",
+//         slug: "privacy-policy",
+//     },
+//     {
+//         name: "RSS Feeds",
+//         slug: "rss-feeds",
+//     },
+//     {
+//         name: "Team",
+//         slug: "team",
+//     },
+//     {
+//         name: "Terms and Condition",
+//         slug: "terms&condition",
+//     },
+//     {
+//         name: "Write for us",
+//         slug: "write-for-us",
+//     }
+// ]
+
 
 const Footer = () => {
     return (
@@ -143,8 +141,8 @@ const Footer = () => {
                                             </li>
                                         </Link>
                                     ))}
-                                  
-                                    
+
+
                                 </ul>
                             </div>
                         </div>
@@ -158,12 +156,10 @@ const Footer = () => {
                             <div className='flex items-center gap-x-4 my-2'>
                                 <h1 className="text-[#bf912d] text-[20px] font-nunitoSans whitespace-nowrap">FOllOW US</h1>
                                 <div className="flex gap-x-2 sm:gap-x-3 ">
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={Insta} alt="" />
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={Facebook} alt="" />
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={Twitter} alt="" />
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={Youtube} alt="" />
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={LinkedIn} alt="" />
-                                    <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={RSS} alt="" />
+                                    {socialMedia.map((socialProfile, index) =>
+                                        <Link href={socialProfile.url} key={index}>
+                                            <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={socialProfile.icon} alt={socialProfile.name} />
+                                        </Link>)}
                                 </div>
                             </div>
                         </div>
@@ -177,10 +173,10 @@ const Footer = () => {
                         <ul className="text-[18px] mt-[16px] font-nunitoSans leading-[30px]">
                             {pageLink.map((item) => (
                                 <Link href={`/${item.slug}`} key={item.slug}>
-                                <li className="cursor-pointer hover:text-[#bf912d]">{item.name}</li>
+                                    <li className="cursor-pointer hover:text-[#bf912d]">{item.name}</li>
                                 </Link>
                             ))}
-                            
+
                         </ul>
                     </div>
                 </div>

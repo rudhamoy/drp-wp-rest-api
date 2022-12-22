@@ -18,6 +18,7 @@ import twitter from '../../assets/svg/twitter@4x.svg'
 import youtube from '../../assets/svg/youtube@4x.svg'
 import gazeta from '../../assets/svg/gazeta-post-web.svg'
 import tollywood from '../../assets/svg/tollywood.svg'
+import { socialMedia } from './navigationData'
 
 const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
     const [showSearch, setShowSearch] = useState(false)
@@ -28,12 +29,12 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                 {/* mobile menu */}
                 <div className="flex items-center gap-x-3 w-[72%]">
                     <div role="button" onClick={() => setShowMenu(true)} className="">
-                        <Image src={MobileMenuImage}  alt="" />
+                        <Image src={MobileMenuImage} alt="" />
                     </div>
                     <Link href='/'>
-                    <Image src={Logo} className="h-[30px]" alt="" priority />
+                        <Image src={Logo} className="h-[30px]" alt="" priority />
                     </Link>
-                    
+
                 </div>
                 <div className="flex items-center justify-around border-l w-[28%]">
                     {/* share */}
@@ -66,6 +67,11 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                                             <img className="h-[19px] w-[20px]" src={youtube} alt="" />
                                             <img className="h-[19px] w-[20px]" src={linkedin} alt="" />
                                             <img className="h-[19px] w-[20px]" src={rss} alt="" /> */}
+
+                                            {socialMedia.map((socialProfile, index) =>
+                                                <Link href={socialProfile.url} key={index}>
+                                                    <img className="h-[19px] w-[20px]" src={socialProfile.icon} alt={socialProfile.name} />
+                                                </Link>)}
                                         </ul>
                                     </div>
                                 </div>
@@ -103,24 +109,24 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
             <div className="flex items-center gap-x-3 mt-3">
                 <div role="button">
                     <Link href='/'>
-                    <Image src={HomeIcon} alt=""  />
+                        <Image src={HomeIcon} alt="" />
                     </Link>
                 </div>
                 <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
                     <Link href="/category/celebrity">
-                    <p>Celebrity</p>
+                        <p>Celebrity</p>
                     </Link>
                     <Link href="/category/entertainment">
-                    <p>Entertainment</p>
+                        <p>Entertainment</p>
                     </Link>
                     <Link href='/category/TV Show'>
-                    <p className="whitespace-nowrap">Tv News</p>
+                        <p className="whitespace-nowrap">Tv News</p>
                     </Link>
                     <Link href='/category/movie'>
                         Movie
                     </Link>
                     <Link href='/category/technology'>
-                    <p className="whitespace-nowrap">Technology</p>
+                        <p className="whitespace-nowrap">Technology</p>
                     </Link>
                     <p className="whitespace-nowrap">Web Stories</p>
                     <p className="whitespace-nowrap">Web Stories</p>

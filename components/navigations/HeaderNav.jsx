@@ -26,6 +26,7 @@ import tollywood from '../../assets/svg/tollywood.svg'
 // import './navigation.css'
 import style from './Navigation.module.css'
 import MobileNav from './MobileNav'
+import { socialMedia } from './navigationData'
 
 const HeaderNav = ({ setShowMenu }) => {
     const [clicked, setClicked] = useState(false)
@@ -171,6 +172,11 @@ const HeaderNav = ({ setShowMenu }) => {
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" />
+
+                                                    {socialMedia.map((socialProfile, index) =>
+                                                        <Link href={socialProfile.url} key={index}>
+                                                            <Image className="h-[24px] w-[24px] cursor-pointer mb-1" src={socialProfile.icon} alt={socialProfile.name} />
+                                                        </Link>)}
                                                 </ul>
                                             </div>
                                         </div>
