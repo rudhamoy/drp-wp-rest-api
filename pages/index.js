@@ -85,6 +85,6 @@ export async function getStaticProps() {
       data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport,
       hotspot
     },
-    revalidate: 5
+    revalidate: 1
   }
 }

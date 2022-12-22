@@ -110,17 +110,17 @@ a {
 
 .dotClass {
   width: 45px !important;
-  /* height: 4px !important */
 }
 
 .slick-dots
 {
     position: absolute;
     top: -25px;
-
+    /* background: green; */
     display: block;
 
-    width: 100%;
+    width: 100% !important;
+    height: 20px !important;
     padding: 0;
     margin: 0;
 
@@ -131,7 +131,8 @@ a {
 
 .slick-dots li
 {
-    position: relative;
+    position: absolute;
+    /* top: -125px; */
     display: inline-block;
     width: 45px !important;
     height: 3px !important;
@@ -141,6 +142,7 @@ a {
     border-radius: 10px !important;
     cursor: pointer;
 }
+
 .slick-dots li.slick-active {
   background-color: #bf912d !important;
 }
@@ -163,7 +165,6 @@ a {
     content: '' !important;
     text-align: unset !important;
 
-    /* opacity: .25; */
     color: none !important;
 
     -webkit-font-smoothing: antialiased;
@@ -177,6 +178,8 @@ a {
     background-color: #bf912d !important;
 }
 
+
+/* cutom pagination */
 
 @font-face {
   font-family: "NUNITO";

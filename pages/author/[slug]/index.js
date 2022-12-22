@@ -39,11 +39,11 @@ export async function getStaticProps({ params }) {
 
   let userById
   users.map(user => {
-
-    if (user.slug.toLowerCase() === params.slug.toLowerCase()) {
-      userById = user
-    }
-  })
+          
+          if(user.slug.toLowerCase() === params.slug.toLowerCase()) {
+            userById = user
+          }
+      })
 
   const getPosts = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&author=${userById.id}&per_page=15`)
   const postByAuthor = await getPosts.json()

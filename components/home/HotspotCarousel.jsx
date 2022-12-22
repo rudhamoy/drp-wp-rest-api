@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Link from 'next/link'
 import Slider from "react-slick";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import HotSpotSliderItem from './HotSpotSliderItem';
 
-const HotspotCarousel = ({ data, hotspotData }) => {
+import style from './Slider.module.css'
 
+const HotspotCarousel = ({ data, hotspotData }) => {
+    const slider = useRef()
     const [activeSlide, setActiveSlide] = useState(0)
 
     function SampleNextArrow(props) {
@@ -25,7 +27,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
         const { className, style, onClick } = props;
         return (
             <div
-                className={` customArrowLeft`}
+                className={`customArrowLeft`}
                 style={{ ...style, zIndex: 10, }}
                 onClick={onClick}
             >
@@ -36,7 +38,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
 
     const settingsDesk = {
         dots: true,
-        // dotClass: "slick-dots" ,
+        // dotClass:,
         infinite: false,
         speed: 500,
         slidesToShow: 3,
@@ -60,7 +62,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     initialSlide: 2,
-                    
+
                 }
             },
         ]
@@ -73,7 +75,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         responsive: [
-           
+
             {
                 breakpoint: 480,
                 settings: {
@@ -83,21 +85,21 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             }
         ]
     };
-    
+
     return (
         <div className='relative'>
             {/* desktop */}
-            <div className="hidden sm:block py-1">
-                <Slider {...settingsDesk} className="px-2 ">
+            <div className="hidden sm:block py-1 ">
+                <Slider ref={slider}  {...settingsDesk} className="px-2 ">
                     {hotspotData.map((item, index) => {
                         const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
                         return (
-                            <HotSpotSliderItem 
-                            key={index} 
-                            category={item?._embedded["wp:term"][0][0].name.toUpperCase()} 
-                            image={image} 
-                            title={item.title.rendered}
-                            slug={item.slug}
+                            <HotSpotSliderItem
+                                key={index}
+                                category={item?._embedded["wp:term"][0][0]}
+                                image={image}
+                                title={item.title.rendered}
+                                slug={item.slug}
                             />
                         )
                     })}
@@ -105,16 +107,16 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             </div>
             {/* mobile */}
             <div className='sm:hidden'>
-                <Slider {...settingsMobi} className="px-2 ">
-                {hotspotData.map((item, index) => {
+                <Slider ref={slider} {...settingsMobi} className="px-2 ">
+                    {hotspotData.map((item, index) => {
                         const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
                         return (
-                            <HotSpotSliderItem 
-                            key={index} 
-                            category={item?._embedded["wp:term"][0][0].name.toUpperCase()} 
-                            image={image} 
-                            title={item.title.rendered} />
-                            )
+                            <HotSpotSliderItem
+                                key={index}
+                                category={item?._embedded["wp:term"][0][0].name.toUpperCase()}
+                                image={image}
+                                title={item.title.rendered} />
+                        )
                     })}
                 </Slider>
             </div>
