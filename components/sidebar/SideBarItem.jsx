@@ -2,8 +2,13 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import videoIcon from '../../assets/icons/video-icon.svg';
+import DOMPurify from 'isomorphic-dompurify';
+import parseHTML from "html-react-parser";
 
 function SideBarItem({ category, title, image, slug }) {
+
+    const safeTitle = DOMPurify.sanitize(title)
+
     return (
 
         <div className="flex flex-row items-center p-2 cursor-pointer rounded-[2px] w-[90vw] sm:w-[383px] h-[108px] z-0 border">
@@ -25,7 +30,7 @@ function SideBarItem({ category, title, image, slug }) {
                 </Link>
                 <Link href={`/single-news/${slug}`}>
                 <h3 className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
-                    {title}
+                    {parseHTML(safeTitle)}
                 </h3>
                 </Link>
             </div>

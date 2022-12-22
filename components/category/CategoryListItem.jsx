@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import DOMPurify from 'isomorphic-dompurify';
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 import cartoon from '../../assets/images/cartoon.png';
@@ -12,6 +13,9 @@ function CategoryListItem({ width, data }) {
 
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
    
+    const mySafeHTML = DOMPurify.sanitize(data?.excerpt.rendered.substring(0, 150));
+
+    const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 110));
 
     return (
         <>
@@ -37,9 +41,11 @@ function CategoryListItem({ width, data }) {
                             <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
                         </Link>
                         <Link href={`/single-news/${data['slug']}`}>
-                            <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3>
+                            <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h3>
+                            {/* <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3> */}
 
-                            <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p >
+                            {/* <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p > */}
+                            <div className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden' dangerouslySetInnerHTML={{__html: mySafeHTML}}></div>
                         </Link>
                         <p className="text-[#737373] text-[12px] font-[300] font-nunitoSans absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>
                     </div>

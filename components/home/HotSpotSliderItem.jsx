@@ -1,8 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import DOMPurify from 'isomorphic-dompurify';
+import parseHTML from "html-react-parser";
 
 function HotSpotSliderItem({ category, title, image, slug }) {
+
+    const safeTitle = DOMPurify.sanitize(title)
+
     return (
         // <Link href={`/single-news/${slug}`}>
             <div  className="flex flex-row items-center cursor-pointer rounded-md w-[400px] p-2 z-0 border-1 ">
@@ -15,7 +20,7 @@ function HotSpotSliderItem({ category, title, image, slug }) {
                     </Link>
                     <Link href={`/single-news/${slug}`}>
                     <p className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
-                        {title}
+                        {parseHTML(safeTitle)}
                     </p>
                     </Link>
                 </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import DOMPurify from 'isomorphic-dompurify';
+import parseHTML from "html-react-parser";
 import { AiOutlinePicRight } from "react-icons/ai";
 
 import getRandomCategory from '../utils/RandomCategory';
@@ -8,6 +10,9 @@ import getRandomCategory from '../utils/RandomCategory';
 function FeaturedPost({ data }) {
 
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data[0]?._embedded["wp:term"][0]))
+
+    const safeTitle = DOMPurify.sanitize(data[0].title.rendered.substring(0, 100));
+    const safeExcerpt = DOMPurify.sanitize(data[0].yoast_head_json.description);
 
     return (
             <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer overflow-hidden">
@@ -26,9 +31,11 @@ function FeaturedPost({ data }) {
 
                 <div className="pt-[7px] pb-[12px] px-[14px]">
                     <Link href={`/single-news/${data[0]['slug']}`}>
-                        <h2 className="text-[26px] text-black font-semibold leading-8 font-nunitoSans">{data[0].title.rendered.replace(/&#8220;/g, "'").substring(0, 100)}</h2>
+                        <h2 className="text-[26px] text-black font-semibold leading-8 font-nunitoSans">{parseHTML(safeTitle)}</h2>
+                        {/* <h2 className="text-[26px] text-black font-semibold leading-8 font-nunitoSans">{data[0].title.rendered.replace(/&#8220;/g, "'").substring(0, 100)}</h2> */}
                     </Link>
-                    <p className="text-[16px] font-sans text-[#6d6d6d]">{data[0].yoast_head_json.description}</p>
+                    <p className="text-[16px] font-sans">{parseHTML(safeExcerpt)}</p>
+                    {/* <p className="text-[16px] font-sans">{data[0].yoast_head_json.description}</p> */}
                 </div>
             </div>
     )

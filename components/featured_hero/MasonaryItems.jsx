@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import DOMPurify from 'isomorphic-dompurify';
+import parseHTML from "html-react-parser";
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 import getRandomCategory from '../utils/RandomCategory';
@@ -9,6 +11,7 @@ import getRandomCategory from '../utils/RandomCategory';
 function MasonaryItem({ data, image, title }) {
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
+    const safeTitle = DOMPurify.sanitize(data.title.rendered.substring(0, 60));
 
     return (
         <Link href={`/single-news/${data['slug']}`}>
@@ -28,7 +31,8 @@ function MasonaryItem({ data, image, title }) {
                 </div>
                 {/* right content */}
                 <div className="sm:p-[10px] p-[6px] w-[52%] sm:w-[100%]">
-                    <h3 className="text-[16px] sm:text-[18px] leading-[18px] sm:leading-5 text-black font-semibold  sm:line-clamp-2 line-clamp-2 font-nunitoSans ">{data.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}</h3>
+                    <h3 className="text-[16px] sm:text-[18px] leading-[18px] sm:leading-5 text-black font-semibold  sm:line-clamp-2 line-clamp-2 font-nunitoSans ">{parseHTML(safeTitle)}</h3>
+                    {/* <h3 className="text-[16px] sm:text-[18px] leading-[18px] sm:leading-5 text-black font-semibold  sm:line-clamp-2 line-clamp-2 font-nunitoSans ">{data.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}</h3> */}
                 </div>
             </div>
         </Link>

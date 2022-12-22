@@ -1,9 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import DOMPurify from 'isomorphic-dompurify';
 import parseHTML from "html-react-parser";
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
+
 
 import InstaIcon from '../../assets/images/insta.png'
 import FacebookIcon from '../../assets/images/facebook.png'
@@ -15,11 +17,18 @@ const ArticleContainer = ({ image, data }) => {
 
     const tagListClass = "bg-[#f4f4f4] cursor-pointer rounded-md p-[1px] px-3 "
 
+    const mySafeHTML = DOMPurify.sanitize(data[0].content.rendered);
+    const safeTitle = DOMPurify.sanitize(data[0].title.rendered);
+    const safeExerpt = DOMPurify.sanitize(data[0].yoast_head_json.og_description);
+
     return (
         <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px] overflow-hidden'>
-            <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold font-nunitoSans">{data[0].title.rendered}
+            <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold font-nunitoSans">{parseHTML(safeTitle)}
             </h1>
-            <h2 className="mt-[14px] text-[18px] sm:text-[20px] text-[#6d6d6d] font-nunitoSans">{data[0].yoast_head_json.og_description}</h2>
+            {/* <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold font-nunitoSans">{data[0].title.rendered}
+            </h1> */}
+            <h2 className="mt-[14px] text-[18px] sm:text-[20px] text-[#6d6d6d] font-nunitoSans">{parseHTML(safeExerpt)}</h2>
+            {/* <h2 className="mt-[14px] text-[18px] sm:text-[20px] text-[#6d6d6d] font-nunitoSans">{data[0].yoast_head_json.og_description}</h2> */}
             <div className="w-[100%] my-3 border bg-gray-500 h-[1px]"></div>
             {/* author  */}
             <NewsHeaderAuthor data={data} />
@@ -34,7 +43,7 @@ const ArticleContainer = ({ image, data }) => {
 
             {/* article */}
             {/* <div dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div> */}
-            <div>{parseHTML(data[0].content.rendered)}</div>
+            <div>{parseHTML(mySafeHTML)}</div>
 
             <div className="mt-12">
                 {/* tags */}
