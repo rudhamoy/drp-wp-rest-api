@@ -44,7 +44,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
 
                         }} className="flex items-center gap-x-1">
                             {/* icon and image */}
-                            {clickFollow !== true ? <img src={MobileShare} alt="" className="h-[22px]" /> : <MdClose className="text-[#bf912d] text-3xl" />}
+                            {clickFollow !== true ? <Image src={MobileShare} alt=""  height={22} /> : <MdClose className="text-[#bf912d] text-3xl" />}
 
                             {/* <p className="text-[16px] font-futura2">Follow</p> */}
                         </div>
@@ -70,7 +70,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
 
                                             {socialMedia.map((socialProfile, index) =>
                                                 <Link href={socialProfile.url} key={index}>
-                                                    <img className="h-[19px] w-[20px]" src={socialProfile.icon} alt={socialProfile.name} />
+                                                    <Image className="h-[19px] w-[20px]" src={socialProfile.icon} alt={socialProfile.name} />
                                                 </Link>)}
                                         </ul>
                                     </div>
@@ -86,7 +86,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                             setShowSearch(!showSearch)
                         }}
                     >
-                        <img src={MobileSearch} alt="" className="h-[22px]" />
+                        <Image src={MobileSearch} alt="" height={22} />
                     </div>
 
                 </div>
