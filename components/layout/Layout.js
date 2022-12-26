@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import HeaderNav from '../navigations/HeaderNav'
 import Footer from '../navigations/Footer'
 import MobileMenu from '../navigations/MobileMenu'
-import StoriesPlayer from '../stories/StoriesPlayer'
 
 const Layout = ({ children }) => {
     const [showMenu, setShowMenu] = useState(false)
@@ -13,7 +12,6 @@ const Layout = ({ children }) => {
 
     const router = useRouter()
 
-    console.log(router)
 
     return (
         <>
