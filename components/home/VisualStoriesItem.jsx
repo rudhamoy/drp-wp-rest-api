@@ -4,15 +4,16 @@ import { useDispatch } from 'react-redux'
 
 import { modalBtnCondition } from '../../features/activitySlice'
 
-function VisualStoriesItem({ image, title, styles}) {
+function VisualStoriesItem({ image, title, styles, data}) {
     const dispatch = useDispatch()
 
-    const clickHandler = () => {
-        dispatch(modalBtnCondition(true))
-    }
+    // const clickHandler = () => {
+    //     dispatch(modalBtnCondition(true))
+    // }
 
     return (
-        <div onClick={clickHandler} style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
+        <a href={`/web-stories/${data.post_name}/`}>
+            <div style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
             <div className="h-[300px] w-[187px] rounded-[4px] overflowHidden">
                 <Image fill src={image} className="h-[100%] w-[100%]" alt="" />
             </div>
@@ -26,6 +27,7 @@ function VisualStoriesItem({ image, title, styles}) {
                 <div className="w-[2px] h-[12px] bg-[#ffffff]"></div>
             </div>
         </div>
+        </a>
     )
 }
 
