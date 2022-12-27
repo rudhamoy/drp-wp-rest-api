@@ -9,6 +9,11 @@ function HotSpotSliderItem({ category, title, image, slug, date }) {
     const safeTitle = DOMPurify.sanitize(title)
     // const postDate = new Date(date).toLocaleDateString()
 
+    const day = new Date(date).getDate()
+    const month = new Date(date).getMonth()
+    const year = new Date(date).getFullYear()
+    const postDate = `${year}/${month+1}/${day}`
+
 
     return (
         // <Link href={`/single-news/${slug}`}>
@@ -20,7 +25,7 @@ function HotSpotSliderItem({ category, title, image, slug, date }) {
                     <Link href={`/category/${category.slug}`}>
                     <p className="blogTitle mb-[5px] text-[#bf912d] font-bold text-[10px] uppercase">{category.name}</p>
                     </Link>
-                    <Link href={`/single-news/${slug}`}>
+                    <Link href={`/${postDate}/${slug}`}>
                     <p className="blogTitle text-[16px] leading-[18px] text-black font-semibold">
                         {parseHTML(safeTitle)}
                     </p>

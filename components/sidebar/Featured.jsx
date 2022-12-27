@@ -45,7 +45,7 @@ const Featured = ({ data }) => {
                         title={item.title.rendered}
                         image={image}
                         slug={item.slug}
-                    // image={item._embedded["wp:featuredmedia"][0].link}
+                        date={item.date}
                     />
                 )
             })}

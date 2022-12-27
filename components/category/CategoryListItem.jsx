@@ -18,6 +18,10 @@ function CategoryListItem({ width, data }) {
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 110));
 
     // const postDate = new Date(data.date).toLocaleDateString()
+    const date = new Date(data.date).getDate()
+    const month = new Date(data.date).getMonth()
+    const year = new Date(data.date).getFullYear()
+    const postDate = `${year}/${month+1}/${date}`
 
     return (
         <>
@@ -42,7 +46,7 @@ function CategoryListItem({ width, data }) {
                         <Link href={`/category/${randomCategory.slug}`}>
                             <p className="text-[10px] font-bold blogTitle text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
                         </Link>
-                        <Link href={`/single-news/${data['slug']}`}>
+                        <Link href={`/${postDate}/${data['slug']}`}>
                             <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h3>
                             {/* <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3> */}
 
