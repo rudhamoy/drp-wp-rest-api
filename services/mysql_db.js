@@ -1,3 +1,5 @@
+// tollywoodlife database connection
+
 var mysql = require('mysql');
 var pool = mysql.createPool({
     host: '164.92.71.201',
