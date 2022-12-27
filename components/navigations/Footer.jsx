@@ -120,7 +120,7 @@ const categories = [
 
 const Footer = () => {
     return (
-        <div className="bg-[#1d1d1d] mt-4 text-gray-50">
+        <div className="bg-[#1d1d1d]  text-gray-50">
             <div className="flex justify-center items-center px-2 py-10">
                 <div className="flex flex-col sm:flex-row justify-between sm:w-[1264px]" >
                     {/* left footer */}
