@@ -15,8 +15,10 @@ function MasonaryItem({ data, image, title }) {
 
     const safeTitle = DOMPurify.sanitize(data.title.rendered.substring(0, 60));
 
+    const postDate = new Date(data.date).toLocaleDateString()
+
     return (
-        <Link href={`/single-news/${data['slug']}`}>
+        <Link href={`/${postDate}/${data['slug']}`}>
             <div className="bg-white w-[95vw] sm:w-[310px] h-[85px] sm:h-[231px] rounded-[3px] flex sm:flex-col gap-x-2 flex-row overflowHidden cursor-pointer">
                 {/* image -left content */}
                 <div className="h-[100%] sm:h-[175px] w-[37%] sm:w-[100%] overflowHidden relative bg-green-200">

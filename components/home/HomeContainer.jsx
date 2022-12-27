@@ -12,6 +12,8 @@ import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 
 import { getStories } from '../../features/postSlice';
+import { homeData } from '../../data/homeList';
+import Link from 'next/link';
 
 function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
     const dispatch = useDispatch()
@@ -47,6 +49,13 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                 <FeaturedContainer data={data} />
                 <HotspotSlider hotspotData={hotSpot} />
             </div>
+            {/* {homeData.map(item => (
+                <div>
+                    <Link href={`/${String(item.date)}/${item.category}`}>
+                        {item.title}
+                    </Link>
+                </div>
+            ))} */}
             <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                 {/* content */}
                 <div className="">
