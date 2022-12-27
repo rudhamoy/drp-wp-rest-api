@@ -45,7 +45,9 @@ const index = () => {
             <p>The Team Tollywood Life has headquarter in New Delhi, India. From where we post and manage our website and Social Media Platforms. we have more than 50 News Reporters, Content Writers and other executive right now.</p>
             <br />
             <h3 className="font-semibold text-[1.4rem]">Our Leadership</h3>
-            <Image src={BalramJee} width={300} />
+            <div className="py-2">
+              <Image src={BalramJee} width={300} />
+            </div>
             <p>Balram Jee Jha
               <br />
               Founder, Tollywood Life
