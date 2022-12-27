@@ -100,6 +100,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
                                 image={image}
                                 title={item.title.rendered}
                                 slug={item.slug}
+                                date={item.date}
                             />
                         )
                     })}

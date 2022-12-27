@@ -14,6 +14,7 @@ function SmallerCardItems({ data }) {
 
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 60));
     const postDate = new Date(data.date).toLocaleDateString()
+    
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
@@ -37,7 +38,7 @@ function SmallerCardItems({ data }) {
                     <Link href={`/category/${randomCategory.slug}`}>
                         <p className="text-[10px] text-[#bf912d] font-bold blogTitle">{randomCategory.name.toUpperCase()}</p>
                     </Link>
-                    <Link href={`/single-news/${data.slug}`}>
+                    <Link href={`/${postDate}/${data.slug}`}>
                         {/* <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
                         </h2> */}
                         <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h2>
