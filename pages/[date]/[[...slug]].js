@@ -39,7 +39,7 @@ export default SingleNews
 //   }
 
 
-export async function getStaticPaths(date) {
+export async function getStaticPaths() {
   const res = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed')
 
   const posts = await res.json()

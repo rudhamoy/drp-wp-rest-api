@@ -13,7 +13,14 @@ function SmallerCardItems({ data }) {
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 60));
-    const postDate = new Date(data.date).toLocaleDateString()
+    // const postDate = new Date(data.date).toLocaleDateString()
+
+    const date = new Date(data.date).getDate()
+    const month = new Date(data.date).getMonth()
+    const year = new Date(data.date).getFullYear()
+    const postDate = `${year}/${month+1}/${date}`
+    console.log(postDate)
+
     
 
     return (
