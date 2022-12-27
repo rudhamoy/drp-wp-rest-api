@@ -19,9 +19,6 @@ function SmallerCardItems({ data }) {
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
     const postDate = `${year}/${month+1}/${date}`
-    console.log(postDate)
-
-    
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
