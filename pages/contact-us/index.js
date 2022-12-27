@@ -48,19 +48,19 @@ const index = () => {
             <form action="#" className="sm:w-[50%] w-full flex flex-col gap-2 p-6 bg-slate-500">
               <div className="flex items-center justify-end gap-4 ">
                 <p className="font-bold text-[#f0f0f0]">Name<sup className="text-red-500">*</sup> :</p>
-                <input className="border px-4 py-1 w-[60%]" placeholder='type your name..' type="text" />
+                <input className="border px-4 py-1 w-[70%]" placeholder='type your name..' type="text" />
               </div>
               <div className="flex items-center justify-end gap-4 ">
                 <p className="font-bold text-[#ffffff]">Email<sup className="text-red-500">*</sup> :</p>
-                <input className="border px-4 py-1 w-[60%]" placeholder='youemail@domain.com' type="email" />
+                <input className="border px-4 py-1 w-[70%]" placeholder='youemail@domain.com' type="email" />
               </div>
               <div className="flex items-center justify-end gap-4 ">
                 <p className="font-bold text-[#ffffff]">Website :</p>
-                <input className="border px-4 py-1 w-[60%]" placeholder='www.example.com' type="text" />
+                <input className="border px-4 py-1 w-[70%]" placeholder='www.example.com' type="text" />
               </div>
-              <div className="flex items-center justify-end gap-4 ">
+              <div className="flex items-start justify-end gap-4 ">
                 <p className="font-bold text-[#ffffff]">Message<sup className="text-red-500">*</sup> :</p>
-                <textarea rows="6" className="border px-4 py-1 w-[60%]" placeholder="Your message..." type="text" />
+                <textarea rows="6" className="border px-4 py-1 w-[70%]" placeholder="Your message..." type="text" />
               </div>
               <div className="flex items-center justify-end">
                 <div className="px-4 py-2 bg-blue-700 cursor-pointer rounded-lg w-[10rem] text-center text-white font-bold">Submit</div>
