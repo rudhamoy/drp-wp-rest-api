@@ -16,10 +16,10 @@ function HotSpotSliderItem({ category, title, image, slug }) {
                 </div>
                 <div className="px-2 relative h-[80px] w-[300px]">
                     <Link href={`/category/${category.slug}`}>
-                    <p className="font-nunitoSans mb-[5px] text-[#bf912d] font-bold text-[10px] uppercase">{category.name}</p>
+                    <p className="blogTitle mb-[5px] text-[#bf912d] font-bold text-[10px] uppercase">{category.name}</p>
                     </Link>
                     <Link href={`/single-news/${slug}`}>
-                    <p className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
+                    <p className="blogTitle text-[16px] leading-[18px] text-black font-semibold">
                         {parseHTML(safeTitle)}
                     </p>
                     </Link>

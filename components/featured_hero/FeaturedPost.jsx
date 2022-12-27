@@ -6,6 +6,7 @@ import parseHTML from "html-react-parser";
 import { AiOutlinePicRight } from "react-icons/ai";
 
 import getRandomCategory from '../utils/RandomCategory';
+import styles from '../../styles/Home.module.css'
 
 function FeaturedPost({ data }) {
 
@@ -31,7 +32,7 @@ function FeaturedPost({ data }) {
 
                 <div className="pt-[7px] pb-[12px] px-[14px]">
                     <Link href={`/single-news/${data[0]['slug']}`}>
-                        <h2 className="text-[26px] text-black font-semibold leading-8 font-nunitoSans">{parseHTML(safeTitle)}</h2>
+                        <h2 className={`text-[26px] text-black font-semibold leading-8 ${styles.blogTitle}`}>{parseHTML(safeTitle)}</h2>
                         {/* <h2 className="text-[26px] text-black font-semibold leading-8 font-nunitoSans">{data[0].title.rendered.replace(/&#8220;/g, "'").substring(0, 100)}</h2> */}
                     </Link>
                     <p className="text-[16px] font-sans">{parseHTML(safeExcerpt)}</p>

@@ -108,6 +108,13 @@
   margin-left: 0.5rem;
 }
 
+
+/* custom */
+
+.blogTitle {
+  font-family: 'NUNITOSANS' , sans-serif;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

@@ -25,8 +25,8 @@ const AuthorCard = ({ data }) => {
                         </div>
                     </div>
                     <div className="w-[80%]">
-                        <h1 className="font-[800] text-[20px] font-nunitoSans">{data.name}</h1>
-                        <p className='text-[#6d6d6d] text-[12px] sm:text-[16px] font-[400] font-nunitoSans'>{data.description}</p>
+                        <h1 className="font-[800] text-[20px] blogTitle">{data.name}</h1>
+                        <p className='text-[#6d6d6d] text-[12px] sm:text-[16px] font-[400] blogTitle'>{data.description}</p>
                         <div className="flex gap-x-3 text-xl mt-4">
 
                             <Image className="cursor-pointer" height={25} width={25} src={instagramIcon} alt="" />

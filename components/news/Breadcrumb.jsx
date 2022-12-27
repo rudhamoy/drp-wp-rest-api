@@ -16,8 +16,8 @@ const Breadcrumb = ({data}) => {
 
 
   return (
-    <div class="text-[#6d6d6d] font-nunitoSans text-[14px] sm:text-[16px] p-2">
-    <div class="container flex items-center gap-x-1 py-4 mx-auto overflow-x-auto whitespace-nowrap">
+    <div class="text-[#6d6d6d] blogTitle text-[14px] sm:text-[16px] p-1">
+    <div class="container flex items-center gap-x-1 py-1 mx-auto overflow-x-auto whitespace-nowrap">
 
         <Link href="/" class=" hover:underline">
             Home

@@ -16,7 +16,7 @@ const AuthorContainer = ({ postByAuthor, userById, featured }) => {
   return (
     <div className="mt-6 sm:mt-10 flex flex-col justify-center items-center">
       <div className="sm:px-2 w-[95vw] sm:w-[1264px]">
-        <div className="flex items-center gap-x-1">
+        <div className="flex items-center gap-x-1 blogTitle">
          <Link href="/"> Home</Link>
           <MdArrowForwardIos className="text-[#bf912d]" />
           Author
@@ -40,7 +40,7 @@ const AuthorContainer = ({ postByAuthor, userById, featured }) => {
             <div className="w-full sm:w-[837px] cursor-pointer">
               <div>
                 <div className="rounded-[5px] h-[40] sm:h-[52px] border bg-[#bf912d] text-center mt-8 mb-14 text-[23px] sm:text-[34px] flex justify-center">
-                  <p className="text-[#ffd200]">MORE STORIES</p>
+                  <p className="text-[#ffd200] blogTitle">MORE STORIES</p>
                 </div>
               </div>
             </div>

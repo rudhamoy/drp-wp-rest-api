@@ -12,12 +12,12 @@ function CategorySection({ category, data, id }) {
             <div className="p-2">
                 <div className="flex justify-between items-center mb-[15px]">
                     <div className="flex items-center gap-x-2">
-                        <p className="font-nunitoSans text-[#bf912d] text-[16px] sm:text-[22px] font-semibold">{data[5].id}</p>
+                        <p className="blogTitle text-[#bf912d] text-[16px] sm:text-[22px] font-semibold">{data[5].id}</p>
                         <div className="h-[2.5px] w-[60px] sm:w-[100px] rounded bg-[#bf912d]"></div>
                     </div>
                     <div className="flex items-center cursor-pointer">
                         <Link href={`/category/${data[6].slug}`}>
-                        <p className="text-[#bf912d] text-[12px] sm:text-[18px] font-semibold font-nunitoSans">READ ALL</p>
+                        <p className="text-[#bf912d] text-[12px] sm:text-[18px] font-semibold blogTitle">READ ALL</p>
                         </Link>
                         < FiChevronRight className="text-[#bf912d] text-[18px] sm:text-[25px]" />
                     </div>

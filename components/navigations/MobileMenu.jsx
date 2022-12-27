@@ -53,13 +53,13 @@ const MobileMenu = ({ setShowMenu }) => {
     const [openNews, setOpenNews] = useState(false)
 
     // css
-    const menuItemClass = " cursor-pointer hover:text-[#bf912d] w-full leading-[40px] border-t-[2px] px-2"
+    const menuItemClass = "text-[14px] cursor-pointer hover:text-[#bf912d] w-full leading-[40px] border-t-[2px] px-2"
 
     return (
-        <div className='fixed left-0 z-50 w-[100%] sm:w-[20%] h-[100vh] text-black bg-white transition ease-in-out delay-500 duration-500 font-nunitoSans'>
+        <div className='fixed left-0 z-50 w-[100vw] sm:w-[20%] h-[100vh] text-black bg-white transition ease-in-out delay-500 duration-500 blogTitle'>
             {/* header */}
             <div className="flex justify-between items-center border-b p-3 h-[10%]">
-                <Image src={Logo} alt="" className="w-[80%]" />
+                <Image src={Logo} alt="" className="w-[76%]" />
                 <AiOutlineCloseCircle onClick={() => setShowMenu(false)} className='text-[#bf912d] text-right text-3xl cursor-pointer' />
             </div>
             {/* menu content */}
@@ -113,19 +113,12 @@ const MobileMenu = ({ setShowMenu }) => {
                         <Link href="/category/tv-show">Tv Shows</Link>
                     </div>
                 </div>
-                <div className="bg-gray-200 m-2 border font-nunitoSans text-[12px]">
+                <div className="bg-gray-200 m-2 border blogTitle text-[12px]">
                     <h1 className='uppercase text-[#bf912d] leading-10 px-2'>quick links</h1>
                     <ul className="flex justify-around flex-wrap gap-9 sm:gap-5 p-3 sm:p-2 border-t border-gray-400 border-b mobileFooter">
                         {mobilePages.map((item) => <Link href={`/${item.slug}`} key={item.slug}>
-                            <li className="cursor-pointer hover:text-[#bf912d]">{item.name}</li>
+                            <li className="cursor-pointer hover:text-[#bf912d] text-[14px] text-black">{item.name}</li>
                         </Link>)}
-
-
-                        {/* <li className="cursor-pointer hover:text-[#bf912d]">About Us</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Contact Us</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Our Team</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Visual Stories</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Photo Gallery</li> */}
                     </ul>
                     <div className="border-t border-gray-400 border-b leading-10 p-2">
                         <h1 className="uppercase">Follow us on</h1>
@@ -135,12 +128,6 @@ const MobileMenu = ({ setShowMenu }) => {
                                 <Link href={socialProfile.url} key={index}>
                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={socialProfile.icon} alt={socialProfile.name} />
                                 </Link>)}
-                            {/* <Image className="h-[24px] w-[24px] cursor-pointer" src={insta} alt="" />
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
-                            <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" /> */}
                         </ul>
                     </div>
                 </div>

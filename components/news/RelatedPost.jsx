@@ -30,7 +30,7 @@ const FeaturedCardApi = ({ data }) => {
            {/* right - content */}
            <div className="relative w-[62%] sm:w-[67%]">
                <p className="text-[10px] text-[#bf912d] font-bold">{randomCategory.name.toUpperCase()}</p>
-               <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] font-nunitoSans font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
+               <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
                </h2>
                <p className="text-[10px] text-[#737373] absolute bottom-0">{formatDate(data?.date).toUpperCase()}</p>
            </div>
@@ -52,11 +52,11 @@ const FeaturedCard = ({data}) => {
                     <div className="fadeBottom absolute bottom-0 left-0 right-0" />
                 </div>
                 <div className="relative">
-                    <p className="text-[10px] mb-[5px] text-[#bf912d] font-nunitoSans">TV SERIES</p>
-                    <h1 className="text-[16px] font-bold font-nunitoSans leading-[18px]">Bob Hearts Abishola Season 4
+                    <p className="text-[10px] mb-[5px] text-[#bf912d] blogTitle">TV SERIES</p>
+                    <h1 className="text-[16px] font-bold blogTitle leading-[18px]">Bob Hearts Abishola Season 4
                         Release Date, Cast, Plot, and What we know so far
                     </h1>
-                    <p className="text-[#737373] text-[10px] absolute bottom-0 font-nunitoSans">AUGUST 5, 2022</p>
+                    <p className="text-[#737373] text-[10px] absolute bottom-0 blogTitle">AUGUST 5, 2022</p>
                 </div>
             </div>
         </div>
