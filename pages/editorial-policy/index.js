@@ -4,7 +4,7 @@ import React from 'react'
 const index = () => {
   return (
     <>
-      <div className="flex flex-col  sm:px-[10rem] px-2 pb-4 bg-white">
+      < div className="flex flex-col   sm:px-[2rem] md:px-[10rem] px-2 pb-4 bg-white" >
         {/* breadcrumb */}
         <div class="text-[#6d6d6d] font-nunitoSans text-[14px] sm:text-[16px] py-2">
           <div class="container flex items-center gap-x-1 py-4 mx-auto overflow-x-auto whitespace-nowrap">

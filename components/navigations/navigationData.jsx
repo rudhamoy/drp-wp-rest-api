@@ -68,21 +68,21 @@ const pageLink = [
         slug: "privacy-policy",
     },
     {
-        name: "RSS Feeds",
-        slug: "rss-feeds",
+        name: "Ethics Policy",
+        slug: "ethics-policy",
+    },
+    {
+        name: "Correction Policy",
+        slug: "correction-policy",
+    },
+    {
+        name: "About Us",
+        slug: "about-us",
     },
     {
         name: "Team",
         slug: "team",
     },
-    {
-        name: "Terms and Condition",
-        slug: "terms&condition",
-    },
-    {
-        name: "Write for us",
-        slug: "write-for-us",
-    }
 ]
 
 
