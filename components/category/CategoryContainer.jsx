@@ -52,7 +52,7 @@ function CategoryContainer({ featured, postByCategory}) {
                                 <div className="w-full sm:w-[837px] cursor-pointer">
                                     <div>
                                         <div className="rounded-[5px] h-[40] sm:h-[52px] border bg-[#bf912d] text-center mt-8 mb-14 text-[23px] sm:text-[34px] flex justify-center">
-                                            <p className="text-[#ffd200]">MORE STORIES</p>
+                                            <p className="text-[#ffd200] blogTitle">MORE STORIES</p>
                                         </div>
                                     </div>
                                 </div>

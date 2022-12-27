@@ -29,6 +29,10 @@ a {
 @tailwind components;
 @tailwind utilities;
 
+.blogTitle {
+  font-family: 'NUNITOSANS' , sans-serif;
+}
+
 .scrollbar::-webkit-scrollbar {
   display: none;
 }

@@ -151,20 +151,20 @@ const HeaderNav = ({ setShowMenu }) => {
 
                                 }} className="flex items-center gap-x-1">
                                     <Image src={ShareImage} alt="" />
-                                    <p className="text-[16px] font-nunitoSans">Follow</p>
+                                    <p className="text-[16px] blogTitle">Follow</p>
                                 </div>
                                 {clickFollow === true && (
                                     <div className={`${style.follow} z-40`}>
                                         <div className="absolute uppercase top-10 z-50 -right-10 bg-[#bf912d] w-[267px] h-[149px] border-t-4 border-[#bf912d] shadow-md rounded-md overflow-hidden">
                                             <div>
-                                                <p className="uppercase text-center text-white font-nunitoSans my-1">Find more content at</p>
+                                                <p className="uppercase text-center text-white blogTitle my-1">Find more content at</p>
                                                 <div className="flex justify-around items-center p-3">
                                                     <Image className="h-[28px]" src={tollywood} alt="" />
                                                     <Image className="h-[28px]" src={gazeta} alt="" />
                                                 </div>
                                             </div>
                                             <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[61px]">
-                                                <p className="uppercase text-[#000000] text-center text-[9px] font-nunitoSans my-1">Follow us on</p>
+                                                <p className="uppercase text-[#000000] text-center text-[9px] blogTitle my-1">Follow us on</p>
                                                 <ul className="flex justify-around w-[100%]">
                                                     <Image className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />

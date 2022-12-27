@@ -26,10 +26,10 @@ function SideBarItem({ category, title, image, slug }) {
             </div>
             <div className="px-2 relative h-[80px] w-[250px]">
                 <Link href={`/category/${category.slug}`}>
-                <p className="font-nunitoSans text-[#bf912d] font-bold text-[10px] uppercase mb-[5px]">{category.name}</p>
+                <p className="blogTitle text-[#bf912d] font-bold text-[10px] uppercase mb-[5px]">{category.name}</p>
                 </Link>
                 <Link href={`/single-news/${slug}`}>
-                <h3 className="font-nunitoSans text-[16px] leading-[18px] text-black font-semibold">
+                <h3 className="blogTitle text-[16px] leading-[18px] text-black font-semibold">
                     {parseHTML(safeTitle)}
                 </h3>
                 </Link>

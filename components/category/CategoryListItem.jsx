@@ -32,22 +32,22 @@ function CategoryListItem({ width, data }) {
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
 
                             <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" />
-                            <div className="capitalize text-[8px] text-[#ffd200] font-nunitoSans  font-bold">{formatDate(data?.date).toUpperCase()}</div>
+                            <div className="capitalize text-[8px] text-[#ffd200] blogTitle  font-bold">{formatDate(data?.date).toUpperCase()}</div>
                         </div>
                     </div>
                     {/* right content */}
                     <div className="relative">
                         <Link href={`/category/${randomCategory.slug}`}>
-                            <p className="text-[10px] font-bold font-nunitoSans text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
+                            <p className="text-[10px] font-bold blogTitle text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
                         </Link>
                         <Link href={`/single-news/${data['slug']}`}>
-                            <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h3>
-                            {/* <h3 className="text-[16px] sm:text-[18px] text-black font-nunitoSans leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3> */}
+                            <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h3>
+                            {/* <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3> */}
 
                             {/* <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p > */}
                             <div className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden' dangerouslySetInnerHTML={{__html: mySafeHTML}}></div>
                         </Link>
-                        <p className="text-[#737373] text-[12px] font-[300] font-nunitoSans absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>
+                        <p className="text-[#737373] text-[12px] font-[300] blogTitle absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>
                     </div>
 
                 </div>

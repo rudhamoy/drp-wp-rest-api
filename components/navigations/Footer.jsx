@@ -127,11 +127,11 @@ const Footer = () => {
                     <div className="sm:w-[60%] flex flex-col justify-between">
                         <div>
                             <div className="flex items-center gap-x-1">
-                                <h1 className="text-[#bf912d] font-nunitoSans text-[20px]">NEWS SECTIONS</h1>
+                                <h1 className="text-[#bf912d] blogTitle text-[20px]">NEWS SECTIONS</h1>
                                 <div className="bg-[#bf912d] h-[2px] w-[82px]"></div>
                             </div>
                             <div>
-                                <ul className="text-[18px] font-nunitoSans flex sm:justify-between gap-x-2 flex-wrap">
+                                <ul className="text-[18px] blogTitle flex sm:justify-between gap-x-2 flex-wrap">
 
                                     {categories.map((category, index) => (
                                         <Link href={`/category/${category.slug}`} key={index}>
@@ -154,7 +154,7 @@ const Footer = () => {
                             <p className='text-[16px] font-sans text-[#dbdbdb] py-3 text-justify'>Daily Research Plot is a new-age media company that keeps its reader updated with the latest news headlines from the United States and all over the world. Entertainment, TV News, Shows Premiere Date, Release Date, Celebrity Gossips, and Travel - we help our readers to know about everything running around the world in every field</p>
 
                             <div className='flex items-center gap-x-4 my-2'>
-                                <h1 className="text-[#bf912d] text-[20px] font-nunitoSans whitespace-nowrap">FOllOW US</h1>
+                                <h1 className="text-[#bf912d] text-[20px] blogTitle whitespace-nowrap">FOllOW US</h1>
                                 <div className="flex gap-x-2 sm:gap-x-3 ">
                                     {socialMedia.map((socialProfile, index) =>
                                         <Link href={socialProfile.url} key={index}>
@@ -167,10 +167,10 @@ const Footer = () => {
                     {/* right footer */}
                     <div className="sm:w-[30%] mt-[60px] sm:mt-0">
                         <div className="flex items-center gap-x-1">
-                            <h1 className="text-[#bf912d] font-nunitoSans text-[20px] whitespace-nowrap">QUICK LINKS</h1>
+                            <h1 className="text-[#bf912d] blogTitle text-[20px] whitespace-nowrap">QUICK LINKS</h1>
                             <div className="bg-[#bf912d] h-[2px] w-[50px]"></div>
                         </div>
-                        <ul className="text-[18px] mt-[16px] font-nunitoSans leading-[30px]">
+                        <ul className="text-[18px] mt-[16px] blogTitle leading-[30px]">
                             {pageLink.map((item) => (
                                 <Link href={`/${item.slug}`} key={item.slug}>
                                     <li className="cursor-pointer hover:text-[#bf912d]">{item.name}</li>
@@ -183,7 +183,7 @@ const Footer = () => {
             </div>
 
             <div className='w-[100%] px-2 bg-black py-4'>
-                <p className='text-center flex items-center justify-center text-[14px] sm:text-[18px] font-[300px] font-nunitoSans text-[#dbdbdb]'>
+                <p className='text-center flex items-center justify-center text-[14px] sm:text-[18px] font-[300px] blogTitle text-[#dbdbdb]'>
                     <BiCopyright /> <span>2019 - 2022 Daily Research Plot All Rights Reserved.</span>
                 </p>
             </div>

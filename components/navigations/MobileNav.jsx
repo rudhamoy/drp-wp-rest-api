@@ -27,16 +27,16 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
 
             <div className=" w-[100%] flex justify-between items-center">
                 {/* mobile menu */}
-                <div className="flex items-center gap-x-3 w-[72%]">
+                <div className="flex items-center gap-x-3 w-[70%]">
                     <div role="button" onClick={() => setShowMenu(true)} className="">
-                        <Image src={MobileMenuImage} alt="" />
+                        <Image src={MobileMenuImage} alt="" height={50} width={50} />
                     </div>
                     <Link href='/'>
                         <Image src={Logo} className="h-[30px]" alt="" priority />
                     </Link>
 
                 </div>
-                <div className="flex items-center justify-around border-l w-[28%]">
+                <div className="flex items-center justify-around border-l w-[30%]">
                     {/* share */}
                     <div className="relative">
                         <div role="button" onClick={() => {
@@ -61,12 +61,6 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                                     <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[60px]">
                                         <h1 className="uppercase text-[#393939] text-center text-[9px] font-nunitoSans my-1">Follow us on</h1>
                                         <ul className="flex justify-around w-[100%] mb-1">
-                                            {/* <img className="h-[19px] w-[20px]" src={insta} alt="" />
-                                            <img className="h-[19px] w-[20px]" src={facebook} alt="" />
-                                            <img className="h-[19px] w-[20px]" src={twitter} alt="" />
-                                            <img className="h-[19px] w-[20px]" src={youtube} alt="" />
-                                            <img className="h-[19px] w-[20px]" src={linkedin} alt="" />
-                                            <img className="h-[19px] w-[20px]" src={rss} alt="" /> */}
 
                                             {socialMedia.map((socialProfile, index) =>
                                                 <Link href={socialProfile.url} key={index}>

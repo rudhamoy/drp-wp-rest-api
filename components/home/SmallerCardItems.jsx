@@ -13,6 +13,7 @@ function SmallerCardItems({ data }) {
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 60));
+    const postDate = new Date(data.date).toLocaleDateString()
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
@@ -34,14 +35,14 @@ function SmallerCardItems({ data }) {
                 <div className="relative w-[62%] sm:w-[67%]">
 
                     <Link href={`/category/${randomCategory.slug}`}>
-                        <p className="text-[10px] text-[#bf912d] font-bold">{randomCategory.name.toUpperCase()}</p>
+                        <p className="text-[10px] text-[#bf912d] font-bold blogTitle">{randomCategory.name.toUpperCase()}</p>
                     </Link>
-                    <Link href={`/single-news/${data['slug']}`}>
-                        {/* <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] font-nunitoSans font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
+                    <Link href={`/single-news/${data.slug}`}>
+                        {/* <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
                         </h2> */}
-                        <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] font-nunitoSans font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h2>
+                        <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h2>
                     </Link>
-                    <p className="text-[10px] text-[#737373] absolute bottom-0">{formatDate(data?.date).toUpperCase()}</p>
+                    <p className="text-[10px] text-[#737373] absolute bottom-0 blogTitle">{formatDate(data?.date).toUpperCase()}</p>
                 </div>
             </div>
         </div>

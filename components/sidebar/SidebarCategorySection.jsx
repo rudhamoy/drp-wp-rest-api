@@ -15,7 +15,7 @@ function SidebarCategorySection({ category, data }) {
             <div className="p-2">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-x-2">
-                        <h1 className="font-nunitoSans text-[#bf912d] text-[22px] font-semibold uppercase">{data[4].id}</h1>
+                        <h1 className="blogTitle text-[#bf912d] text-[22px] font-semibold uppercase">{data[4].id}</h1>
                         <div className="h-[2.5px] w-[100px] rounded bg-[#bf912d]"></div>
                     </div>
 
@@ -39,7 +39,7 @@ function SidebarCategorySection({ category, data }) {
                 </div>
                 <div className="flex items-center justify-center my-[7px]">
                     <Link href={`/category/${data[5].slug}`}>
-                    <p className="text-[#bf912d] font-semibold font-nunitoSans text-[16px]">READ ALL</p>
+                    <p className="text-[#bf912d] font-semibold blogTitle text-[16px]">READ ALL</p>
                     </Link>
                     <FiChevronRight className="text-[#bf912d] text-[18px]" />
                 </div>
