@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import DOMPurify from 'isomorphic-dompurify';
 import parseHTML from "html-react-parser";
+import parse, { domToReact, attributesToProps  } from 'html-react-parser';
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
@@ -22,9 +23,45 @@ const ArticleContainer = ({ image, data }) => {
     const safeTitle = DOMPurify.sanitize(data[0].title.rendered);
     const safeExerpt = DOMPurify.sanitize(data[0].yoast_head_json.og_description);
 
+    const html = `${mySafeHTML}`
+
+    const options = {
+        replace: domNode => {
+            const { attribs, children } = domNode
+          if (!attribs) {
+            return;
+          }
+    
+
+          if (domNode.name === 'p') {
+            return <p className='marginBlog text-[#333] text-[18px] blogBodyRegular'>{domToReact(children, options)}</p>;
+          }
+
+          if (domNode.name === 'h2') {
+            return <h2 className='font-[700px] text-[1.703em] blogTitle leading-[1.35]'>{domToReact(children, options)}</h2>;
+          }
+
+          if (domNode.attribs && domNode.name === 'a') {
+            const props = attributesToProps(domNode.attribs);
+            return <a className='underline decoration-[#bf912d] text-black' {...props}>{domToReact(children, options)}</a>
+          }
+
+          if (domNode.name === 'strong') {
+            return <strong className='font-[700px] blogTitle text-xl'>{domToReact(children, options)}</strong>;
+          }
+
+          if (domNode.attribs && domNode.name === 'img') {
+            const props = attributesToProps(domNode.attribs)
+            console.log(domNode.attribs.src)
+            return <img src={domNode.attribs.src} />
+          }
+
+        }
+      };
+
     return (
         <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px] overflow-hidden'>
-            <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold blogTitle">{parseHTML(safeTitle)}
+            <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] text-black font-semibold blogTitle">{parseHTML(safeTitle)}
             </h1>
             {/* <h1 className="text-[30px] sm:text-[36px] leading-[35px] sm:leading-[42px] font-semibold blogTitle">{data[0].title.rendered}
             </h1> */}
@@ -44,7 +81,7 @@ const ArticleContainer = ({ image, data }) => {
 
             {/* article */}
             {/* <div dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div> */}
-            <div className='leading-[26.5px]'>{parseHTML(mySafeHTML)}</div>
+            <div className='leading-[1.6]'>{parse(html, options)}</div>
 
             <div className="mt-12">
                 {/* tags */}
