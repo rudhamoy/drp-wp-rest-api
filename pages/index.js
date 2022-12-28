@@ -5,12 +5,14 @@ import styles from '../styles/Home.module.css'
 // import { pool } from '../services/mysql_db';
 import HomeContainer from '../components/home/HomeContainer'
 import { wrapper } from '../store/store'
+import fetcher from '../components/utils/fetcher'
+import { ALL_STORIES } from '../components/utils/api'
 
 export default function Home({
   data, entertainment, anime,
   tvShows, tech, hotspot,
   secondPage, celebGossip, movieNews,
-  gamesSport, stories,
+  gamesSport, storiesQl,
 }) {
 
 
@@ -32,7 +34,7 @@ export default function Home({
         celebGossip={celebGossip}
         movieNews={movieNews}
         gamesSport={gamesSport}
-        visualStories={stories}
+        visualStories={storiesQl}
       />
     </div>
     </>
@@ -42,12 +44,6 @@ export default function Home({
 
 
 export async function getStaticProps() {
-  // export async function getServerSideProps({ req, res }) {
-
-
-  // res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate')
-
-  // getCelebGossip, getMovieNews, getGamesSport, getStories
 
   const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
     fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
@@ -62,7 +58,6 @@ export async function getStaticProps() {
 
   ]);
 
-  // celebGossip, movieNews, gamesSport, stories
 
   const [data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport] = await Promise.all([
     getPosts.json(),
@@ -80,10 +75,13 @@ export async function getStaticProps() {
   const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
   const hotspot = await getHotspot.json()
 
+  const stories = await fetcher(ALL_STORIES)
+  const storiesQl = stories.data.webStories.nodes
+
   return {
     props: {
       data, entertainment, tvShows, anime, tech, secondPage, celebGossip, movieNews, gamesSport,
-      hotspot
+      hotspot, storiesQl
     },
     revalidate: 1
   }

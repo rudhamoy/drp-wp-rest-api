@@ -12,7 +12,7 @@ function VisualStoriesItem({ image, title, styles, data}) {
     // }
 
     return (
-        <a href={`/web-stories/${data.post_name}/`}>
+        <a href={`/web-stories/${data.slug}/`}>
             <div style={styles} className={`h-[297px] w-[187px] relative rounded-[4px] overflowHidden cursor-pointer bg-red-200`}>
             <div className="h-[300px] w-[187px] rounded-[4px] overflowHidden">
                 <img src={image} className="h-[100%] w-[100%]" alt="" />

@@ -6,17 +6,8 @@ import { CiFacebook } from 'react-icons/ci'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { BiCopyright } from 'react-icons/bi'
 import Logo from '../../assets/images/logobg.png'
-import { pageLink, socialMedia } from './navigationData';
+import { pageLink, socialMediaFooter } from './navigationData';
 
-// import LinkedIn from '../../assets/images/lnkd.png'
-// import RSS from '../../assets/images/rss.png'
-
-{/* <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="ins.png" alt="" />
-<img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="fb.png" alt="" />
-<img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="twt.png" alt="" />
-<img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="yt.png" alt="" />
-<img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="lnkd.png" alt="" />
-<img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src="rss.png" alt="" /> */}
 
 
 const categories = [
@@ -156,9 +147,9 @@ const Footer = () => {
                             <div className='flex items-center gap-x-4 my-2'>
                                 <h1 className="text-[#bf912d] text-[20px] blogTitle whitespace-nowrap">FOllOW US</h1>
                                 <div className="flex gap-x-2 sm:gap-x-3 ">
-                                    {socialMedia.map((socialProfile, index) =>
+                                    {socialMediaFooter.map((socialProfile, index) =>
                                         <Link href={socialProfile.url} key={index}>
-                                            <img className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={socialProfile.icon} alt={socialProfile.name} />
+                                            <Image className='w-[30px] sm:w-[44px] h-[30px] sm:h-[44px]' src={socialProfile.icon} alt={socialProfile.name} />
                                         </Link>)}
                                 </div>
                             </div>

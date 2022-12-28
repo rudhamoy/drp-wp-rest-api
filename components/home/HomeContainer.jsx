@@ -11,11 +11,10 @@ import SidebarCategorySection from '../sidebar/SidebarCategorySection';
 import SideAds from '../ads/SideAds';
 import VisualStoriesSlider from './VisualStoriesSlider';
 
-import { getStories } from '../../features/postSlice';
-import { homeData } from '../../data/homeList';
+// import { getStories } from '../../features/postSlice';
 import Link from 'next/link';
 
-function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport }) {
+function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport, visualStories }) {
     const dispatch = useDispatch()
     
     const { posts, stories, status } = useSelector(state => state.posts)
@@ -38,10 +37,9 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
         [...tech, { id: "TECHNOLOGY" }, {slug: 'technology'}]
     ]
 
-    useEffect(() => {
-        dispatch(getStories())
-    }, [dispatch])
-
+    // useEffect(() => {
+    //     dispatch(getStories())
+    // }, [dispatch])
 
     return (
         <div className="sm:mx-0 mx-2 sm:mt-6 flex flex-col justify-center items-center">
@@ -49,20 +47,14 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                 <FeaturedContainer data={data} />
                 <HotspotSlider hotspotData={hotSpot} />
             </div>
-            {/* {homeData.map(item => (
-                <div>
-                    <Link href={`/${String(item.date)}/${item.category}`}>
-                        {item.title}
-                    </Link>
-                </div>
-            ))} */}
+            
             <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                 {/* content */}
                 <div className="">
                     {catSectionArr.map((item, index) => {
 
                         if (item === null) {
-                            return <VisualStoriesSlider visualStories={stories} />
+                            return <VisualStoriesSlider visualStories={visualStories} />
                         }
                         return (
                             <CategorySection key={index} category="Cate" data={item} />

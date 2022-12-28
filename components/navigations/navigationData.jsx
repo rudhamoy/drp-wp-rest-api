@@ -1,4 +1,11 @@
 
+import FacebookFooter from '../../assets/svg/facebookFooter.svg'
+import InstaFooter from '../../assets/svg/instaFooter.svg'
+import linkedinFooter from '../../assets/svg/linkedinFooter.svg'
+import rssFooter from '../../assets/svg/rssFooter.svg'
+import TwitterFooter from '../../assets/svg/twitterFooter.svg'
+import YoutubeFooter from '../../assets/svg/youtubeFooter.svg'
+
 import Facebook from '../../assets/svg/facebook@4x.svg'
 import Insta from '../../assets/svg/insta@4x.svg'
 import linkedin from '../../assets/svg/linkedin@4x.svg'
@@ -36,6 +43,41 @@ const socialMedia = [
     {
         name: "RSS",
         icon: rss,
+        url: ""
+    },
+
+
+]
+
+const socialMediaFooter = [
+    {
+        name: "Facebook",
+        icon: FacebookFooter,
+        url: "https://www.facebook.com/dailyresearchplot"
+    },
+    {
+        name: "Instagram",
+        icon: InstaFooter,
+        url: "https://www.instagram.com/dailyresearchplot/"
+    },
+    {
+        name: "Twitter",
+        icon: TwitterFooter,
+        url: "https://twitter.com/daily_plot"
+    },
+    {
+        name: "Youtube",
+        icon: YoutubeFooter,
+        url: "https://www.youtube.com/channel/UCd2_2WaLFKfC1Lt0M3dSPCA"
+    },
+    {
+        name: "LinkedIn",
+        icon: linkedinFooter,
+        url: ""
+    },
+    {
+        name: "RSS",
+        icon: rssFooter,
         url: ""
     },
 
@@ -87,5 +129,5 @@ const pageLink = [
 
 
 export {
-    socialMedia, pageLink
+    socialMedia, pageLink, socialMediaFooter
 }
