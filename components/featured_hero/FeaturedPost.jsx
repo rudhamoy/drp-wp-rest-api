@@ -15,7 +15,12 @@ function FeaturedPost({ data }) {
 
     const safeTitle = DOMPurify.sanitize(data[0].title.rendered.substring(0, 100));
     const safeExcerpt = DOMPurify.sanitize(data[0].yoast_head_json.description);
-    const postDate = new Date(data[0].date).toLocaleDateString()
+    // const postDate = new Date(data[0].date).toLocaleDateString()
+
+    const date = new Date(data[0].date).getDate()
+    const month = new Date(data[0].date).getMonth()
+    const year = new Date(data[0].date).getFullYear()
+    const postDate = `${year}/${month+1}/${date}`
 
     return (
         <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer overflow-hidden">

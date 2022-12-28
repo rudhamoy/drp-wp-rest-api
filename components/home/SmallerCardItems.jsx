@@ -14,8 +14,12 @@ function SmallerCardItems({ data }) {
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
 
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 60));
-    const postDate = new Date(data.date).toLocaleDateString()
+    // const postDate = new Date(data.date).toLocaleDateString()
 
+    const date = new Date(data.date).getDate()
+    const month = new Date(data.date).getMonth()
+    const year = new Date(data.date).getFullYear()
+    const postDate = `${year}/${month + 1}/${date}`
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >

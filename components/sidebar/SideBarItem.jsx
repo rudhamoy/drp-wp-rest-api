@@ -5,10 +5,15 @@ import videoIcon from '../../assets/icons/video-icon.svg';
 import DOMPurify from 'isomorphic-dompurify';
 import parseHTML from "html-react-parser";
 
-function SideBarItem({ category, title, image, slug }) {
+function SideBarItem({ category, title, image, slug, date }) {
 
     const safeTitle = DOMPurify.sanitize(title)
-
+    
+    const day = new Date(date).getDate()
+    const month = new Date(date).getMonth()
+    const year = new Date(date).getFullYear()
+    const postDate = `${year}/${month+1}/${day}`
+    
     return (
 
         <div className="flex flex-row items-center p-2 cursor-pointer rounded-[2px] w-[90vw] sm:w-[383px] h-[108px] z-0 border">
@@ -28,7 +33,7 @@ function SideBarItem({ category, title, image, slug }) {
                 <Link href={`/category/${category.slug}`}>
                 <p className="blogTitle text-[#bf912d] font-bold text-[10px] uppercase mb-[5px]">{category.name}</p>
                 </Link>
-                <Link href={`/single-news/${slug}`}>
+                <Link href={`/${postDate}/${slug}`}>
                 <h3 className="blogTitle text-[16px] leading-[18px] text-black font-semibold">
                     {parseHTML(safeTitle)}
                 </h3>

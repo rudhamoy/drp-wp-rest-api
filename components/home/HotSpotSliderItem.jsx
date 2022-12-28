@@ -7,7 +7,12 @@ import parseHTML from "html-react-parser";
 function HotSpotSliderItem({ category, title, image, slug, date }) {
 
     const safeTitle = DOMPurify.sanitize(title)
-    const postDate = new Date(date).toLocaleDateString()
+    // const postDate = new Date(date).toLocaleDateString()
+
+    const day = new Date(date).getDate()
+    const month = new Date(date).getMonth()
+    const year = new Date(date).getFullYear()
+    const postDate = `${year}/${month+1}/${day}`
 
 
     return (

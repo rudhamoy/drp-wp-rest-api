@@ -18,7 +18,11 @@ function CategoryListItem({ width, data }) {
 
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 110));
 
-    const postDate = new Date(data.date).toLocaleDateString()
+    // const postDate = new Date(data.date).toLocaleDateString()
+    const date = new Date(data.date).getDate()
+    const month = new Date(data.date).getMonth()
+    const year = new Date(data.date).getFullYear()
+    const postDate = `${year}/${month+1}/${date}`
 
     return (
         <>

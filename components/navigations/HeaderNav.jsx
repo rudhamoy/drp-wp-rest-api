@@ -166,12 +166,12 @@ const HeaderNav = ({ setShowMenu }) => {
                                             <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[61px]">
                                                 <p className="uppercase text-[#000000] text-center text-[9px] blogTitle my-1">Follow us on</p>
                                                 <ul className="flex justify-around w-[100%]">
-                                                    <Image className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
+                                                    {/* <Image className="h-[24px] w-[24px] cursor-pointer mb-1" src={insta} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={facebook} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={twitter} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={youtube} alt="" />
                                                     <Image className="h-[24px] w-[24px] cursor-pointer" src={linkedin} alt="" />
-                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" />
+                                                    <Image className="h-[24px] w-[24px] cursor-pointer" src={rss} alt="" /> */}
 
                                                     {socialMedia.map((socialProfile, index) =>
                                                         <Link href={socialProfile.url} key={index}>
