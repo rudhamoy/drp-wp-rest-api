@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import DOMPurify from 'isomorphic-dompurify';
 import parseHTML from "html-react-parser";
-import parse, { domToReact, attributesToProps  } from 'html-react-parser';
+import parse, { domToReact, attributesToProps } from 'html-react-parser';
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
@@ -28,36 +28,54 @@ const ArticleContainer = ({ image, data }) => {
     const options = {
         replace: domNode => {
             const { attribs, children } = domNode
-          if (!attribs) {
-            return;
-          }
-    
+            if (!attribs) {
+                return;
+            }
 
-          if (domNode.name === 'p') {
-            return <p className='marginBlog text-[#333] text-[18px] blogBodyRegular'>{domToReact(children, options)}</p>;
-          }
 
-          if (domNode.name === 'h2') {
-            return <h2 className='font-[700px] text-[1.703em] blogTitle leading-[1.35]'>{domToReact(children, options)}</h2>;
-          }
+            if (domNode.name === 'p') {
+                return <p className='marginBlog text-[#333] text-[18px] blogBodyRegular'>{domToReact(children, options)}</p>;
+            }
 
-          if (domNode.attribs && domNode.name === 'a') {
-            const props = attributesToProps(domNode.attribs);
-            return <a className='underline decoration-[#bf912d] text-black' {...props}>{domToReact(children, options)}</a>
-          }
+            if (domNode.name === 'h2') {
+                return <h2 className='font-[700px] text-[1.703em] blogTitle leading-[1.35]'>{domToReact(children, options)}</h2>;
+            }
 
-          if (domNode.name === 'strong') {
-            return <strong className='font-[700px] blogTitle text-xl'>{domToReact(children, options)}</strong>;
-          }
+            if (domNode.name === 'h4') {
+                return <h4 className='font-[700px] text-[1.2em] blogTitle leading-[1.5]'>{domToReact(children, options)}</h4>;
+            }
 
-          if (domNode.attribs && domNode.name === 'img') {
-            const props = attributesToProps(domNode.attribs)
-            console.log(domNode.attribs.src)
-            return <img src={domNode.attribs.src} />
-          }
+            if (domNode.attribs && domNode.name === 'a') {
+                const props = attributesToProps(domNode.attribs);
+                return <a className='underline decoration-[#bf912d] text-black' {...props}>{domToReact(children, options)}</a>
+            }
+
+            if (domNode.name === 'strong') {
+                return <strong className='font-[700px] blogTitle text-xl'>{domToReact(children, options)}</strong>;
+            }
+            
+
+            if (domNode.attribs && domNode.name === 'img') {
+                const props = attributesToProps(domNode.attribs)
+                console.log(domNode.attribs.src)
+                return (
+                    <div className="my-4 w-[90vw] sm:w-[804px] sm:h-[453px] relative rounded-[10px] overflowHidden">
+                        <Image fill src={domNode.attribs.src} />
+                        <div className='bigFadeBottom absolute bottom-0 left-0 right-0' />
+                    </div>
+                )
+            }
+
+            if (domNode.name === 'figcaption') {
+                return (
+                    <div className="w-[837px] mb-4">
+                        <figcaption className='text-center text-[#a0a0a0] text-[12px]'>{domToReact(children, options)}</figcaption>
+                    </div>
+                )
+            }
 
         }
-      };
+    };
 
     return (
         <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px] overflow-hidden'>
