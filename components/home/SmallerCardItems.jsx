@@ -7,6 +7,7 @@ import couplesHug from '../../assets/images/couples_hug.png';
 import VideoIcon from '../../assets/icons/VideoIcon';
 import formatDate from '../utils/FormatDate';
 import getRandomCategory from '../utils/RandomCategory';
+import CategoryIcon from '../utils/CategoryIcon';
 
 
 function SmallerCardItems({ data }) {
@@ -18,7 +19,7 @@ function SmallerCardItems({ data }) {
     const date = new Date(data.date).getDate()
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
-    const postDate = `${year}/${month+1}/${date}`
+    const postDate = `${year}/${month + 1}/${date}`
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
@@ -31,7 +32,8 @@ function SmallerCardItems({ data }) {
                         <Image fill className="w-[100%] h-[100%] object-cover" src={`https://dailyresearchplot.com/${data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url}`} alt="" />
                         {/* <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#31313193] rounded-md"></div> */}
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
-                            <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" />
+                            {/* <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" /> */}
+                            <CategoryIcon categoryList={data.categories} />
                         </div>
                         <div className='fadeBottom absolute bottom-0 left-0 right-0 rounded-sm' />
                     </div>
@@ -45,7 +47,7 @@ function SmallerCardItems({ data }) {
                     <Link href={`/${postDate}/${data.slug}`}>
                         {/* <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
                         </h2> */}
-                        <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold" dangerouslySetInnerHTML={{__html: safeTitle}}></h2>
+                        <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold" dangerouslySetInnerHTML={{ __html: safeTitle }}></h2>
                     </Link>
                     <p className="text-[10px] text-[#737373] absolute bottom-0 blogTitle">{formatDate(data?.date).toUpperCase()}</p>
                 </div>
