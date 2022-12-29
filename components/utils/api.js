@@ -1,6 +1,6 @@
 
 export const ALL_STORIES = `query GETALLWEBSTORIES {
-    webStories(first: 10) {
+    webStories(first: 12) {
       nodes {
         title
         slug
@@ -11,6 +11,7 @@ export const ALL_STORIES = `query GETALLWEBSTORIES {
             description
           }
         }
+        date
       }
     }
   }`

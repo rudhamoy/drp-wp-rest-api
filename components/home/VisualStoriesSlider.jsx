@@ -7,6 +7,7 @@ import walker from '../../assets/images/walker.png';
 import VisualStoriesItem from './VisualStoriesItem';
 
 import Slider from "react-slick";
+import Link from 'next/link';
 
 // import './slider.css'
 
@@ -124,7 +125,9 @@ function VisualStoriesSlider({ visualStories }) {
                     <div className="h-[2px] w-[80px] sm:w-[100px] rounded bg-[#bf912d]"></div>
                 </div>
                 <div className="text-[#bf912d] text-[12px] sm:text-[18px] font-semibold font-nunitoSans flex items-center cursor-pointer">
-                    <p>VIEW ALL</p>
+                   <Link href='/web-stories'>
+                   <p>VIEW ALL</p>
+                   </Link>
                     <FiChevronRight className="text-[18px]" />
                 </div>
             </div>

@@ -20,20 +20,6 @@ const index = ({ singleData, featured, headTitle }) => {
 
 export default index
 
-// export async function getServerSideProps(context) {
-//     const { id } = context.params;
-//     const getPost = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&slug=${id}`)
-
-//     const singleData = await getPost.json()
-
-//     return {
-//         props: {
-//             singleData
-//         }
-//       }
-
-//   }
-
 export async function getStaticPaths() {
   const res = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed')
 
@@ -56,7 +42,7 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
- console.log(params)
+
  const { slug } = params
   const getPost = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&slug=${slug[slug.length - 1]}`)
   const singleData = await getPost.json()
@@ -71,6 +57,6 @@ export async function getStaticProps({ params }) {
       headTitle: singleData[0].yoast_head_json.title,
       featured
     },
-    revalidate: 10,
+    revalidate: 1,
   }
 }

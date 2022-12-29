@@ -10,7 +10,7 @@ import styles from '../../styles/Home.module.css'
 import CategoryIcon from '../utils/CategoryIcon';
 
 function FeaturedPost({ data }) {
-    console.log(data)
+    
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data[0]?._embedded["wp:term"][0]))
 
     const safeTitle = DOMPurify.sanitize(data[0].title.rendered.substring(0, 100));
