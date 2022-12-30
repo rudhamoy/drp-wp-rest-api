@@ -119,7 +119,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                     <Link href='/category/movies'>
                         Movie
                     </Link>
-                    <Link href='/category/#'>
+                    <Link href=''>
                         <p className="whitespace-nowrap">Technology</p>
                     </Link>
                     <p className="whitespace-nowrap">Web Stories</p>

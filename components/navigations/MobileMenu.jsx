@@ -17,12 +17,6 @@ import { socialMedia, pageLink } from './navigationData'
 import Link from 'next/link'
 
 
-{/* <li className="cursor-pointer hover:text-[#bf912d]">About Us</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Contact Us</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Our Team</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Visual Stories</li>
-                        <li className="cursor-pointer hover:text-[#bf912d]">Photo Gallery</li> */}
-
 const mobilePages = [
     {
         name: "About Us",
@@ -79,10 +73,10 @@ const MobileMenu = ({ setShowMenu }) => {
                         <div role="button" onClick={() => setOpen(!open)} className={`${menuItemClass} flex items-center justify-between pr-5`}>Entertainment <MdArrowBackIos className={`${open === true ? "rotate-90" : '-rotate-90'}`} /> </div>
                         {open === true && (
                             <ul className="p-4 w-full">
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Politics</Link></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Technology</Link></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Gaming</Link></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Sports</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Politics</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Technology</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Gaming</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Sports</Link></li>
                                 <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/exclusive">Trending</Link></li>
                             </ul>
                         )}
@@ -92,22 +86,22 @@ const MobileMenu = ({ setShowMenu }) => {
                         <div role="button" onClick={() => setOpenNews(!openNews)} className={`${menuItemClass} flex items-center justify-between pr-5`}>News <MdArrowBackIos className={`${openNews === true ? "rotate-90" : '-rotate-90'}`} /></div>
                         {openNews === true && (
                             <ul className="p-4 w-full">
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Politics</Link></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Technology</Link></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Gaming</Link></li>
-                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/#">Sports</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Politics</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Technology</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Gaming</Link></li>
+                                <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="">Sports</Link></li>
                                 <li className="py-2 w-full hover:text-[#bf912d] border-gray-300 border-b-[2px]"><Link href="/category/exclusive">Trending</Link></li>
                             </ul>
                         )}
                     </div>
                     <div className={menuItemClass}>
-                        <Link href="/category/#">Anime</Link>
+                        <Link href="">Anime</Link>
                     </div>
                     <div className={menuItemClass}>
-                        <Link href="/category/#">Games</Link>
+                        <Link href="">Games</Link>
                     </div>
                     <div className={menuItemClass}>
-                        <Link href="/category/#">Movies</Link>
+                        <Link href="">Movies</Link>
                     </div>
                     <div className={menuItemClass}>
                         <Link href="/category/web-series">Tv Shows</Link>

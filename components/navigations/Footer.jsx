@@ -17,35 +17,35 @@ const categories = [
     },
     {
         name: "Celebrity News",
-        slug: "celebrity",
+        slug: "celebrity-news",
     },
     {
         name: "TV News",
-        slug: "tv-show",
+        slug: "web-series",
     },
     {
         name: "Technology News",
-        slug: "technology",
+        slug: "",
     },
     {
         name: "Movies",
-        slug: "movie",
+        slug: "movies",
     },
     {
         name: "Politics",
-        slug: "politics",
+        slug: "",
     },
     {
         name: "Sports",
-        slug: "sports",
+        slug: "",
     },
     {
         name: "General News",
-        slug: "general-news",
+        slug: "",
     },
     {
         name: "Trending",
-        slug: "trending",
+        slug: "exclusive",
     },
     {
         name: "Bollywood",
@@ -53,11 +53,11 @@ const categories = [
     },
     {
         name: "Web Stories",
-        slug: "our-web-stories",
+        slug: "web-stories",
     },
     {
         name: "Business",
-        slug: "business",
+        slug: "",
     },
     {
         name: "Photos",
