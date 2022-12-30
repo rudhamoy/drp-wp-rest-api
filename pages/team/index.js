@@ -3,7 +3,7 @@ import React from 'react'
 import BalramJee from '../../assets/images/Balram-Jee.webp';
 import Image from 'next/image';
 import { MemberCard } from './MemberCard';
-const index = ({ authors }) => {
+const index = ({ authors, host }) => {
 
   return (
     <>
@@ -55,7 +55,7 @@ const index = ({ authors }) => {
             <br />
             <div className="flex flex-wrap gap-6 items-center">
               {authors.map((data, index) =>
-                <MemberCard key={index} data={data} />
+                <MemberCard key={index} data={data} host={host} />
               )}
             </div>
           </div>
@@ -68,13 +68,14 @@ const index = ({ authors }) => {
 export default index
 
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
   const res = await fetch("https://www.tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100&authors")
   const authors = await res.json()
+  const host = context.req.headers.host
   return {
     props:
     {
-      authors,
+      authors, host
     },
   }
 

@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { BsPinterest } from 'react-icons/bs'
 import { AiOutlineInstagram } from 'react-icons/ai'
+import Link from 'next/link';
 
-export const MemberCard = ({ data }) => {
+
+export const MemberCard = ({ data, host }) => {
     const [zoom, setZoom] = useState(false);
     // spliting the gravetar url params to update height
     const gravaterImageUrl = data.avatar_urls["96"]
     const authorImageLink = gravaterImageUrl.split('?')[0]
+
 
 
 
@@ -19,7 +22,9 @@ export const MemberCard = ({ data }) => {
                     <img src={authorImageLink + "?s=500"}></img>
                 </div>
                 {/* end image container */}
-                <h3 className="text-center text-[1.2rem] text-[#e20e59] hover:text-gray-700 cursor-pointer">{data.name}</h3>
+                <h3 className="text-center text-[1.2rem] text-[#e20e59] hover:text-gray-700 cursor-pointer">
+                    <Link href={`http://${host}/author/${data.slug}`}>{data.name}</Link>
+                </h3>
                 <p className="h-[12rem] p-1 text-ellipsis">{data.description.substring(0, 180)}</p>
                 <div className="flex flex-row gap-2 items-center justify-center p-2">
                     <BsPinterest className="h-6 w-6" />
