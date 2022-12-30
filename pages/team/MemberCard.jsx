@@ -4,7 +4,7 @@ import { AiOutlineInstagram } from 'react-icons/ai'
 import Link from 'next/link';
 
 
-export const MemberCard = ({ data, host }) => {
+const MemberCard = ({ data, host }) => {
     const [zoom, setZoom] = useState(false);
     // spliting the gravetar url params to update height
     const gravaterImageUrl = data.avatar_urls["96"]
@@ -29,10 +29,11 @@ export const MemberCard = ({ data, host }) => {
                 <div className="flex flex-row gap-2 items-center justify-center p-2">
                     <BsPinterest className="h-6 w-6" />
                     <AiOutlineInstagram className="h-6 w-6" />
-
                 </div>
             </div>
 
         </>
     )
 }
+
+export default MemberCard
