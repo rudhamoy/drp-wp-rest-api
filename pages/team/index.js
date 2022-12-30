@@ -3,7 +3,8 @@ import React from 'react'
 import BalramJee from '../../assets/images/Balram-Jee.webp';
 import Image from 'next/image';
 import { MemberCard } from './MemberCard';
-const index = () => {
+const index = ({ authors }) => {
+
   return (
     <>
       <div className="flex flex-col  sm:px-[2rem] md:px-[10rem] px-2 pb-4 bg-white">
@@ -52,8 +53,10 @@ const index = () => {
               <div className='w-[30%] h-[1px] bg-[#e20e59]'></div>
             </div>
             <br />
-            <div className="flex">
-              <MemberCard />
+            <div className="flex flex-wrap gap-6 items-center">
+              {authors.map((data, index) =>
+                <MemberCard key={index} data={data} />
+              )}
             </div>
           </div>
         </div>
@@ -63,3 +66,18 @@ const index = () => {
 }
 
 export default index
+
+
+export async function getStaticProps() {
+  const res = await fetch("https://www.tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100&authors")
+  const authors = await res.json()
+  return {
+    props:
+    {
+      authors,
+    },
+  }
+
+}
+
+
