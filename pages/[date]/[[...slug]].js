@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
   const getPost = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&slug=${slug[slug.length - 1]}`)
   const singleData = await getPost.json()
 
-  console.log('data =', singleData)
+ 
   const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
   const featured = await featuredPost.json()
 

@@ -107,19 +107,19 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                     </Link>
                 </div>
                 <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
-                    <Link href="/category/celebrity">
+                    <Link href="/category/celebrity-news">
                         <p>Celebrity</p>
                     </Link>
                     <Link href="/category/entertainment">
                         <p>Entertainment</p>
                     </Link>
-                    <Link href='/category/TV Show'>
+                    <Link href='/category/web-series'>
                         <p className="whitespace-nowrap">Tv News</p>
                     </Link>
-                    <Link href='/category/movie'>
+                    <Link href='/category/movies'>
                         Movie
                     </Link>
-                    <Link href='/category/technology'>
+                    <Link href='/category/#'>
                         <p className="whitespace-nowrap">Technology</p>
                     </Link>
                     <p className="whitespace-nowrap">Web Stories</p>
