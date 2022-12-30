@@ -1,10 +1,9 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import AuthorContainer from '../../../components/author/AuthorContainer'
 import Head from 'next/head'
 
 const index = ({ postByAuthor, userById, featured, headTitle }) => {
-  const router = useRouter()
+  
   return (
     <>
       <Head>
@@ -34,18 +33,18 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
 
-  const getUsers = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100`)
-  const users = await getUsers.json()
+  const getUser = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/users?_embed&slug=${params.slug}`)
+  const user = await getUser.json()
 
-  let userById
-  users.map(user => {
+  // let userById
+  // users.map(user => {
           
-          if(user.slug.toLowerCase() === params.slug.toLowerCase()) {
-            userById = user
-          }
-      })
+  //         if(user.slug.toLowerCase() === params.slug.toLowerCase()) {
+  //           userById = user
+  //         }
+  //     })
 
-  const getPosts = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&author=${userById.id}&per_page=15`)
+  const getPosts = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&author=${user[0].id}&per_page=15`)
   const postByAuthor = await getPosts.json()
 
   const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
@@ -54,8 +53,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       postByAuthor,
-      userById,
-      headTitle: userById.yoast_head_json.title,
+      userById: user[0],
+      headTitle: user[0].yoast_head_json.title,
       featured
     },
     revalidate: 1,
