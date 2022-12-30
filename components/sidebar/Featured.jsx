@@ -37,7 +37,7 @@ const Featured = ({ data }) => {
             </div>
             <div className="flex flex-col gap-y-[10px] mt-[19px]">
             {data.map((item, index) => {
-                const image = 'https://dailyresearchplot.com' + item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
+                const image = item._embedded["wp:featuredmedia"] ? item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url : ''
                 return (
                     <SideBarItem
                       key={index}

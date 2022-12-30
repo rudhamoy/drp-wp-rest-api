@@ -42,18 +42,19 @@ export default function Home({
 }
 
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+  
 
   const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5'),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=206&per_page=5`),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=171&per_page=5`),
-    fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=176&per_page=5`),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=174&per_page=4'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=200&per_page=4'),
-    fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=175,203&per_page=4'),
+    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=5'),
+    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
+    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=27&per_page=5`),
+    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=23&per_page=5`),
+    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=26&per_page=5`),
+    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2'),
+    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=18&per_page=4'),
+    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=19&per_page=4'),
+    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=20&per_page=4'),
 
   ]);
 
@@ -71,7 +72,7 @@ export async function getStaticProps() {
 
   ]);
 
-  const getHotspot = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=204&per_page=12')
+  const getHotspot = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=26&per_page=12')
   const hotspot = await getHotspot.json()
 
   const stories = await fetcher(ALL_STORIES)

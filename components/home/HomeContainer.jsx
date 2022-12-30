@@ -16,7 +16,8 @@ import Link from 'next/link';
 
 function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, secondPage, celebGossip, movieNews, gamesSport, visualStories }) {
     const dispatch = useDispatch()
-    
+   
+
     const { posts, stories, status } = useSelector(state => state.posts)
 
     const { ref, inView } = useInView()

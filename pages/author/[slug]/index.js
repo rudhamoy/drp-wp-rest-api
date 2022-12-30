@@ -19,7 +19,7 @@ const index = ({ postByAuthor, userById, featured, headTitle }) => {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/users?_embed&per_page=100')
+  const res = await fetch('https://tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100')
 
   const users = await res.json()
 
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
 
-  const getUsers = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/users?_embed&per_page=100`)
+  const getUsers = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100`)
   const users = await getUsers.json()
 
   let userById
@@ -45,10 +45,10 @@ export async function getStaticProps({ params }) {
           }
       })
 
-  const getPosts = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&author=${userById.id}&per_page=15`)
+  const getPosts = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&author=${userById.id}&per_page=15`)
   const postByAuthor = await getPosts.json()
 
-  const featuredPost = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=7')
+  const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
   const featured = await featuredPost.json()
 
   return {
@@ -58,7 +58,7 @@ export async function getStaticProps({ params }) {
       headTitle: userById.yoast_head_json.title,
       featured
     },
-    revalidate: 10,
+    revalidate: 1,
   }
 }
 

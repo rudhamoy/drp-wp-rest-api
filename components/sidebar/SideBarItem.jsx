@@ -7,7 +7,7 @@ import parseHTML from "html-react-parser";
 
 function SideBarItem({ category, title, image, slug, date }) {
 
-    const safeTitle = DOMPurify.sanitize(title)
+    const safeTitle = DOMPurify.sanitize(title.substring(0, 75))
     
     const day = new Date(date).getDate()
     const month = new Date(date).getMonth()

@@ -18,7 +18,12 @@ function FeaturedContainer({ data }) {
                 <div className="grid sm:grid-cols-2 gap-2">
 
                     {!data ? null : mesonaryData?.map((article, index) => (
-                        <MasonaryItem data={article} key={index} image={article?._embedded["wp:featuredmedia"][0].link} icon={videoIcon} title={article.title.rendered} />
+                        <MasonaryItem 
+                        data={article} 
+                        key={index}
+                        image={article?._embedded["wp:featuredmedia"] ? article?._embedded["wp:featuredmedia"][0].link : ''}
+                        icon={videoIcon} 
+                        title={article.title.rendered} />
                     ))}
 
                 </div>

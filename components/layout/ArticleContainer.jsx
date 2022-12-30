@@ -59,7 +59,7 @@ const ArticleContainer = ({ image, data }) => {
                 const props = attributesToProps(domNode.attribs)
                 console.log(domNode.attribs.src)
                 return (
-                    <div className="my-4 w-[90vw] sm:w-[804px] sm:h-[453px] relative rounded-[10px] overflowHidden">
+                    <div className="my-4 w-[90vw] sm:w-[804px] h-[200px] sm:h-[453px] relative rounded-[10px] overflowHidden">
                         <Image fill src={domNode.attribs.src} />
                         <div className='bigFadeBottom absolute bottom-0 left-0 right-0' />
                     </div>
@@ -68,7 +68,7 @@ const ArticleContainer = ({ image, data }) => {
 
             if (domNode.name === 'figcaption') {
                 return (
-                    <div className="w-[837px] mb-4">
+                    <div className="w-[90vw] sm:w-[837px] mb-4">
                         <figcaption className='text-center text-[#a0a0a0] text-[12px]'>{domToReact(children, options)}</figcaption>
                     </div>
                 )

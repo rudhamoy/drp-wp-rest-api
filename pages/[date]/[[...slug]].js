@@ -2,6 +2,7 @@ import Head from "next/head";
 import SingleNewsContainer from '../../components/news/SingleNewsContainer'
 
 const index = ({ singleData, featured, headTitle }) => {
+  
   return (
     <>
       <Head>
@@ -21,14 +22,9 @@ const index = ({ singleData, featured, headTitle }) => {
 export default index
 
 export async function getStaticPaths() {
-  const res = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed')
+  const res = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed')
 
   const posts = await res.json()
-
-  // const date = new Date(data.date).getDate()
-    // const month = new Date(data.date).getMonth()
-    // const year = new Date(data.date).getFullYear()
-    // const postDate = `${year}/${month+1}/${date}`
 
     const paths = posts.map((post) => ({
       params: {
@@ -44,11 +40,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
  const { slug } = params
-  const getPost = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&slug=${slug[slug.length - 1]}`)
+  const getPost = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&slug=${slug[slug.length - 1]}`)
   const singleData = await getPost.json()
- 
 
-  const featuredPost = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=7')
+  console.log('data =', singleData)
+  const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
   const featured = await featuredPost.json()
 
   return {

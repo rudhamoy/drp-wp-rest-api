@@ -4,10 +4,10 @@ import { ALL_STORIES } from '../../components/utils/api'
 import fetcher from '../../components/utils/fetcher'
 
 const index = ({storiesQl}) => {
-    console.log(storiesQl)
+    
   return (
-    <div className="mx-auto">
-      <div className="w-[100vw] sm:w-[1264px] mb-5 flex flex-wrap">
+    <div className="w-[100vw] sm:w-[1264px] mx-auto my-5">
+      <div className="flex flex-wrap gap-5">
       {storiesQl.map((item, index) => (
         <VisualStoriesItem 
         key={index}
@@ -17,6 +17,7 @@ const index = ({storiesQl}) => {
         />
       ))}
     </div>
+    
     </div>
   )
 }

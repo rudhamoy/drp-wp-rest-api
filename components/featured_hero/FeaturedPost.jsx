@@ -26,7 +26,7 @@ function FeaturedPost({ data }) {
         <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer overflow-hidden">
 
             <div className="h-[205px] sm:h-[325px] w-[95vw] sm:w-[635px] overflow-hidden relative ">
-                <Image className=" hover:scale-[110%] transition-all duration-[1000ms]" src={data[0]?._embedded["wp:featuredmedia"][0].link} alt="" fill priority />
+                <Image className=" hover:scale-[110%] transition-all duration-[1000ms]" src={data[0]?._embedded["wp:featuredmedia"] ? data[0]?._embedded["wp:featuredmedia"][0].link : ''} alt="" fill priority />
                 <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
                     {/* <AiOutlinePicRight className="text-[#ffd200] font-bold" /> */}
                     {/* <Category id={data[0].categories[1]} /> */}

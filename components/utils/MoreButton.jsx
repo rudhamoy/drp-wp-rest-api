@@ -6,7 +6,7 @@ import { getMorePosts } from '../../features/postSlice'
 function MoreButton({ title }) {
     const [pageNum, setPageNum] = useState(2)
 
-const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const clickHandler = () => {
         setPageNum(pageNum + 1)

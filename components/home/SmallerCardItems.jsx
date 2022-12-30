@@ -21,6 +21,9 @@ function SmallerCardItems({ data }) {
     const year = new Date(data.date).getFullYear()
     const postDate = `${year}/${month + 1}/${date}`
 
+    const images = data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url : data.jetpack_featured_media_url
+    
+
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
 
@@ -29,8 +32,8 @@ function SmallerCardItems({ data }) {
                 <div className='w-[38%] sm:w-[33%]'>
                     <div className="h-[108px] w-[100%] rounded-md overflow-hidden relative bg-green-200">
                         {/* <div className="h-[108px] w-[255px] xs:w-[280px] sm:w-[248px] rounded-md overflow-hidden relative bg-green-200"> */}
-                        <Image fill className="w-[100%] h-[100%] object-cover" src={`https://dailyresearchplot.com/${data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url}`} alt="" />
-                        {/* <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#31313193] rounded-md"></div> */}
+                        <Image fill className="w-[100%] h-[100%] object-cover" src={images} alt="" />
+                       
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
                             {/* <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" /> */}
                             <CategoryIcon categoryList={data.categories} />

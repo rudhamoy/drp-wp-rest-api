@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MdArrowForwardIos } from 'react-icons/md'
@@ -9,15 +9,28 @@ import Featured from '../sidebar/Featured'
 import CategoryListItem from './CategoryListItem'
 
 import { useInView } from 'react-intersection-observer';
+import { useDispatch, useSelector } from 'react-redux'
+import { getMorePostsByCategory } from '../../features/postSlice'
 
-function CategoryContainer({ featured, postByCategory}) {
-
+function CategoryContainer({ featured, postByCategory }) {
+    // const [pageNum, setPageNum] = useState(2)
     const { ref, inView } = useInView()
     const router = useRouter()
+    // const { posts, status } = useSelector(state => state.posts)
 
     const featuredData = postByCategory.slice(0, 5)
     const categoryPostList = postByCategory.slice(6, 14)
-  
+
+
+
+    const dispatch = useDispatch()
+
+    // const clickHandler = () => {
+    //     setPageNum(pageNum + 1)
+    //     dispatch(getMorePostsByCategory(pageNum))
+    // }
+
+
     return (
         <>
             <div className="px-2 flex flex-col justify-center items-center">
@@ -27,11 +40,11 @@ function CategoryContainer({ featured, postByCategory}) {
                             <p className="font-bold sm:text-[30px] text-[20px] capitalize">{router.query.slug}</p>
                             <div className="flex items-center gap-x-1 whitespace-nowrap text-[16px] sm:text-base">
                                 <Link href="/" className="hover:underline">Home</Link>
-                                <MdArrowForwardIos className="text-[#bf912d]" /> 
+                                <MdArrowForwardIos className="text-[#bf912d]" />
                                 <p>{router.query.slug}</p>
-                                </div>
+                            </div>
                         </div>
-                       
+
                     </div>
 
 
@@ -44,13 +57,25 @@ function CategoryContainer({ featured, postByCategory}) {
                         <div className="flex flex-col sm:flex-row justify-between w-[95vw] sm:w-[1264px]">
                             <div className="">
                                 {categoryPostList && categoryPostList.map((item, index) => (
-                                <CategoryListItem key={index} data={item} />
+                                    <CategoryListItem key={index} data={item} />
                                 ))}
                                 {/* <div className="p-2 rounded-md border bg-[#bf912d] text-center text-white mt-8 mb-14 text-2xl">
                                 <p className="text-yellow-400">MORE STORIES</p>
                             </div> */}
+                            {/* load more stories */}
+                                {/* {posts.map((item, index) => (
+                                    <CategoryListItem data={item} key={index} />
+                                ))}
+                                {status === 'loading' && (
+                                    <div>
+                                        <p className='text-center text-blue-400 text-3xl'>Loading...</p>
+                                    </div>
+                                )} */}
                                 <div className="w-full sm:w-[837px] cursor-pointer">
                                     <div>
+                                        {/* <div role="button" onClick={clickHandler} className="rounded-[5px] bg-[#bf912d] cursor-pointer text-center h-[52px] w-[95vw] sm:w-[839px] flex items-center justify-center my-[26px]">
+                                            <p className="text-[#ffd200] text-[34px] font-nunitoSans">MORE STORIES</p>
+                                        </div> */}
                                         <div className="rounded-[5px] h-[40] sm:h-[52px] border bg-[#bf912d] text-center mt-8 mb-14 text-[23px] sm:text-[34px] flex justify-center">
                                             <p className="text-[#ffd200] blogTitle">MORE STORIES</p>
                                         </div>

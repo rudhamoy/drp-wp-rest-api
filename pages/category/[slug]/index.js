@@ -31,16 +31,16 @@ export async function getStaticPaths() {
         params: { slug: post.slug },
     }))
 
-    return { paths, fallback: 'blocking' }
+    return { paths, fallback: 'blocking'}
 }
 
 
 export async function getStaticProps({ params }) {
 
-    const getCat = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/categories?_embed&slug=${params.slug}`)
+    const getCat = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/categories?_embed&slug=${params.slug}`)
     const cat = await getCat.json()
 
-    // const getCategories = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/categories?_embed&per_page=30`)
+    // const getCategories = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/categories?_embed&per_page=30`)
     // const categories = await getCategories.json()
 
     // let categoryId
@@ -51,10 +51,12 @@ export async function getStaticProps({ params }) {
     //     }
     // })
 
-    const getPosts = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&categories=${cat[0].id}&per_page=15`)
+    // 
+
+    const getPosts = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=${cat[0].id}&per_page=15`)
     const postByCategory = await getPosts.json()
 
-    const featuredPost = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=7')
+    const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
     const featured = await featuredPost.json()
 
     return {
@@ -63,7 +65,7 @@ export async function getStaticProps({ params }) {
             headTitle: cat[0].yoast_head_json.title,
             featured
         },
-        revalidate: 10,
+        revalidate: 1,
     }
 }
 
