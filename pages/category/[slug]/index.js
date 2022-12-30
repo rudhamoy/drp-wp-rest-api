@@ -23,7 +23,7 @@ const index = ({ postByCategory, featured, headTitle }) => {
 
 
 export async function getStaticPaths() {
-    const res = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/categories?_embed&per_page=100')
+    const res = await fetch('https://tollywoodlife.com/wp-json/wp/v2/categories?_embed&per_page=100')
 
     const posts = await res.json()
 
