@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import BalramJee from '../../assets/images/Balram-Jee.webp';
 import Image from 'next/image';
-import { MemberCard } from './MemberCard';
+import MemberCard from './MemberCard';
 const index = ({ authors, host }) => {
 
   return (
