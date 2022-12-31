@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import CategoryContainer from '../../../components/category/CategoryContainer'
 
-const index = ({ postByCategory, featured, headTitle }) => {
+const index = ({ postByCategory, featured, headTitle, catId }) => {
 
 
     return (
@@ -15,6 +15,7 @@ const index = ({ postByCategory, featured, headTitle }) => {
                 <CategoryContainer
                     postByCategory={postByCategory}
                     featured={featured}
+                    catId={catId}
                 />
             </div>
         </>
@@ -63,7 +64,8 @@ export async function getStaticProps({ params }) {
         props: {
             postByCategory,
             headTitle: cat[0].yoast_head_json.title,
-            featured
+            featured,
+            catId: cat[0].id
         },
         revalidate: 1,
     }

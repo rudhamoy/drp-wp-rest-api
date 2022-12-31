@@ -10,13 +10,15 @@ import CategoryListItem from './CategoryListItem'
 
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux'
-import { getMorePostsByCategory } from '../../features/postSlice'
+import { getMorePostsByCategory } from '../../features/categorySlice'
 
-function CategoryContainer({ featured, postByCategory }) {
-    // const [pageNum, setPageNum] = useState(2)
+function CategoryContainer({ featured, postByCategory, catId }) {
+    const [pageNum, setPageNum] = useState(4)
+
     const { ref, inView } = useInView()
     const router = useRouter()
-    // const { posts, status } = useSelector(state => state.posts)
+
+    const { postsByCategory, status } = useSelector(state => state.category)
 
     const featuredData = postByCategory.slice(0, 5)
     const categoryPostList = postByCategory.slice(6, 14)
@@ -25,10 +27,14 @@ function CategoryContainer({ featured, postByCategory }) {
 
     const dispatch = useDispatch()
 
-    // const clickHandler = () => {
-    //     setPageNum(pageNum + 1)
-    //     dispatch(getMorePostsByCategory(pageNum))
-    // }
+    const clickHandler = () => {
+        setPageNum(pageNum + 1)
+        const loadMoreData = {
+            pageNum,
+            catId
+        }
+        dispatch(getMorePostsByCategory(loadMoreData))
+    }
 
 
     return (
@@ -63,22 +69,22 @@ function CategoryContainer({ featured, postByCategory }) {
                                 <p className="text-yellow-400">MORE STORIES</p>
                             </div> */}
                             {/* load more stories */}
-                                {/* {posts.map((item, index) => (
+                                {postsByCategory.length >= 1 && postsByCategory.map((item, index) => (
                                     <CategoryListItem data={item} key={index} />
                                 ))}
                                 {status === 'loading' && (
                                     <div>
                                         <p className='text-center text-blue-400 text-3xl'>Loading...</p>
                                     </div>
-                                )} */}
+                                )}
                                 <div className="w-full sm:w-[837px] cursor-pointer">
                                     <div>
-                                        {/* <div role="button" onClick={clickHandler} className="rounded-[5px] bg-[#bf912d] cursor-pointer text-center h-[52px] w-[95vw] sm:w-[839px] flex items-center justify-center my-[26px]">
+                                        <div role="button" onClick={clickHandler} className="rounded-[5px] bg-[#bf912d] cursor-pointer text-center h-[52px] w-[95vw] sm:w-[839px] flex items-center justify-center my-[26px]">
                                             <p className="text-[#ffd200] text-[34px] font-nunitoSans">MORE STORIES</p>
-                                        </div> */}
-                                        <div className="rounded-[5px] h-[40] sm:h-[52px] border bg-[#bf912d] text-center mt-8 mb-14 text-[23px] sm:text-[34px] flex justify-center">
-                                            <p className="text-[#ffd200] blogTitle">MORE STORIES</p>
                                         </div>
+                                        {/* <div className="rounded-[5px] h-[40] sm:h-[52px] border bg-[#bf912d] text-center mt-8 mb-14 text-[23px] sm:text-[34px] flex justify-center">
+                                            <p className="text-[#ffd200] blogTitle">MORE STORIES</p>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

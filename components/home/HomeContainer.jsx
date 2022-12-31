@@ -23,19 +23,19 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
     const { ref, inView } = useInView()
 
     const sideSectionArr = [
-        [...celebGossip, { id: "CELEBRITY GOSSIPS" }, {slug: '#'}],
+        [...celebGossip, { id: "CELEBRITY GOSSIPS" }, {slug: 'celebrity-news'}],
         null,
-        [...movieNews, { id: "MOVIES NEWS" }, {slug: '#'}],
-        [...gamesSport, { id: "GAMES & SPORTS"}, {slug: '#'}],
+        [...movieNews, { id: "MOVIES NEWS" }, {slug: 'movies'}],
+        [...gamesSport, { id: "GAMES & SPORTS"}, {slug: ''}],
     ]
 
     const catSectionArr = [
 
-        [...entertainment, { id: "ENTERTAINMENT" }, {slug: 'enterta#inment'}],
+        [...entertainment, { id: "ENTERTAINMENT" }, {slug: 'entertainment'}],
         null,
-        [...tvShows, { id: "TV SERIES NEWS" }, {slug: '#'}],
-        [...anime, { id: "ANIME NEWS" }, {slug: '#'}],
-        [...tech, { id: "TECHNOLOGY" }, {slug: '#'}]
+        [...tvShows, { id: "TV SERIES NEWS" }, {slug: 'web-series'}],
+        [...anime, { id: "ANIME NEWS" }, {slug: ''}],
+        [...tech, { id: "TECHNOLOGY" }, {slug: ''}]
     ]
 
     // useEffect(() => {

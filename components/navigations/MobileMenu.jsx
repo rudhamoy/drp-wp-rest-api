@@ -32,7 +32,7 @@ const mobilePages = [
     },
     {
         name: "Visual Stories",
-        slug: "stories",
+        slug: "web-stories",
     },
     {
         name: "Photo Gallery",

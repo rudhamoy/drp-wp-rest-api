@@ -23,15 +23,6 @@ export const getMorePosts = createAsyncThunk('posts/getMorePosts', async (page) 
     }
 })
 
-// fetch more post by Category
-export const getMorePostsByCategory = createAsyncThunk('posts/getMorePostsByCategory', async (page, id) => {
-    try {
-        const res = await axios.get(`${moreStoriesUrl}&categories=${id}&page=${page}&per_page=5`)
-        return res.data
-    } catch (error) {
-        console.log(error)
-    }
-})
 
 // fetch post by category
 export const getPostByCategory = createAsyncThunk('posts/getPostByCategory', async (id) => {
@@ -73,18 +64,7 @@ const postSlice = createSlice({
                 state.status = 'failed'
                 state.error = action.error.message
             })
-            .addCase(getMorePostsByCategory.pending, (state) => {
-                state.status = 'loading'
-            })
-            .addCase(getMorePostsByCategory.fulfilled, (state, action) => {
-                const postsList = state.posts
-                state.status = 'succeeded',
-                state.posts = [...postsList, ...action.payload]
-            })
-            .addCase(getMorePostsByCategory.rejected, (state) => {
-                state.status = 'failed'
-                state.error = action.error.message
-            })
+            
             .addCase(getPostByCategory.pending, (state) => {
                 state.status = 'loading'
             })
