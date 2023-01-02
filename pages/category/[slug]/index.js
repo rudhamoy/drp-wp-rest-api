@@ -24,7 +24,7 @@ const index = ({ postByCategory, featured, headTitle, catId }) => {
 
 
 export async function getStaticPaths() {
-    const res = await fetch('https://tollywoodlife.com/wp-json/wp/v2/categories?_embed&per_page=100')
+    const res = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/categories?_embed&per_page=100')
 
     const posts = await res.json()
 
@@ -38,10 +38,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
 
-    const getCat = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/categories?_embed&slug=${params.slug}`)
+    const getCat = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/categories?_embed&slug=${params.slug}`)
     const cat = await getCat.json()
 
-    // const getCategories = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/categories?_embed&per_page=30`)
+    // const getCategories = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/categories?_embed&per_page=30`)
     // const categories = await getCategories.json()
 
     // let categoryId
@@ -54,10 +54,10 @@ export async function getStaticProps({ params }) {
 
     // 
 
-    const getPosts = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=${cat[0].id}&per_page=15`)
+    const getPosts = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=${cat[0].id}&per_page=15`)
     const postByCategory = await getPosts.json()
 
-    const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
+    const featuredPost = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
     const featured = await featuredPost.json()
 
     return {

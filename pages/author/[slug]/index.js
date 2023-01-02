@@ -18,7 +18,7 @@ const index = ({ postByAuthor, userById, featured, headTitle }) => {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('https://tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100')
+  const res = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100')
 
   const users = await res.json()
 
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
 
-  const getUser = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/users?_embed&slug=${params.slug}`)
+  const getUser = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/users?_embed&slug=${params.slug}`)
   const user = await getUser.json()
 
   // let userById
@@ -44,10 +44,10 @@ export async function getStaticProps({ params }) {
   //         }
   //     })
 
-  const getPosts = await fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&author=${user[0].id}&per_page=15`)
+  const getPosts = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&author=${user[0].id}&per_page=15`)
   const postByAuthor = await getPosts.json()
 
-  const featuredPost = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
+  const featuredPost = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
   const featured = await featuredPost.json()
 
   return {

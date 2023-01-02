@@ -23,7 +23,7 @@ export default index
 
 
 export async function getStaticPaths() {
-  const res = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed')
+  const res = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed')
 
   const posts = await res.json()
 
@@ -37,11 +37,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
 
-  const getPost = await fetch(`https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&slug=${params.slug}`)
+  const getPost = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&slug=${params.slug}`)
   const singleData = await getPost.json()
 
 
-  const featuredPost = await fetch('https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed&per_page=7')
+  const featuredPost = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
   const featured = await featuredPost.json()
 
   return {

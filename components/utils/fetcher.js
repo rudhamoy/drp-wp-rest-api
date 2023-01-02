@@ -1,5 +1,5 @@
 
-const WP_API = 'https://www.tollywoodlife.com/graphql'
+const WP_API = 'https://backend.tollywoodlife.com/graphql'
 
 async function fetcher(query, { variables} = {}) {
     const res = await fetch(WP_API, {

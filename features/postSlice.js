@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'
 
-const url = 'https://tollywoodlife.com/wp-json/wp/v2/posts?_embed'
+const url = 'https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed'
 
-const moreStoriesUrl = "https://tollywoodlife.com/wp-json/wp/v2/posts?_embed"
+const moreStoriesUrl = "https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed"
 
 const initialState = {
     status: 'idle',

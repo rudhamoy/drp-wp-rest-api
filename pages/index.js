@@ -46,15 +46,15 @@ export async function getStaticProps(context) {
   
 
   const [getPosts, getEntertainment, getTvShows, getAnime, getTech, getSecondPage, getCelebGossip, getMovieNews, getGamesSport] = await Promise.all([
-    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=5'),
-    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
-    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=27&per_page=5`),
-    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=23&per_page=5`),
-    fetch(`https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=26&per_page=5`),
-    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2'),
-    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=18&per_page=4'),
-    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=19&per_page=4'),
-    fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=20&per_page=4'),
+    fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=5'),
+    fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=1&per_page=5`),
+    fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=27&per_page=5`),
+    fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=23&per_page=5`),
+    fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=26&per_page=5`),
+    fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=5&page=2'),
+    fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=18&per_page=4'),
+    fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=19&per_page=4'),
+    fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=20&per_page=4'),
 
   ]);
 
@@ -72,7 +72,7 @@ export async function getStaticProps(context) {
 
   ]);
 
-  const getHotspot = await fetch('https://tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=26&per_page=12')
+  const getHotspot = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&categories=26&per_page=12')
   const hotspot = await getHotspot.json()
 
   const stories = await fetcher(ALL_STORIES)
