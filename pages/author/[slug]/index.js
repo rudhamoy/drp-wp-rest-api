@@ -54,7 +54,7 @@ export async function getStaticProps({ params }) {
     props: {
       postByAuthor,
       userById: user[0],
-      headTitle: user[0].yoast_head_json.title,
+      headTitle: user[0]?.yoast_head_json.title,
       featured
     },
     revalidate: 1,

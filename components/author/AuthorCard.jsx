@@ -11,7 +11,7 @@ import nadiaUsman from '../../assets/images/nadia-usman.png';
 
 const AuthorCard = ({ data }) => {
 
-    const avatars = data.avatar_urls
+    const avatars = data?.avatar_urls
 
     const avatarList = Object.values(avatars)
 

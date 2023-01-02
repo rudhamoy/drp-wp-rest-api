@@ -12,9 +12,9 @@ import FormatDate from '../utils/FormatDate'
 
 const NewsHeaderAuthor = ({data}) => {
 
-     var postDate = new Date(data[0].date).toLocaleDateString()
+     var postDate = new Date(data[0]?.date).toLocaleDateString()
 
-     const avatars = data[0]._embedded.author[0].avatar_urls
+     const avatars = data[0]?._embedded.author[0].avatar_urls
 
      const avatarList = Object.values(avatars)
      
@@ -25,8 +25,8 @@ const NewsHeaderAuthor = ({data}) => {
                         {/* <img src="author2.png" alt="" /> */}
                         <img src={avatarList[1]} alt="" className="rounded-full" />
                         <div className="text-[13px] text-[#6d6d6d]">
-                            <Link href={`/author/${data[0]._embedded.author[0].slug}`}>
-                            <p className=''>by <span className="text-[16px] text-[#000000] font-nunitoSans font-semibold">{data[0]._embedded.author[0].name}</span></p>
+                            <Link href={`/author/${data[0]?._embedded.author[0].slug}`}>
+                            <p className=''>by <span className="text-[16px] text-[#000000] font-nunitoSans font-semibold">{data[0]?._embedded.author[0].name}</span></p>
                             </Link>
                           
                             <p className="font-nunitoSans">Published On <span className="text-black font-semibold">{FormatDate(data[0].date)}</span> (Updated On <span className="text-black font-semibold">{FormatDate(data[0].modified)}</span>)</p>
