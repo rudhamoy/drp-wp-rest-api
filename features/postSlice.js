@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'
 
-const url = 'https://dailyresearchplot.com/wp-json/wp/v2/posts?_embed'
+const url = 'https://tollywoodlife.com/wp-json/wp/v2/posts?_embed'
 
 const moreStoriesUrl = "https://tollywoodlife.com/wp-json/wp/v2/posts?_embed"
 

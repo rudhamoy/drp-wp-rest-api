@@ -17,7 +17,7 @@ const FeaturedCardApi = ({ data }) => {
 
     useEffect(() => {
         dispatch(getPostByCategory(randomCategory.id))
-      }, [])
+      }, [randomCategory])
 
       const image = data._embedded["wp:featuredmedia"] ? data._embedded["wp:featuredmedia"][0].link : ''
     //   data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
