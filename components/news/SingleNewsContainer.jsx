@@ -1,13 +1,14 @@
 import React from 'react'
 import { MdArrowForwardIos } from 'react-icons/md'
+import { useInView } from 'react-intersection-observer';
+
 import Advertisement from '../ads/Advertisement'
 import SideAds from '../ads/SideAds'
 import ArticleContainer from '../layout/ArticleContainer'
 import Featured from '../sidebar/Featured'
 import RelatedPost from './RelatedPost'
-import { useInView } from 'react-intersection-observer';
-
 import Breadcrumb from './Breadcrumb'
+
 
 const SingleNewsContainer = ({ singleData, featured }) => {
 
@@ -15,6 +16,7 @@ const SingleNewsContainer = ({ singleData, featured }) => {
   
   // const image = singleData[0]._embedded["wp:featuredmedia"][0].link
   const image = singleData[0]?._embedded["wp:featuredmedia"] ? singleData[0]?._embedded["wp:featuredmedia"][0].link : ''
+
 
   return (
     // <div className="my-6 px-2 flex justify-center items-center">
@@ -45,7 +47,7 @@ const SingleNewsContainer = ({ singleData, featured }) => {
             <Featured 
             data={featured} 
             />
-            <div className={`h-[600px] w-[100%] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
+            <div className={`h-[600px] w-[100%] ${inView === true ? 'sticky top-10 mb-8' : ''}`} ref={ref}>
               <SideAds bg="white" />
             </div>
           </div>

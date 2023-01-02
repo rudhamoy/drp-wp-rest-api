@@ -1,26 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import couplesHug from '../../assets/images/couples_hug.png';
 import videoIcon from '../../assets/icons/video-icon.svg';
 import VideoIcon from '../../assets/icons/VideoIcon';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useSelector } from 'react-redux';
 import formatDate from '../utils/FormatDate';
 import getRandomCategory from '../utils/RandomCategory';
+import { getPostByCategory } from '../../features/postSlice';
+import Image from 'next/image';
 
 
 const FeaturedCardApi = ({ data }) => {
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPostByCategory(randomCategory.id))
+      }, [])
+
+      const image = data._embedded["wp:featuredmedia"] ? data._embedded["wp:featuredmedia"][0].link : ''
+    //   data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
+
+    const day = new Date(date).getDate()
+    const month = new Date(date).getMonth()
+    const year = new Date(date).getFullYear()
+    const postDate = `${year}/${month+1}/${day}`
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
-        <Link href={`/single-news/${data['slug']}`}>
+        <Link href={`/${postDate}/${data['slug']}`}>
        <div className="flex gap-x-2">
            {/* left- image content */}
            <div className='w-[38%] sm:w-[33%]'>
                <div className="h-[108px] w-[100%] rounded-md overflow-hidden relative bg-green-200">
                {/* <div className="h-[108px] w-[255px] xs:w-[280px] sm:w-[248px] rounded-md overflow-hidden relative bg-green-200"> */}
-                   <img className="w-[100%] h-[100%] object-cover" src={`https://dailyresearchplot.com/${data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url}`} alt="" />
+                   <Image fill className="w-[100%] h-[100%] object-cover" src={image} alt="" />
                <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#31313193] rounded-md"></div>
                <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
                    <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" />
@@ -65,7 +80,7 @@ const FeaturedCard = ({data}) => {
 
 const RelatedPost = () => {
 
-    // const { postsByCat } = useSelector(state => state.posts)
+    const { postsByCat } = useSelector(state => state.posts)
 
     return (
         <div className="bg-white p-3 sm:p-[15px] rounded-md border">
@@ -74,15 +89,15 @@ const RelatedPost = () => {
                 <div className='h-[2px] w-[82px] bg-[#bf912d]'></div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {/* {postsByCat.map((item, index) => (
-                    <FeaturedCard data={item} key={index} />
-                ))} */}
+                {postsByCat.map((item, index) => (
+                    <FeaturedCardApi data={item} key={index} />
+                ))}
+                {/* <FeaturedCard />
                 <FeaturedCard />
                 <FeaturedCard />
                 <FeaturedCard />
                 <FeaturedCard />
-                <FeaturedCard />
-                <FeaturedCard />
+                <FeaturedCard /> */}
 
             </div>
         </div>

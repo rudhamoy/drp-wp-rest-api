@@ -92,7 +92,7 @@ function HomeContainer({ data, entertainment, tvShows, anime, tech, hotSpot, sec
                             <SidebarCategorySection key={index} category={"CELEBRITY GOSSIPS"} data={item} />
                         )
                     })}
-                    <div className={`h-[600px] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
+                    <div className={`h-[600px] ${inView === true ? 'sticky top-10 mb-3' : ''}`} ref={ref}>
                         <SideAds bg={"white"} />
                     </div>
                 </div>

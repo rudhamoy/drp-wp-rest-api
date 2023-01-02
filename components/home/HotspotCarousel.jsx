@@ -110,7 +110,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             <div className='sm:hidden'>
                 <Slider ref={slider} {...settingsMobi} className="px-2 ">
                     {hotspotData.map((item, index) => {
-                        const image = "https://dailyresearchplot.com" + item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url
+                        const image =  item._embedded["wp:featuredmedia"][0].media_details ? item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url : item.jetpack_featured_media_url
                         return (
                             <HotSpotSliderItem
                                 key={index}

@@ -18,7 +18,6 @@ function CategoryListItem({ width, data }) {
 
     const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 110));
 
-    // const postDate = new Date(data.date).toLocaleDateString()
     const date = new Date(data.date).getDate()
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
@@ -33,7 +32,7 @@ function CategoryListItem({ width, data }) {
                     <div className="relative">
                         <div className="w-[85vw] sm:w-[315px] h-[165px] rounded-[5px] overflowHidden">
                             <Image fill className="object-cover rounded-[5px]" src={data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : ''} alt="" />
-                            {/* <Image fill className="object-cover rounded-[5px]" src={`https://dailyresearchplot.com/${data?._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}`} alt="" /> */}
+                           
                         </div>
                         <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded"></div>
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
@@ -50,9 +49,7 @@ function CategoryListItem({ width, data }) {
                         </Link>
                         <Link href={`/${postDate}/${data['slug']}`}>
                             <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold" dangerouslySetInnerHTML={{ __html: safeTitle }}></h3>
-                            {/* <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 110)}</h3> */}
-
-                            {/* <p className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden'>{data?.excerpt.rendered.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '').substring(0, 150)}</p > */}
+                            
                             <div className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden' dangerouslySetInnerHTML={{ __html: mySafeHTML }}></div>
                         </Link>
                         <p className="text-[#737373] text-[12px] font-[300] blogTitle absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>

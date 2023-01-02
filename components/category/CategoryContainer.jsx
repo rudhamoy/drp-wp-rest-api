@@ -93,7 +93,7 @@ function CategoryContainer({ featured, postByCategory, catId }) {
                                     <Ads />
                                 </div>
                                 <Featured data={featured} />
-                                <div className={`h-[600px] w-[100%] ${inView === true ? 'sticky top-10' : ''}`} ref={ref}>
+                                <div className={`h-[600px] w-[100%] ${inView === true ? 'sticky top-10 mb-6' : ''}`} ref={ref}>
                                     <Ads bg="white" />
                                 </div>
                             </div>
