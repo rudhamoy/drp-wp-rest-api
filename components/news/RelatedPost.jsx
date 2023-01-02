@@ -22,9 +22,9 @@ const FeaturedCardApi = ({ data }) => {
       const image = data._embedded["wp:featuredmedia"] ? data._embedded["wp:featuredmedia"][0].link : ''
     //   data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
 
-    const day = new Date(date).getDate()
-    const month = new Date(date).getMonth()
-    const year = new Date(date).getFullYear()
+    const day = new Date(data.date).getDate()
+    const month = new Date(data.date).getMonth()
+    const year = new Date(data.date).getFullYear()
     const postDate = `${year}/${month+1}/${day}`
 
     return (
