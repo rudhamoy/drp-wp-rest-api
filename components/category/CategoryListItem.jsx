@@ -24,7 +24,7 @@ function CategoryListItem({ width, data }) {
     const postDate = `${year}/${month+1}/${date}`
     const archiveDate = `${year}-${month+1}-${date}`
 
-    const image = data?._embedded ? ( data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : '') : data.featuredImage.node.mediaDetails.sizes[3].sourceUrl
+    const image = data?._embedded ? ( data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : '') :(data.featuredImage ? data.featuredImage.node.mediaDetails.sizes[3].sourceUrl : '')
     const catName =  randomCategory.name.toUpperCase()
 
 
