@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import DOMPurify from 'isomorphic-dompurify';
+import parse from 'html-react-parser'
 
 import couplesHug from '../../assets/images/couples_hug.png';
 import VideoIcon from '../../assets/icons/VideoIcon';
@@ -46,7 +47,7 @@ function SmallerCardItems({ data }) {
                 <div className="relative w-[62%] sm:w-[67%]">
 
                     <Link href={`/category/${randomCategory.slug}`}>
-                        <p className="text-[10px] text-[#bf912d] font-bold blogTitle">{randomCategory.name.toUpperCase()}</p>
+                        <p className="text-[10px] text-[#bf912d] font-bold blogTitle">{parse(randomCategory.name).toUpperCase()}</p>
                     </Link>
                     <Link href={`/${postDate}/${data.slug}`}>
                         {/* <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}

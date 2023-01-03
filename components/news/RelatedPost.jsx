@@ -4,6 +4,7 @@ import couplesHug from '../../assets/images/couples_hug.png';
 import videoIcon from '../../assets/icons/video-icon.svg';
 import VideoIcon from '../../assets/icons/VideoIcon';
 import { useDispatch, useSelector } from 'react-redux';
+import parse from 'html-react-parser'
 
 import formatDate from '../utils/FormatDate';
 import getRandomCategory from '../utils/RandomCategory';
@@ -26,6 +27,8 @@ const FeaturedCardApi = ({ data }) => {
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
     const postDate = `${year}/${month+1}/${day}`
+    const archiveDate = `${year}-${month + 1}-${day}`
+
 
     return (
         <div className="p-2 px-3 py-[10px] rounded-[2px] border border-[#e4e4e4] bg-white my-1 cursor-pointer h-[130px] w-[90vw] sm:w-[398px]" >
@@ -44,10 +47,13 @@ const FeaturedCardApi = ({ data }) => {
            </div>
            {/* right - content */}
            <div className="relative w-[62%] sm:w-[67%]">
-               <p className="text-[10px] text-[#bf912d] font-bold">{randomCategory.name.toUpperCase()}</p>
-               <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{data?.title.rendered.replace(/&#8217;/g, "'").substring(0, 55)}
+               <p className="text-[10px] text-[#bf912d] font-bold">{parse(randomCategory.name).toUpperCase()}</p>
+               <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold">{parse(data?.title.rendered).substring(0, 55)}
                </h2>
+               <Link href={`/archive/${archiveDate}`}>
                <p className="text-[10px] text-[#737373] absolute bottom-0">{formatDate(data?.date).toUpperCase()}</p>
+               </Link>
+              
            </div>
        </div>
        </Link>

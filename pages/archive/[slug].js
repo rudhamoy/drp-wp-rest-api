@@ -7,7 +7,7 @@ const index = ({ postsByDate }) => {
  
   return (
     <div className="mt-[11px]">
-      <div className="w-[100vw] sm:w-[1264px] mx-auto my-5 h-[100vh]">
+      <div className="w-[100vw] sm:w-[1264px] mx-auto my-5 ">
       <div className="">
        {postsByDate.map((item, index) => (
           <CategoryListItem data={item.node} key={index} />
