@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { MdArrowForwardIos } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
+import parse from 'html-react-parser'
 
 import getRandomCategory from '../utils/RandomCategory'
 import { getPostByCategory } from '../../features/postSlice'
@@ -33,7 +34,7 @@ const Breadcrumb = ({data}) => {
         {/* <MdArrowForwardIos className="text-[#bf912d] text-xl" /> */}
 
         <Link href={`/category/${randomData.slug}`} class="hover:underline capitalize">
-            {randomData.name}
+            {parse(randomData.name)}
         </Link>
 
         <span class="text-[#bf912d] dark:text-gray-300 rtl:-scale-x-100">
@@ -43,7 +44,7 @@ const Breadcrumb = ({data}) => {
         </span>
         {/* <MdArrowForwardIos className="text-[#bf912d] text-xl" /> */}
         <Link href="#" class="hover:underline line-clamp-1 sm:line-clamp-none">
-            {data.title.rendered}
+            {parse(data.title.rendered)}
         </Link>
     </div>
 </div>

@@ -13,6 +13,7 @@ function HotSpotSliderItem({ category, title, image, slug, date }) {
     const month = new Date(date).getMonth()
     const year = new Date(date).getFullYear()
     const postDate = `${year}/${month+1}/${day}`
+    
 
 
     return (

@@ -20,6 +20,7 @@ function SmallerCardItems({ data }) {
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
     const postDate = `${year}/${month + 1}/${date}`
+     const archiveDate = `${year}-${month+1}-${date}`
 
     const images = data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url : data.jetpack_featured_media_url
     
@@ -52,7 +53,10 @@ function SmallerCardItems({ data }) {
                         </h2> */}
                         <h2 className="text-[#000000] text-[16px] mt-[5%] leading-[18px] blogTitle font-semibold" dangerouslySetInnerHTML={{ __html: safeTitle }}></h2>
                     </Link>
+                    <Link href={`/archive/${archiveDate}`}>
                     <p className="text-[10px] text-[#737373] absolute bottom-0 blogTitle">{formatDate(data?.date).toUpperCase()}</p>
+                    </Link>
+                    
                 </div>
             </div>
         </div>

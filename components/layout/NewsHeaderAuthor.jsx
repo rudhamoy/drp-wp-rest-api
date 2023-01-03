@@ -12,7 +12,11 @@ import FormatDate from '../utils/FormatDate'
 
 const NewsHeaderAuthor = ({data}) => {
 
-     var postDate = new Date(data[0]?.date).toLocaleDateString()
+
+     const date = new Date(data[0].date).getDate()
+     const month = new Date(data[0].date).getMonth()
+     const year = new Date(data[0].date).getFullYear()
+      const archiveDate = `${year}-${month+1}-${date}`
 
      const avatars = data[0]?._embedded.author[0].avatar_urls
 
@@ -29,7 +33,9 @@ const NewsHeaderAuthor = ({data}) => {
                             <p className=''>by <span className="text-[16px] text-[#000000] font-nunitoSans font-semibold">{data[0]?._embedded.author[0].name}</span></p>
                             </Link>
                           
+                            <Link href={`/archive/${archiveDate}`}>
                             <p className="font-nunitoSans">Published On <span className="text-black font-semibold">{FormatDate(data[0].date)}</span> (Updated On <span className="text-black font-semibold">{FormatDate(data[0].modified)}</span>)</p>
+                            </Link>
                         </div>
                     </div>
                     <div className="hidden sm:flex flex-row items-center cursor-pointer sm:gap-x-3 gap-x-2 ml-[-60px]">
