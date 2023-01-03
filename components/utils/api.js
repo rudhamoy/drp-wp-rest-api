@@ -16,6 +16,12 @@ export const ALL_STORIES = `query GETALLWEBSTORIES {
     }
   }`
 
+  export const STORY_BY_SLUG = `query GETWEBSTORYBYSLUG($id: ID!) {
+    webStory(id: $id, idType: SLUG) {
+      content
+    }
+  }`
+
 export const POSTS_BY_DATE = `query GetPostByDate($year: Int!, $month: Int!, $day: Int!) {
   posts(where: {dateQuery: {year: $year, month: $month, day: $day}}) {
     edges {
@@ -33,6 +39,12 @@ export const POSTS_BY_DATE = `query GetPostByDate($year: Int!, $month: Int!, $da
         }
         slug
         title
+        categories {
+          nodes {
+            name
+            slug
+          }
+        }
       }
     }
   }

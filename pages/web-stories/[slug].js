@@ -15,7 +15,7 @@ const index = ({ storyById }) => {
 export default index
 
 export async function getStaticPaths() {
-    const res = await fetch('https://drp-wp-rest-api.vercel.app/api/stories')
+    const res = await fetch('https://tollywoodlife.com/api/stories')
 
     const posts = await res.json()
 
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`https://drp-wp-rest-api.vercel.app/api/story/${params.slug}`)
+    const res = await fetch(`https://tollywoodlife.com/api/story/${params.slug}`)
     const datas = await res.json()
 
     // let storyById

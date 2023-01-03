@@ -4,6 +4,7 @@ import { ALL_STORIES } from '../../components/utils/api'
 import fetcher from '../../components/utils/fetcher'
 
 const index = ({storiesQl}) => {
+ 
     
   return (
     <div className="w-[100vw] sm:w-[1264px] mx-auto my-5">

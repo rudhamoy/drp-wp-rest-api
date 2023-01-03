@@ -12,16 +12,20 @@ import CategoryIcon from '../utils/CategoryIcon';
 
 function CategoryListItem({ width, data }) {
 
-    const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded["wp:term"][0]))
+    const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data?._embedded ? data?._embedded["wp:term"][0] : data.categories.nodes))
 
-    const mySafeHTML = DOMPurify.sanitize(data?.excerpt.rendered.substring(0, 150));
+    const mySafeHTML = DOMPurify.sanitize(data?.excerpt.rendered ? data?.excerpt.rendered.substring(0, 150) : data.excerpt.substring(0, 150));
 
-    const safeTitle = DOMPurify.sanitize(data?.title.rendered.substring(0, 110));
+    const safeTitle = DOMPurify.sanitize(data?.title.rendered ? data?.title.rendered.substring(0, 110) : data.title.substring(0, 110));
 
     const date = new Date(data.date).getDate()
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
     const postDate = `${year}/${month+1}/${date}`
+
+    const image = data?._embedded ? ( data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : '') : data.featuredImage.node.mediaDetails.sizes[3].sourceUrl
+    const catName =  randomCategory.name.toUpperCase()
+
 
     return (
         <>
@@ -31,21 +35,21 @@ function CategoryListItem({ width, data }) {
                     {/* image left */}
                     <div className="relative">
                         <div className="w-[85vw] sm:w-[315px] h-[165px] rounded-[5px] overflowHidden">
-                            <Image fill className="object-cover rounded-[5px]" src={data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : ''} alt="" />
+                            <Image fill className="object-cover rounded-[5px]" src={image} alt="" />
                            
                         </div>
                         <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded"></div>
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
 
                             {/* <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" /> */}
-                            <CategoryIcon categoryList={data.categories} />
+                            {/* <CategoryIcon categoryList={data.categories} /> */}
                             <div className="capitalize text-[8px] text-[#ffd200] blogTitle  font-bold">{formatDate(data?.date).toUpperCase()}</div>
                         </div>
                     </div>
                     {/* right content */}
                     <div className="relative">
                         <Link href={`/category/${randomCategory.slug}`}>
-                            <p className="text-[10px] font-bold blogTitle text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{randomCategory.name.toUpperCase()}</p>
+                            <p className="text-[10px] font-bold blogTitle text-[#bf912d] mb-[5px] mt-[5px] sm:mt-0">{catName}</p>
                         </Link>
                         <Link href={`/${postDate}/${data['slug']}`}>
                             <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold" dangerouslySetInnerHTML={{ __html: safeTitle }}></h3>
