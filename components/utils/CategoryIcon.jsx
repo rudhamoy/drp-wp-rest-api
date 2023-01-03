@@ -1,6 +1,8 @@
 import React from 'react'
 import { AiOutlinePicRight } from "react-icons/ai";
 import VideoIcon from '../../assets/icons/VideoIcon';
+
+
 function CategoryIcon({ categoryList }) {
 
 

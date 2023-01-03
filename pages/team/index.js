@@ -69,7 +69,7 @@ export default index
 
 
 export async function getServerSideProps(context) {
-  const res = await fetch("https://www.tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100&authors")
+  const res = await fetch("https://backend.tollywoodlife.com/wp-json/wp/v2/users?_embed&per_page=100&authors")
   const authors = await res.json()
   const host = context.req.headers.host
   return {
