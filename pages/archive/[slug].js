@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryListItem from '../../components/category/CategoryListItem'
-import { POSTS_BY_DATE } from '../../components/utils/api'
+import { ALL_POSTS_FOR_DATE, POSTS_BY_DATE } from '../../components/utils/api'
 import fetcher from '../../components/utils/fetcher'
 
 const index = ({ postsByDate }) => {
@@ -22,9 +22,9 @@ const index = ({ postsByDate }) => {
 export default index
 
 export async function getStaticPaths() {
-  const res = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed')
+  const res = await fetcher(ALL_POSTS_FOR_DATE)
 
-  const posts = await res.json()
+  const posts = res.data.posts.nodes
 
     const paths = posts.map((post) => ({
       params: {

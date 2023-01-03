@@ -22,6 +22,14 @@ export const ALL_STORIES = `query GETALLWEBSTORIES {
     }
   }`
 
+export const ALL_POSTS_FOR_DATE = `query GETALLPOSTSFORDATE {
+  posts {
+    nodes {
+      slug
+    }
+  }
+}`
+
 export const POSTS_BY_DATE = `query GetPostByDate($year: Int!, $month: Int!, $day: Int!) {
   posts(where: {dateQuery: {year: $year, month: $month, day: $day}}) {
     edges {
