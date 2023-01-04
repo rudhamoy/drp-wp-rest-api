@@ -10,7 +10,7 @@ const index = ({ postsByDate }) => {
       <div className="w-[100vw] sm:w-[1264px] mx-auto my-5 ">
       <div className="">
        {postsByDate.map((item, index) => (
-          <CategoryListItem data={item.node} key={index} />
+          <CategoryListItem data={item} key={index} />
         ))}
        </div>
       </div>
@@ -39,15 +39,12 @@ export async function getStaticProps({params}) {
   const splitDate = params.slug.split('-')
 
   const variables = {
-    // year: parseInt(2022),
-    // month: parseInt(12),
-    // day: parseInt(22)
     year: parseInt(splitDate[0]),
     month: parseInt(splitDate[1]),
     day: parseInt(splitDate[2])
   }
   const res = await fetcher(POSTS_BY_DATE,  {variables} )
-  const postsByDate = res.data.posts.edges
+  const postsByDate = res.data.posts.nodes
 
   return {
     props: {
