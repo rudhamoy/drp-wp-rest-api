@@ -24,7 +24,7 @@ function FeaturedPost({ data }) {
 
 
     return (
-        <div className="sm:h-[471px] w-[95vw] sm:w-[635px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer overflow-hidden">
+        <div className="sm:h-[471px] w-[95vw] sm:w-[634px] bg-white  rounded-[6px] my-2 sm:my-0 cursor-pointer overflow-hidden">
 
             <div className="h-[205px] sm:h-[325px] w-[95vw] sm:w-[635px] overflow-hidden relative ">
                 <Link href={`/${postDate}/${data[0]['slug']}`}>

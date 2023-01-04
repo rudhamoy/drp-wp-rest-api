@@ -10,71 +10,6 @@ import HotSpotSliderItem from './HotSpotSliderItem';
 import HotspotCarousel from './HotspotCarousel';
 
 
-const data = [
-    {
-        category: "CELEBRITY",
-        img: girlboobs,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "CELEBRITY",
-        img: kdrama,
-        title: "Chris Rock Responds to Will Smith’s apology video"
-    },
-    {
-        category: "CELEBRITY",
-        img: girlboobs,
-        title: "Shama Sikandar Flaunts in New Instagram Hot Pictures"
-    },
-    {
-        category: "CELEBRITY",
-        img: girlboobs,
-        title: "Shama Sikandar Flaunts in New Instagram Hot Pictures"
-    },
-    {
-        category: "CELEBRITY",
-        img: kdrama,
-        title: "Chris Rock Responds to Will Smith’s apology video"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    {
-        category: "TV SERIES",
-        img: beardman,
-        title: "CSI: Vegas Season 2 Release Date, Cast, Plot, and Everything you need to know about the series"
-    },
-    
-]
-
-
 function HotspotSlider({hotspotData}) {
     
 
@@ -89,7 +24,7 @@ function HotspotSlider({hotspotData}) {
             </div>
 
             <div>
-                <HotspotCarousel data={data} hotspotData={hotspotData} />
+                <HotspotCarousel hotspotData={hotspotData} />
             </div>
         </div>
     )

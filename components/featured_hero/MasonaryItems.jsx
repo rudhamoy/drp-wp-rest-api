@@ -23,7 +23,7 @@ function MasonaryItem({ data, image, title }) {
 
     return (
         <Link href={`/${postDate}/${data['slug']}`}>
-            <div className="bg-white w-[95vw] sm:w-[310px] h-[85px] sm:h-[231px] rounded-[3px] flex sm:flex-col gap-x-2 flex-row overflowHidden cursor-pointer">
+            <div className="bg-white w-[95vw] sm:w-[307px] h-[85px] sm:h-[231px] rounded-[3px] flex sm:flex-col gap-x-2 flex-row overflowHidden cursor-pointer">
                 {/* image -left content */}
                 <div className="h-[100%] sm:h-[175px] w-[37%] sm:w-[100%] overflowHidden relative bg-green-200">
                     <Image
