@@ -23,7 +23,7 @@ export const ALL_STORIES = `query GETALLWEBSTORIES {
   }`
 
 export const ALL_POSTS_FOR_DATE = `query GETALLPOSTSFORDATE {
-  posts {
+  posts(first: 200) {
     nodes {
       slug
     }
