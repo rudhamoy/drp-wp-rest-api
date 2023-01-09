@@ -1,5 +1,7 @@
 import Head from "next/head";
 import SingleNewsContainer from '../../components/news/SingleNewsContainer'
+import { ALL_POSTS_SLUG } from "../../components/utils/api";
+import fetcher from "../../components/utils/fetcher";
 
 const index = ({ singleData, featured, headTitle }) => {
   
@@ -22,9 +24,11 @@ const index = ({ singleData, featured, headTitle }) => {
 export default index
 
 export async function getStaticPaths() {
-  const res = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed')
+  // const res = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed')
+  const res = await fetcher(ALL_POSTS_SLUG)
 
-  const posts = await res.json()
+  // const posts = await res.json()
+  const posts = res.data.posts.nodes
 
     const paths = posts.map((post) => ({
       params: {

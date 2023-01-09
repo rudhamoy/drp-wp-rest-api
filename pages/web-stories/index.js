@@ -8,7 +8,7 @@ const index = ({storiesQl}) => {
     
   return (
     <div className="w-[100vw] sm:w-[1264px] mx-auto my-5">
-      <div className="flex flex-wrap gap-5">
+      <div className="flex justify-center flex-wrap gap-5">
       {storiesQl.map((item, index) => (
         <VisualStoriesItem 
         key={index}

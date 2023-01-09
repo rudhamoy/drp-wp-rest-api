@@ -30,6 +30,14 @@ export const ALL_POSTS_FOR_DATE = `query GETALLPOSTSFORDATE {
   }
 }`
 
+export const ALL_POSTS_SLUG = `query GetPostSlug {
+  posts(first: 200) {
+    nodes {
+      slug
+    }
+  }
+}`
+
 export const POSTS_BY_DATE = `query GetPostByDate($year: Int!, $month: Int!, $day: Int!) {
   posts(where: {dateQuery: {year: $year, month: $month, day: $day}}) {
     nodes {
