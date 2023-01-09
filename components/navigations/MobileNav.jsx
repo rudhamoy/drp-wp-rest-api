@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MdClose } from 'react-icons/md'
@@ -19,9 +19,20 @@ import youtube from '../../assets/svg/youtube@4x.svg'
 import gazeta from '../../assets/svg/gazeta-post-web.svg'
 import tollywood from '../../assets/svg/tollywood.svg'
 import { socialMedia } from './navigationData'
+import { getMenuList } from '../../features/navigationSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
     const [showSearch, setShowSearch] = useState(false)
+
+    const dispatch = useDispatch()
+    const { menuLists } = useSelector(state => state.menu)
+
+
+    useEffect(() => {
+        dispatch(getMenuList())
+    }, [dispatch])
+
     return (
         <nav className="sm:hidden bg-white shadow-md p-2 relative text-black">
 
@@ -107,6 +118,13 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                     </Link>
                 </div>
                 <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
+                    {menuLists.slice(5, 12).map(menu => (
+                         <Link key={menu.path} href={`/category${menu.path}`}>
+                         <p className="whitespace-nowrap">{menu.label}</p>
+                     </Link>
+                    ))}
+                </div>
+                {/* <div className='uppercase flex items-center gap-x-3 text-[12px] font-nunitoSans overflow-x-scroll scrollbar-hide p-1'>
                     <Link href="/category/celebrity-news">
                         <p>Celebrity</p>
                     </Link>
@@ -125,7 +143,7 @@ const MobileNav = ({ setShowMenu, setClickFollow, clickFollow }) => {
                     <Link href="/web-stories"> <p className="whitespace-nowrap">Web Stories</p></Link>
                    
                     
-                </div>
+                </div> */}
             </div>
         </nav>
     )
