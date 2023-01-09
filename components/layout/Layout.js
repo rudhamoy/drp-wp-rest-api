@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
 import HeaderNav from '../navigations/HeaderNav'
 import Footer from '../navigations/Footer'
 import MobileMenu from '../navigations/MobileMenu'
@@ -8,9 +7,8 @@ import MobileMenu from '../navigations/MobileMenu'
 const Layout = ({ children }) => {
     const [showMenu, setShowMenu] = useState(false)
 
-    const { storiesModal } = useSelector(state => state.activity)
-
     const router = useRouter()
+    
 
 
     return (

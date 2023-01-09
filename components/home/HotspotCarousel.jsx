@@ -108,7 +108,7 @@ const HotspotCarousel = ({ data, hotspotData }) => {
             </div>
             {/* mobile */}
             <div className='sm:hidden'>
-                <Slider ref={slider} {...settingsMobi} className="px-2 ">
+                <Slider ref={slider} {...settingsMobi} className="px-2 divide-x">
                     {hotspotData.map((item, index) => {
                         const image =  item._embedded["wp:featuredmedia"][0].media_details ? item._embedded["wp:featuredmedia"][0].media_details?.sizes.thumbnail.source_url : item.jetpack_featured_media_url
                         return (

@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 import HomeContainer from '../components/home/HomeContainer'
 import { wrapper } from '../store/store'
 import fetcher from '../components/utils/fetcher'
-import { ALL_STORIES } from '../components/utils/api'
+import { ALL_HEADER_MENU, ALL_STORIES } from '../components/utils/api'
 
 export default function Home({
   data, entertainment, anime,
@@ -77,6 +77,7 @@ export async function getStaticProps(context) {
 
   const stories = await fetcher(ALL_STORIES)
   const storiesQl = stories.data.webStories.nodes
+  
 
   return {
     props: {

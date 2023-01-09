@@ -34,7 +34,7 @@ export const getMorePostsByCategory = createAsyncThunk('category/getMorePostsByC
     }
 })
 
-const authorSlice = createSlice({
+const categorySlice = createSlice({
     name: 'category',
     initialState,
     reducers: {},
@@ -66,4 +66,4 @@ const authorSlice = createSlice({
     }
 })
 
-export default authorSlice.reducer
+export default categorySlice.reducer

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import DOMPurify from 'isomorphic-dompurify';
+import parse from 'html-react-parser'
 
 import VideoIcon from '../../assets/icons/VideoIcon';
 import cartoon from '../../assets/images/cartoon.png';
@@ -25,7 +26,7 @@ function CategoryListItem({ width, data }) {
     const archiveDate = `${year}-${month+1}-${date}`
 
     const image = data?._embedded ? ( data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : '') :(data.featuredImage ? data.featuredImage.node.mediaDetails.sizes[3].sourceUrl : '')
-    const catName =  randomCategory.name.toUpperCase()
+    const catName =  parse(randomCategory.name).toUpperCase()
 
 
     return (

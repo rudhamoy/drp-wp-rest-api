@@ -1,25 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CgMenuRound } from 'react-icons/cg'
+import { useSelector, useDispatch } from 'react-redux'
 import { BsSearch } from 'react-icons/bs'
-import { AiOutlineSearch } from 'react-icons/ai'
-import { BiChevronDown } from 'react-icons/bi'
-import { FcMenu } from 'react-icons/fc'
-import { BiSearch } from 'react-icons/bi'
 import { MdClose } from 'react-icons/md'
+import { BiChevronDown } from 'react-icons/bi'
+
 
 import Logo from '../../assets/images/logobg.png'
 import ShareImage from '../../assets/images/share.png'
 import MenuImage from '../../assets/images/menuu.png'
 import SearchImage from '../../assets/images/searchh.png'
-
-import facebook from '../../assets/svg/facebook@4x.svg'
-import insta from '../../assets/svg/insta@4x.svg'
-import linkedin from '../../assets/svg/linkedin@4x.svg'
-import rss from '../../assets/svg/rss@4x.svg'
-import twitter from '../../assets/svg/twitter@4x.svg'
-import youtube from '../../assets/svg/youtube@4x.svg'
 import gazeta from '../../assets/svg/gazeta-post-web.svg'
 import tollywood from '../../assets/svg/tollywood.svg'
 
@@ -27,12 +18,28 @@ import tollywood from '../../assets/svg/tollywood.svg'
 import style from './Navigation.module.css'
 import MobileNav from './MobileNav'
 import { socialMedia } from './navigationData'
+import { getMenuList } from '../../features/navigationSlice'
+import DropdownMenu from './DropdownMenu'
 
 const HeaderNav = ({ setShowMenu }) => {
-    const [clicked, setClicked] = useState(false)
-    const [onClicked, setOnClicked] = useState(false)
+   
     const [clickFollow, setClickFollow] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
+
+    const dispatch = useDispatch()
+    const { menuLists } = useSelector(state => state.menu)
+
+    const filteredMenu = []
+
+    menuLists.forEach((i, index) => {
+        if (index === 0 || index > 5) {
+            filteredMenu.push(i)
+        }
+    })
+
+    useEffect(() => {
+        dispatch(getMenuList())
+    }, [dispatch])
 
     return (
         <>
@@ -50,91 +57,23 @@ const HeaderNav = ({ setShowMenu }) => {
                     </div>
                     {/* middle */}
                     <div className="w-[65%] h-[100%]">
-                        <div className="flex items-center justify-around font-semibold text-[16px] px-6 uppercase h-[100%]">
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
-                                <Link href="/category/celebrity-news">CELEBRITY</Link>
-                            </div>
+                        <div className="flex items-center justify-around font-semibold text-[13px] px-4 uppercase h-[100%]">
 
-                            <div
-                                className="dropdown relative h-[100%]"
-                            >
-                                <div
-                                    role="button"
-                                    onMouseEnter={() => {
-                                        setClicked(true)
-                                    }}
-                                    onMouseLeave={() => {
-                                        setClicked(false)
-                                    }}
-                                    className=" flex justify-center items-center h-[100%]"
-                                >
-                                    <div className="flex items-center text-black hover:text-[#bf912d]">ENTERTAINMENT <BiChevronDown className="text-lg" /></div>
-                                </div>
-                                {clicked === true && (
-                                    <div
-                                        className={`${style.menu} z-40`}
-                                        onMouseEnter={() => {
-                                            setClicked(true)
-                                        }}
-                                        onMouseLeave={() => {
-                                            setClicked(false)
-                                        }}
-                                    >
-                                        <ul className="absolute uppercase text-black  z-50 -right-10 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
-                                            <li className="hover:text-[#bf912d]"> <Link href="">Politics</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="">Technology</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="">Gaming</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="">Sports</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="/category/exclusive">Trending</Link></li>
-                                        </ul>
+                            {filteredMenu.map((menu, index) => {
+                                const { childItems, label, path } = menu
+                                if (childItems.nodes.length > 0) {
+                                    return (
+                                        <DropdownMenu childItems={childItems} label={label} />
+                                    )
+                                }
+                                return (
+                                    <div key={path} className="cursor-pointer text-black hover:text-[#bf912d]">
+                                        <Link className="whitespace-nowrap" href={`/category${path}`}>{label}</Link>
                                     </div>
-                                )}
-                            </div>
-                            <div className="dropdown relative h-[100%]">
-                                <div
-                                    role="button"
-                                    onMouseEnter={() => {
-                                        setOnClicked(true)
-                                    }}
-                                    onMouseLeave={() => {
-                                        setOnClicked(false)
-                                    }}
-                                    className="flex justify-center items-center h-[100%]"
-                                >
-                                    <div className="flex items-center text-black hover:text-[#bf912d]">News <BiChevronDown className="text-lg" /></div>
-                                </div>
-                                {onClicked === true && (
-                                    <div
-                                        className={`${style.menu} z-40`}
-                                        onMouseEnter={() => {
-                                            setOnClicked(true)
-                                        }}
-                                        onMouseLeave={() => {
-                                            setOnClicked(false)
-                                        }}
-                                    >
-                                        <ul className="absolute uppercase text-black z-50 -right-6 bg-white w-[240px] p-2 border-t-4 border-[#bf912d] shadow-md rounded-sm">
-                                        <li className="hover:text-[#bf912d]"> <Link href="">Politics</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="">Technology</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="">Gaming</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="">Sports</Link></li>
-                                            <li className="hover:text-[#bf912d]"><Link href="/category/exclusive">Trending</Link></li>
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
-                                <Link href="">ANIME</Link>
-                            </div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
-                                <Link href="">GAMES</Link>
-                            </div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
-                                <Link href="/category/movies">MOVIES</Link>
-                            </div>
-                            <div className="cursor-pointer text-black hover:text-[#bf912d]">
-                                <Link href="/category/web-series">TV SHOW</Link>
-                            </div>
+                                )
+                            })}
+
+
                         </div>
                     </div>
                     {/* right */}
@@ -166,7 +105,7 @@ const HeaderNav = ({ setShowMenu }) => {
                                             <div className="bg-gray-200 border-t flex flex-col justify-center items-center p-2 h-[61px]">
                                                 <p className="uppercase text-[#000000] text-center text-[9px] blogTitle my-1">Follow us on</p>
                                                 <ul className="flex justify-around w-[100%]">
-                                                    
+
 
                                                     {socialMedia.map((socialProfile, index) =>
                                                         <Link href={socialProfile.url} key={index}>

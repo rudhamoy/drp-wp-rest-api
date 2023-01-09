@@ -14,6 +14,7 @@ import TwitterIcon from '../../assets/images/twitter.png'
 import YoutubeIcon from '../../assets/images/youtube.png'
 import LinkedInIcon from '../../assets/images/linkedin.png'
 import Layer16 from '../../assets/images/Layer16.png'
+import Link from 'next/link';
 
 const ArticleContainer = ({ image, data }) => {
 
@@ -47,7 +48,9 @@ const ArticleContainer = ({ image, data }) => {
 
             if (domNode.attribs && domNode.name === 'a') {
                 const props = attributesToProps(domNode.attribs);
-                return <a className='underline decoration-[#bf912d] text-black' {...props}>{domToReact(children, options)}</a>
+                const splitedProps = props.href.split('/')
+                const postDate = `${splitedProps[3]}/${splitedProps[4]}/${splitedProps[5]}`
+                return <Link className='underline decoration-[#bf912d] text-black' href={`/${postDate}/${splitedProps[6]}`}>{domToReact(children, options)}</Link>
             }
 
             if (domNode.name === 'strong') {
@@ -57,7 +60,7 @@ const ArticleContainer = ({ image, data }) => {
 
             if (domNode.attribs && domNode.name === 'img') {
                 const props = attributesToProps(domNode.attribs)
-                console.log(domNode.attribs.src)
+
                 return (
                     <div className="my-4 w-[90vw] sm:w-[804px] h-[200px] sm:h-[453px] relative rounded-[10px] overflowHidden">
                         <Image fill src={domNode.attribs.src} />

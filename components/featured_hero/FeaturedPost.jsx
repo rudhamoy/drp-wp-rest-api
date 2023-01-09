@@ -13,7 +13,7 @@ function FeaturedPost({ data }) {
 
     const [randomCategory, setRandomCategory] = useState(() => getRandomCategory(data[0]?._embedded["wp:term"][0]))
 
-    const safeTitle = DOMPurify.sanitize(data[0].title.rendered.substring(0, 100));
+    const safeTitle = DOMPurify.sanitize(data[0].title.rendered.substring(0, 90));
     const safeExcerpt = DOMPurify.sanitize(data[0].yoast_head_json.description);
     // const postDate = new Date(data[0].date).toLocaleDateString()
 
@@ -32,8 +32,8 @@ function FeaturedPost({ data }) {
                 </Link>
                 <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
                     <CategoryIcon categoryList={data[0].categories} />
-                    <Link href={`/category/${randomCategory.name}`}>
-                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{randomCategory.name.toUpperCase()}</div>
+                    <Link href={`/category/${randomCategory.slug}`}>
+                        <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{parseHTML(randomCategory.name).toUpperCase()}</div>
                     </Link>
                 </div>
                 <div className='fadeBottom absolute bottom-0 left-0 right-0' />
