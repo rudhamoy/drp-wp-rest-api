@@ -1,15 +1,27 @@
 import React from 'react'
 import Head from 'next/head'
+import parse, { attributesToProps } from 'html-react-parser';
 import CategoryContainer from '../../../components/category/CategoryContainer'
 
-const index = ({ postByCategory, featured, headTitle, catId }) => {
+const index = ({ postByCategory, featured, head, catId }) => {
 
+    const html = `${head.yoast_head}`
+    const options = {
+        replace: domNode => {
+            if (domNode.name === 'meta' && domNode.attribs.property === "og:url") {
+                const props = attributesToProps(domNode.attribs);
+                const splitedProps = props.content.split('/')
+                const replaceDomain = splitedProps.splice(2, 1, 'tollywoodlife.com')
+                const url = `${splitedProps[0]}//${splitedProps[2]}/category/${splitedProps[3]}`
+                return <meta property="og:url" content={`${url}`} />
+            }
+        }
+    };
 
     return (
         <>
             <Head>
-                <title>{headTitle}</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                {parse(html, options)}
             </Head>
             <div>
                 <CategoryContainer
@@ -32,7 +44,7 @@ export async function getStaticPaths() {
         params: { slug: post.slug },
     }))
 
-    return { paths, fallback: 'blocking'}
+    return { paths, fallback: 'blocking' }
 }
 
 
@@ -63,7 +75,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             postByCategory,
-            headTitle: cat[0].yoast_head_json.title,
+            head: cat[0],
             featured,
             catId: cat[0].id
         },

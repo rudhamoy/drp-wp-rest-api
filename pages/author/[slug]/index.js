@@ -1,14 +1,27 @@
 import React from 'react'
 import AuthorContainer from '../../../components/author/AuthorContainer'
 import Head from 'next/head'
+import parse, { attributesToProps } from 'html-react-parser';
 
 const index = ({ postByAuthor, userById, featured, headTitle }) => {
+
+  const html = `${userById.yoast_head}`
+  const options = {
+    replace: domNode => {
+      if (domNode.name === 'meta' && domNode.attribs.property === "og:url") {
+        const props = attributesToProps(domNode.attribs);
+        const splitedProps = props.content.split('/')
+        const replaceDomain = splitedProps.splice(2, 1, 'tollywoodlife.com')
+        const url = `${splitedProps[0]}//${splitedProps[2]}/${splitedProps[3]}/${splitedProps[4]}`
+        return <meta property="og:url" content={`${url}`} />
+      }
+    }
+  };
   
   return (
     <>
       <Head>
-        <title>{headTitle}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {parse(html, options)}
       </Head>
       <div>
         <AuthorContainer postByAuthor={postByAuthor} featured={featured} userById={userById} />
@@ -54,7 +67,6 @@ export async function getStaticProps({ params }) {
     props: {
       postByAuthor,
       userById: user[0],
-      headTitle: user[0]?.yoast_head_json.title,
       featured
     },
     revalidate: 1,
