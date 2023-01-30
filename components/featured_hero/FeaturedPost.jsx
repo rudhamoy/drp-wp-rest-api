@@ -28,10 +28,12 @@ function FeaturedPost({ data }) {
 
             <div className="h-[205px] sm:h-[325px] w-[95vw] sm:w-[635px] overflow-hidden relative ">
                 <Link href={`/${postDate}/${data[0]['slug']}`}>
-                    <Image className=" hover:scale-[110%] transition-all duration-[1000ms]" src={data[0]?._embedded["wp:featuredmedia"] ? data[0]?._embedded["wp:featuredmedia"][0].link : ''} alt="" fill priority />
+                    <Image className=" hover:scale-[110%] transition-all duration-[1000ms]" src={data[0]?._embedded["wp:featuredmedia"] ? data[0]?._embedded["wp:featuredmedia"][0].link : ''} alt="" fill priority sizes="(min-width: 66em) 33vw,
+  (min-width: 44em) 50vw,
+  100vw" />
                 </Link>
                 <div className="absolute z-[10] bottom-2 left-6 flex flex-row justify-start gap-2 items-center drop-shadow-3xl">
-                    <CategoryIcon categoryList={data[0].categories} />
+                    <CategoryIcon categoryList={data[0].format} />
                     <Link href={`/category/${randomCategory.slug}`}>
                         <div className="capitalize text-[12px] text-[#ffd200] drop-shadow-3xl  font-bold">{parseHTML(randomCategory.name).toUpperCase()}</div>
                     </Link>

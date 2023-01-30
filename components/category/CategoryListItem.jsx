@@ -22,11 +22,11 @@ function CategoryListItem({ width, data }) {
     const date = new Date(data.date).getDate()
     const month = new Date(data.date).getMonth()
     const year = new Date(data.date).getFullYear()
-    const postDate = `${year}/${month+1}/${date}`
-    const archiveDate = `${year}-${month+1}-${date}`
+    const postDate = `${year}/${month + 1}/${date}`
+    const archiveDate = `${year}-${month + 1}-${date}`
 
-    const image = data?._embedded ? ( data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : '') :(data.featuredImage ? data.featuredImage.node.mediaDetails.sizes[3].sourceUrl : '')
-    const catName =  parse(randomCategory.name).toUpperCase()
+    const image = data?._embedded ? (data?._embedded["wp:featuredmedia"] ? data?._embedded["wp:featuredmedia"][0].link : '') : (data.featuredImage ? data.featuredImage.node.mediaDetails.sizes[3].sourceUrl : '')
+    const catName = parse(randomCategory.name).toUpperCase()
 
 
     return (
@@ -35,16 +35,23 @@ function CategoryListItem({ width, data }) {
                 <div className="flex sm:flex-row flex-col gap-x-2">
 
                     {/* image left */}
-                    <div className="relative">
-                        <div className="w-[85vw] sm:w-[315px] h-[165px] rounded-[5px] overflowHidden">
-                            <Image fill className="object-cover rounded-[5px]" src={image} alt="" />
-                           
-                        </div>
-                        <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded"></div>
+                    <div className="relative w-[85vw] sm:w-[315px] h-[165px] rounded-[5px] overflowHidden">
+                        {/* <div className=""> */}
+                        <Image
+                            fill
+                            className="object-cover rounded-[5px]"
+                            src={image} alt="tollywoodlife"
+                            sizes="(min-width: 66em) 33vw,
+  (min-width: 44em) 50vw,
+  100vw"
+                        />
+
+                        {/* </div> */}
+                        <div className="absolute top-20 left-0 bottom-0 right-0 bg-gradient-to-t from-[#000000] rounded"></div>
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
 
-                            {/* <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" /> */}
-                            <CategoryIcon categoryList={ data.categories.nodes ?  data.categories.nodes : data.categories} />
+                            <CategoryIcon categoryList={data.format} />
+                            {/* <CategoryIcon categoryList={ data.categories.nodes ?  data.categories.nodes : data.categories} /> */}
                             <div className="capitalize text-[8px] text-[#ffd200] blogTitle  font-bold">{formatDate(data?.date).toUpperCase()}</div>
                         </div>
                     </div>
@@ -55,11 +62,11 @@ function CategoryListItem({ width, data }) {
                         </Link>
                         <Link href={`/${postDate}/${data['slug']}`}>
                             <h3 className="text-[16px] sm:text-[18px] text-black blogTitle leading-[18px] font-semibold" dangerouslySetInnerHTML={{ __html: safeTitle }}></h3>
-                            
+
                             <div className='text-[#6d6d6d] text-[15px] font-[300] font-sans hidden sm:block mt-[5px] text-ellipsis overflow-hidden' dangerouslySetInnerHTML={{ __html: mySafeHTML }}></div>
                         </Link>
                         <Link href={`/archive/${archiveDate}`}>
-                        <p className="text-[#737373] text-[12px] font-[300] blogTitle absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>
+                            <p className="text-[#737373] text-[12px] font-[300] blogTitle absolute bottom-0 sm:block hidden">{formatDate(data?.date).toUpperCase()}</p>
                         </Link>
                     </div>
 

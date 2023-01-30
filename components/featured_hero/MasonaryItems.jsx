@@ -33,7 +33,7 @@ function MasonaryItem({ data, image, title }) {
                         priority />
                     <div className="absolute z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
                         {/* <VideoIcon className="text-[#ffd200] font-bold drop-shadow-3xl" /> */}
-                        <CategoryIcon categoryList={data.categories} />
+                        <CategoryIcon categoryList={data.format} />
                         <div className="capitalize text-[10px] text-[#ffd200] drop-shadow-3xl  font-bold">{parseHTML(randomCategory.name).toUpperCase()}</div>
                     </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0' />

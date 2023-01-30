@@ -4,8 +4,9 @@ import Image from 'next/image'
 import videoIcon from '../../assets/icons/video-icon.svg';
 import DOMPurify from 'isomorphic-dompurify';
 import parseHTML from "html-react-parser";
+import CategoryIcon from '../utils/CategoryIcon';
 
-function SideBarItem({ category, title, image, slug, date }) {
+function SideBarItem({ category, title, image, slug, date, format }) {
 
     const safeTitle = DOMPurify.sanitize(title.substring(0, 75))
     
@@ -23,8 +24,8 @@ function SideBarItem({ category, title, image, slug, date }) {
 
                 <div className="absolute  z-[10] bottom-1 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
 
-                    <Image src={videoIcon} width={15} height={15} className="text-[#ffd200] font-bold" alt="" />
-
+                    {/* <Image src={videoIcon} width={15} height={15} className="text-[#ffd200] font-bold" alt="" /> */}
+                    <CategoryIcon categoryList={format} />
                     {/* <div className="capitalize text-[8px] text-[#ffd200] font-nunitoSans  font-bold">NOVEMBER 2, 2022</div> */}
                 </div>
                     <div className='fadeBottom absolute bottom-0 left-0 right-0 rounded-sm' />

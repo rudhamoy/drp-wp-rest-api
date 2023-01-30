@@ -10,12 +10,29 @@ import RelatedPost from './RelatedPost'
 import Breadcrumb from './Breadcrumb'
 
 
-const SingleNewsContainer = ({ singleData, featured }) => {
+const SingleNewsContainer = ({ singleData, featured, postContent }) => {
 
   const { ref, inView } = useInView()
   
   // const image = singleData[0]._embedded["wp:featuredmedia"][0].link
   const image = singleData[0]?._embedded["wp:featuredmedia"] ? singleData[0]?._embedded["wp:featuredmedia"][0].link : ''
+
+  const video = singleData[0].format === 'video' ? singleData[0].acf.youtube_embed : "="
+  const videoId = video.split("=")
+ 
+  let featuredContent = {}
+  if(singleData[0].format === 'video') {
+    featuredContent = {
+      type: 'video',
+      url : videoId[1]
+    }
+  } else if (singleData[0].format === 'standard') {
+    featuredContent = {
+      type: 'standard',
+      url : image
+    }
+  }
+
 
 
   return (
@@ -30,10 +47,22 @@ const SingleNewsContainer = ({ singleData, featured }) => {
 
           {/* content */}
           <div className="">
-            <ArticleContainer 
-            image={image} 
+          <ArticleContainer 
+              featured={featuredContent}
+              data={singleData} 
+              postContent={postContent}
+              />
+            {/* {singleData.format === "video" ? (
+              <ArticleContainer 
+            video={videoId[1]}
             data={singleData} 
             />
+            ) : (
+              <ArticleContainer 
+              image={image}
+              data={singleData} 
+              />
+            )} */}
             <div className='w-[100vw] sm:w-[837px] mt-[18px]'>
               <RelatedPost />
             </div>

@@ -46,6 +46,7 @@ const Featured = ({ data }) => {
                         image={image}
                         slug={item.slug}
                         date={item.date}
+                        format={item.format}
                     />
                 )
             })}

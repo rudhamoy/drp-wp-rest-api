@@ -10,6 +10,7 @@ import formatDate from '../utils/FormatDate';
 import getRandomCategory from '../utils/RandomCategory';
 import { getPostByCategory } from '../../features/postSlice';
 import Image from 'next/image';
+import CategoryIcon from '../utils/CategoryIcon';
 
 
 const FeaturedCardApi = ({ data }) => {
@@ -41,7 +42,8 @@ const FeaturedCardApi = ({ data }) => {
                         <Image fill className="w-[100%] h-[100%] object-cover" src={image} alt="" />
                         <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#31313193] rounded-md"></div>
                         <div className="absolute  z-[10] bottom-2 sm:left-2  left-2 flex flex-row justify-start gap-1 items-center drop-shadow-3xl ">
-                            <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" />
+                            {/* <VideoIcon width={15} height={15} className="text-[#ffd200] font-bold" alt="" /> */}
+                            <CategoryIcon categoryList={data.format} />
                         </div>
                     </div>
                 </div>

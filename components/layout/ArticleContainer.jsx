@@ -1,8 +1,11 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import DOMPurify from 'isomorphic-dompurify';
 import parseHTML from "html-react-parser";
 import parse, { domToReact, attributesToProps } from 'html-react-parser';
+import { InView, useInView } from 'react-intersection-observer';
+
 import EmbedYoutube from './EmbedYoutube';
 import NewsFooterAuthor from './NewsFooterAuthor';
 import NewsHeaderAuthor from './NewsHeaderAuthor';
@@ -16,18 +19,21 @@ import LinkedInIcon from '../../assets/images/linkedin.png'
 import Layer16 from '../../assets/images/Layer16.png'
 import Link from 'next/link';
 
-const ArticleContainer = ({ image, data }) => {
-
-    const tagListClass = "bg-[#f4f4f4] cursor-pointer rounded-md p-[1px] px-3 transform transition duration-500 hover:border"
+const ArticleContainer = ({ data, featured, postContent }) => {
+    // const [page, setPage] = useState()
+    const { ref, inView } = useInView()
+    const router = useRouter()
+    let page
 
     const mySafeHTML = DOMPurify.sanitize(data[0].content.rendered);
     const safeTitle = DOMPurify.sanitize(data[0].title.rendered);
     const safeExerpt = DOMPurify.sanitize(data[0].yoast_head_json.og_description);
 
-    const html = `${mySafeHTML}`
+    const postContentHtml = `${postContent}`
+    // const html = `${mySafeHTML}`
 
     const options = {
-        replace: domNode => {
+        replace: (domNode) => {
             const { attribs, children } = domNode
             if (!attribs) {
                 return;
@@ -56,29 +62,98 @@ const ArticleContainer = ({ image, data }) => {
             if (domNode.name === 'strong') {
                 return <strong className='font-[700px] blogTitle text-xl'>{domToReact(children, options)}</strong>;
             }
-            
+
+
+            if (domNode.attribs && domNode.name === 'figure') {
+                // const props = attributesToProps(domNode.attribs)
+                return (
+                    <div className="my-4 w-[90vw] sm:w-[804px] h-[200px] sm:h-[453px] relative rounded-[10px] overflowHidden">
+                        <Image fill alt="tollywood" src={domNode.children[0].attribs.src} className="h-[100%] w-[100%]" />
+                        <div className='bigFadeBottom absolute bottom-0 left-0 right-0' />
+                        <figcaption className='text-center text-[#f3f2f2] text-[12px] absolute bottom-2 left-[45%] font-[500] blogTitle'>{domNode.children[1].children[0].data}</figcaption>
+                    </div>
+                )
+            }
 
             if (domNode.attribs && domNode.name === 'img') {
                 const props = attributesToProps(domNode.attribs)
-
                 return (
                     <div className="my-4 w-[90vw] sm:w-[804px] h-[200px] sm:h-[453px] relative rounded-[10px] overflowHidden">
-                        <Image fill src={domNode.attribs.src} />
+                        <img {...props} />
                         <div className='bigFadeBottom absolute bottom-0 left-0 right-0' />
                     </div>
                 )
             }
 
-            if (domNode.name === 'figcaption') {
+            // if (domNode.name === 'figcaption') {
+            //     return (
+            //         <div className="w-[90vw] sm:w-[837px] mb-4">
+            //             <figcaption className='text-center text-[#a0a0a0] text-[12px]'>{domToReact(children, options)}</figcaption>
+            //         </div>
+            //     )
+            // }
+            if (domNode.name === 'blockquote') {
                 return (
-                    <div className="w-[90vw] sm:w-[837px] mb-4">
-                        <figcaption className='text-center text-[#a0a0a0] text-[12px]'>{domToReact(children, options)}</figcaption>
-                    </div>
+                    <blockquote className="bg-[#f5f5f5] p-3">
+                        <p className="text-[18px] text-[#202020] font-bold blogTitle">{domToReact(children, options)}</p>
+                    </blockquote>
+                )
+            }
+
+            // if(domNode.name === 'script' && domNode.children[0] !== undefined) {
+            //     if( domNode.children[0].parent.parent.attribs.class === 'split-container split-template-3') {
+            //         console.log("helo =", domNode.children[0].parent)
+            //        const props =  domNode.children[0].data
+            //         let splitedString = props.split(" ", 5)
+            //         const splitedObj = splitedString[4]
+            //         // console.log((DOMPurify.sanitize(splitedObj)))
+            //     }
+
+            // }
+
+            if (domNode.attribs.class === "pagenum") {
+                console.log("domNode =", domNode)
+                // return (
+                //     <span ref={ref} className="pagenum">
+                //        {domToReact(children, options)}
+                //     </span>
+                // )
+                return (
+                    <InView>
+                        {({ ref, inView, entry }) => {
+                            console.log(inView, domNode.children[0].data)
+                            
+                            if(inView === true) {
+                                page = domNode.children[0].data
+                                // router.push(`${router.asPath}/?page=${page}`, undefined, { shallow: true })
+                            }
+                            return (
+                                <span ref={ref} className="pagenum">
+                                   {domToReact(children, options)}
+                                </span>
+                            )
+                        }}
+                    </InView>
                 )
             }
 
         }
     };
+
+
+    useEffect(() => {
+        if(inView === true) {
+         router.push(`${router.asPath}/?page=${page}`, undefined, { shallow: true })
+        } 
+        console.log(page)
+     }, [page, router])
+     
+
+     useEffect(() => {
+        // The counter changed!
+      }, [router.query.page])
+    console.log(page)
+    
 
     return (
         <div className='bg-white rounded-md p-4 mt-[18px] w-[100vw] sm:w-[837px] overflow-hidden'>
@@ -92,17 +167,19 @@ const ArticleContainer = ({ image, data }) => {
             {/* author  */}
             <NewsHeaderAuthor data={data} />
             {/* featured img */}
-            {image ? (<div className="my-3 w-[90vw] sm:w-[804px] sm:h-[453px] rounded-[5px] relative overflow-hidden overflowHidden">
-                <img src={image} alt="" className="w-[100%] h-[100%]" />
-                <div className='bigFadeBottom absolute bottom-0 left-0 right-0' />
-            </div>) : (
+            {featured.type === 'standard' ? (
                 <div className="my-3 w-[90vw] sm:w-[804px] sm:h-[453px] rounded-[5px] relative overflow-hidden overflowHidden">
-                    <EmbedYoutube embedId="es4x5R-rV9s" />
+                    <Image fill src={featured.url} alt="" className="w-[100%] h-[100%]" />
+                    <div className='bigFadeBottom absolute bottom-0 left-0 right-0' />
+                </div>
+            ) : (
+                <div className="my-3 w-[90vw] sm:w-[804px] sm:h-[453px] rounded-[5px] relative overflow-hidden overflowHidden">
+                    <EmbedYoutube embedId={featured.url} />
                 </div>)}
 
             {/* article */}
-            {/* <div dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div> */}
-            <div className='leading-[1.6]'>{parse(html, options)}</div>
+            {/* <div className='leading-[1.6]'>{parse(html, options)}</div> */}
+            <div className='leading-[1.6]'>{parse(postContentHtml, options)}</div>
 
             <div className="mt-12">
                 {/* tags */}
@@ -111,12 +188,14 @@ const ArticleContainer = ({ image, data }) => {
                     <div className="w-[84px] h-[2px] bg-[#bf912d]"></div>
                 </div>
                 {/* tag list */}
-                <div>
-                    <ul className='text-[16px] flex flex-wrap p-3 gap-2'>
+                <div className='p-3 '>
+                    <div className='flex flex-wrap gap-1'>
                         {data[0]._embedded['wp:term'][1].map((item, index) => (
-                            <li key={index} className={tagListClass}>{item.name}</li>
+                            <div key={index} className="p-1">
+                                <p className="bg-[#f4f4f4] rounded-[10px] p-1 leading-8 hover:border">{item.name}</p>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
 
                 {/* subscribe */}

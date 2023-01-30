@@ -38,6 +38,12 @@ export const ALL_POSTS_SLUG = `query GetPostSlug {
   }
 }`
 
+export const POST_CONTENT = `query getSinglePostContent($id:ID!) {
+  post(id: $id, idType: SLUG) {
+    content
+  }
+}`
+
 export const POSTS_BY_DATE = `query GetPostByDate($year: Int!, $month: Int!, $day: Int!) {
   posts(where: {dateQuery: {year: $year, month: $month, day: $day}}) {
     nodes {
@@ -58,6 +64,11 @@ export const POSTS_BY_DATE = `query GetPostByDate($year: Int!, $month: Int!, $da
         nodes {
           name
           slug
+        }
+      }
+      postFormats {
+        nodes {
+          name
         }
       }
     }

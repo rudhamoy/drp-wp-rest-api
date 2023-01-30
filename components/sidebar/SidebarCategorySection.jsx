@@ -32,6 +32,7 @@ function SidebarCategorySection({ category, data }) {
                             slug={item.slug}
                             // image={item._embedded["wp:featuredmedia"][0].link}
                             date={item.date}
+                            format={item.format}
                             />
                         )
                     })}

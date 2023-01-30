@@ -6,7 +6,7 @@ import VideoIcon from '../../assets/icons/VideoIcon';
 function CategoryIcon({ categoryList }) {
 
 
-    if (categoryList.includes(42)) {
+    if (categoryList === 'video') {
         return (
             <VideoIcon className="text-[#ffd200] font-bold drop-shadow-3xl" />
         )

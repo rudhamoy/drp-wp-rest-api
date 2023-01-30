@@ -1,10 +1,10 @@
 import Head from "next/head";
 import parse, { attributesToProps } from 'html-react-parser';
 import SingleNewsContainer from '../../components/news/SingleNewsContainer'
-import { ALL_POSTS_SLUG } from "../../components/utils/api";
+import { ALL_POSTS_SLUG, POST_CONTENT } from "../../components/utils/api";
 import fetcher from "../../components/utils/fetcher";
 
-const index = ({ singleData, featured }) => {
+const index = ({ singleData, featured, postContent }) => {
   const html = `${singleData[0].yoast_head}`
   const options = {
     replace: domNode => {
@@ -16,7 +16,7 @@ const index = ({ singleData, featured }) => {
       }
     }
   };
-
+  console.log('postContent = ', postContent)
   return (
     <>
       <Head>{parse(html, options)}</Head>
@@ -24,6 +24,7 @@ const index = ({ singleData, featured }) => {
         <SingleNewsContainer
           singleData={singleData}
           featured={featured}
+          postContent={postContent}
         />
       </div>
     </>
@@ -56,6 +57,11 @@ export async function getStaticProps({ params }) {
   const getPost = await fetch(`https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&slug=${slug[slug.length - 1]}`)
   const singleData = await getPost.json()
 
+  const variables = {
+    id: `${slug[slug.length - 1]}`
+  }
+  const postContentRes = await fetcher(POST_CONTENT,  {variables})
+  const postContent = postContentRes.data.post.content
 
   const featuredPost = await fetch('https://backend.tollywoodlife.com/wp-json/wp/v2/posts?_embed&per_page=7')
   const featured = await featuredPost.json()
@@ -63,7 +69,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       singleData,
-      featured
+      featured,
+      postContent
     },
     revalidate: 1,
   }
